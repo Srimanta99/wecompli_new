@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Wecompli</string>
+    <string name="login">LOGIN</string>
+    <string name="language">Language</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="note">NOTES:</string>
+    <string name="ForgotpasswordNote">A new auto generated password emailed \n to your account</string>
+    <string name="send">SEND</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="english">English</string>
+    <string name="douch">Dutch</string>
+    <string name="french">French</string>
+    <string name="germen">German</string>
+    <string name="cancel">Cancel</string>
+    <string name="start">START</string>
+    <string name="new_version_avalible">A New Update is Available</string>
+    <string name="update">Update</string>
+
+    //Sidemenu
+    <string name="dashboard">DASHBOARD</string>
+    <string name="subscribe">SUBSCRIBE</string>
+    <string name="menu_dashboard">DASHBOARD</string>
+    <string name="menu_sites">SITES</string>
+    <string name="menu_Users">USERS</string>
+    <string name="menu_checklist">CHECKLISTS</string>
+    <string name="menu_faults">FAULTS</string>
+    <string name="menu_incidents">INCIDENTS</string>
+    <string name="menu_documents">DOCUMENTS</string>
+    <string name="menu_email">EMAIL</string>
+
+    //dadhboard
+    <string name="selectsites">Select Sites</string>
+    <string name="download">DOWNLOAD</string>
+    <string name="adhoc">ADHOC FAULT"</string>
+    <string name="todaycheck">TODAYS CHECK</string>
+    <string name="startcheck">START CHECK</string>
+    <string name="faults">FAULTS</string>
+    <string name="active">(ACTIVE)</string>
+
+    //addhoc
+    <string name="adhoc_fault">ADHOC FAULT</string>
+    <string name="add_note">Add note</string>
+    <string name="feault_note">* please enter your complete fault details in the above section</string>
+    <string name="add_image">CLICK HERE  &lt;br /&gt; FOR ADD IMAGE</string>
+    <string name="notify_who">Notify Who</string>
+    <string name="submit">SUBMIT</string>
+    <string name="select_image_mode">Choose Image from </string>
+    <string name="from_gallery">Select photo from gallery</string>
+    <string name="from_camera">Capture photo from camera</string>
+
+</resources>
