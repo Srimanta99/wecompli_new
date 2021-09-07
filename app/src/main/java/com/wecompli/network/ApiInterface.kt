@@ -15,6 +15,9 @@ interface ApiInterface {
     @POST(NetworkUtility.SITE_LIST)
     fun callSiteListApi(@Header("Authorization") token:String, @Body body: JsonObject) : Call<SiteListResponseModel>
 
+    @POST(NetworkUtility.SITE_CREATE)
+    fun callSiteCreate(@Header("Authorization") token:String, @Body body: JsonObject) : Call<ResponseBody>
+
   /*  @POST(NetworkUtility.LOGIN)
     fun callLogInApi(@Body body: JsonObject): Call<LoginResponseModel>
 

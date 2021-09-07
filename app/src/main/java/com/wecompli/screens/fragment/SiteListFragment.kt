@@ -49,7 +49,6 @@ class SiteListFragment : Fragment() ,SiteListHandler{
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
        // return inflater.inflate(R.layout.fragment_site_list, container, false)
-
         siteviews=DataBindingUtil.inflate(inflater,R.layout.fragment_site_list,container,false)
         sitelistViewModel=ViewModelProviders.of(this).get(SiteListViewModel::class.java)
         siteviews!!.siteListmodel=sitelistViewModel
@@ -110,6 +109,9 @@ class SiteListFragment : Fragment() ,SiteListHandler{
     override fun onResume() {
         super.onResume()
         (activity as MainActivity).activityMainBinding!!.tvHeaderText.setText(resources.getString(R.string.menu_sites))
+    }
 
+    override fun addSite() {
+        (activity as MainActivity).openFragment(AddSiteFragment())
     }
 }

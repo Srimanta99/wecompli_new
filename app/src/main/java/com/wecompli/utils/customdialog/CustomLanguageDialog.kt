@@ -15,7 +15,7 @@ class CustomLanguageDialog(val loginActivity: LoginActivity): Dialog(loginActivi
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        requestWindowFeature(Window.FEATURE_NO_TITLE)
+         requestWindowFeature(Window.FEATURE_NO_TITLE)
         setCanceledOnTouchOutside(true)
         setContentView(R.layout.popup_language)
         val typefaceBold = Typeface.createFromAsset(loginActivity.getAssets(), "fonts/Rajdhani-Bold.ttf")

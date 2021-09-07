@@ -2,6 +2,7 @@ package com.wecompli.utils.alert
 
 import android.app.Activity
 import android.app.Dialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.text.Html
 import android.view.LayoutInflater
@@ -55,6 +56,29 @@ class CustomAlert {
             /*alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                 DialogInterface.OnClickListener { dialog, which -> dialog.dismiss() })
             alertDialog.show()*/
+        }
+
+        fun showalert(activity: Activity, message: String) {
+            //  var deviceResolution:DeviceResolution?=null
+            val alertDialog = Dialog(activity, R.style.Transparent)
+           // */alertDialog.setTitle(activity.resources.getString(R.string.app_name))
+          //  alertDialog.setMessage(message)*//*
+                    alertDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            val view: View = LayoutInflater.from(activity).inflate(R.layout.alert_layout, null)
+            alertDialog.setContentView(view)
+            alertDialog.setCancelable(false)
+            val tv_message: TextView = view.findViewById(R.id.tv_message)
+            val btn_ok: TextView = view.findViewById(R.id.btn_ok)
+            btn_ok.typeface = CustomTypeface.getRajdhaniMedium(activity)
+            //tv_message.typeface = CustomTypeface.getWhitniBold(activity)
+            btn_ok.setOnClickListener {
+                alertDialog.dismiss()
+            }
+            tv_message.setText(message)
+            alertDialog.show()
+            //*//*alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+            //DialogInterface.OnClickListener { dialog, which -> dialog.dismiss() })
+            //alertDialog.show()*//*
         }
     }
    /* companion object{

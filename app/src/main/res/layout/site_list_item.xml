@@ -78,6 +78,7 @@
                 android:background="@drawable/rounded_shape_blue">
 
                 <TextView
+                    android:id="@+id/tv_user_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -119,6 +120,7 @@
                 android:background="@drawable/rounded_shape_blue">
 
                 <TextView
+                    android:id="@+id/tv_checklistCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -167,6 +169,7 @@
                     android:background="@drawable/rounded_shape_blue">
 
                     <TextView
+                        android:id="@+id/tv_checkscount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
@@ -207,6 +210,7 @@
                     android:background="@drawable/rounded_shape_blue">
 
                     <TextView
+                        android:id="@+id/tv_faultcount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
@@ -255,6 +259,7 @@
                     android:background="@drawable/rounded_shape_blue">
 
                     <TextView
+                        android:id="@+id/tv_documentcount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
@@ -295,6 +300,7 @@
                     android:background="@drawable/rounded_shape_blue">
 
                     <TextView
+                        android:id="@+id/tv_incidentscount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"

@@ -197,7 +197,7 @@
 
             <RelativeLayout
                 android:id="@+id/btn_login"
-                android:layout_width="@dimen/_175sdp"
+                android:layout_width="@dimen/_170sdp"
                 android:layout_height="@dimen/_44sdp"
                 android:layout_below="@+id/chk_remember"
                 android:layout_centerHorizontal="true"
