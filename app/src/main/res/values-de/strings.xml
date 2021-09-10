@@ -31,6 +31,8 @@
     <string name="menu_incidents">INCIDENTS</string>
     <string name="menu_documents">DOCUMENTS</string>
     <string name="menu_email">EMAIL</string>
+    <string name="leaderboard">LEADER BOARD</string>
+    <string name="role">ROLES</string>
 
     //dadhboard
     <string name="selectsites">Select Sites</string>
@@ -52,4 +54,26 @@
     <string name="from_gallery">Select photo from gallery</string>
     <string name="from_camera">Capture photo from camera</string>
 
+    //alert
+    <string name="ok">OK</string>
+    <string name="confirm">Confirm</string>
+
+    //adsite
+    <string name="add_site_name">Site Name (</string>
+    <string name="add_site_status">Select Status</string>
+    <string name="active_site">Active</string>
+    <string name="inactive_site">In-active</string>
+
+    //search
+    <string name="Searchs">Search</string>
+    <string name="search_site_name">Site name</string>
+    <string name="search_submit">SEARCH</string>
+
+     //site item
+    <string name="usercount">USERS</string>
+    <string name="checklistcount">CHECKLIST</string>
+    <string name="checkcount">CHECK</string>
+    <string name="faultcount">FAULT</string>
+    <string name="DOCUMENTScount">DOCUMENTS</string>
+    <string name="incidentscount">INCIDENTS</string>
 </resources>

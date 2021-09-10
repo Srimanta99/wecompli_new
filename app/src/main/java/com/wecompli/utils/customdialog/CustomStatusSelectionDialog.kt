@@ -15,15 +15,15 @@ import com.wecompli.screens.fragment.AddSiteFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class CustomStatusSelectionDialog(val loginActivity: MainActivity,val addSiteFragment: AddSiteFragment): Dialog(loginActivity) {
+class CustomStatusSelectionDialog(val mainActivity: MainActivity,val addSiteFragment: AddSiteFragment): Dialog(mainActivity) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
          requestWindowFeature(Window.FEATURE_NO_TITLE)
         setCanceledOnTouchOutside(true)
         setContentView(R.layout.status_popup_layout)
-         val typefaceBold = Typeface.createFromAsset(loginActivity.getAssets(), "fonts/Rajdhani-Bold.ttf")
-         val typefaceSemiBold = Typeface.createFromAsset(loginActivity.getAssets(), "fonts/Rajdhani-SemiBold.ttf")
+         val typefaceBold = Typeface.createFromAsset(mainActivity.getAssets(), "fonts/Rajdhani-Bold.ttf")
+         val typefaceSemiBold = Typeface.createFromAsset(mainActivity.getAssets(), "fonts/Rajdhani-SemiBold.ttf")
          val tvactive: TextView =findViewById(R.id.tvactive)
         val tvinactive: TextView =findViewById(R.id.tvinactive)
          val llactive:LinearLayout=findViewById(R.id.llactive)

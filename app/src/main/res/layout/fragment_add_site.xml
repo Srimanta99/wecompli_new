@@ -24,7 +24,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Site Name ( "
+                android:text="@string/add_site_name"
                ></TextView>
             <ImageView
                 android:layout_width="wrap_content"
@@ -59,12 +59,12 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvlanguage"
+                android:id="@+id/tvsitestatus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/_18sdp"
-                android:layout_marginLeft="@dimen/_18sdp"
-                android:text="Select Status"
+                  android:layout_marginLeft="@dimen/_18sdp"
+                android:text="@string/add_site_status"
                 android:textColor="@color/textcolor"
                 android:layout_marginTop="@dimen/_15sdp"
                 app:font="@{`rajDhaniSemiBold`}"
@@ -100,7 +100,7 @@
                     android:paddingTop="@dimen/_10sdp"
                     android:paddingBottom="@dimen/_10sdp"
                     android:textSize="@dimen/_12sdp"
-                    android:hint="Active"
+                    android:hint="@string/active_site"
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:drawableRight="@drawable/down_arrow"
                     >
@@ -120,7 +120,7 @@
                 android:id="@+id/tv_submit_site"
                 android:layout_width="@dimen/_170sdp"
                 android:layout_height="@dimen/_44sdp"
-                android:text="SUBMIT"
+                android:text="@string/submit"
                 android:textColor="#fff"
                 android:textSize="@dimen/_12sdp"
                 android:layout_gravity="center"

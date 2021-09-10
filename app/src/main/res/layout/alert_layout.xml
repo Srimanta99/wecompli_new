@@ -34,7 +34,7 @@
                 android:layout_height="@dimen/_30sdp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="@dimen/_14sdp"
-                android:text="OK"
+                android:text="@string/ok"
                android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_12sdp"

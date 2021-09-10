@@ -4,16 +4,15 @@ import com.wecompli.model.SiteListResponseModel
 import com.wecompli.network.NetworkUtility
 import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiInterface {
     @POST(NetworkUtility.LOG_IN)
    fun callLoginApi(@Body body: JsonObject) : Call<LoginResponseModel>
 
+
     @POST(NetworkUtility.SITE_LIST)
-    fun callSiteListApi(@Header("Authorization") token:String, @Body body: JsonObject) : Call<SiteListResponseModel>
+    fun callSiteListApi(@Header("Authorization") token:String,@Body body: JsonObject) : Call<SiteListResponseModel>
 
     @POST(NetworkUtility.SITE_CREATE)
     fun callSiteCreate(@Header("Authorization") token:String, @Body body: JsonObject) : Call<ResponseBody>

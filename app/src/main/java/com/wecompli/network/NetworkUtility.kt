@@ -7,7 +7,7 @@ class NetworkUtility {
       //  val BASE_URL = "https://codopoliz.com/dev-app/comms/comms-api/"
        // val BASE_URL ="https://wecompli.io/rest/api/mobile/"
          const val LOG_IN="login"
-        const val SITE_LIST="site/list"
+        const val  SITE_LIST="site/list"
         const val  SITE_CREATE="site/create"
 
     }

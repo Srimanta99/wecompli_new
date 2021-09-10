@@ -30,8 +30,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
@@ -57,7 +56,7 @@ class AddSiteFragment : Fragment(),AddSiteHandler {
         addSiteView!!.addSite=viewModel
         viewModel.addSiteHandler=this
         return addSiteView!!.root
-    }
+     }
 
     companion object {
         @JvmStatic
@@ -93,7 +92,7 @@ class AddSiteFragment : Fragment(),AddSiteHandler {
             var obj: JSONObject = paramObject
             var jsonParser: JsonParser = JsonParser()
             var gsonObject: JsonObject = jsonParser.parse(obj.toString()) as JsonObject;
-            val loginApiCall = apiInterface.callSiteCreate(loginUserData.token,gsonObject)
+            val loginApiCall = apiInterface.callSiteCreate("Bearer "+loginUserData.token,gsonObject)
             loginApiCall.enqueue(object : Callback<ResponseBody> {
                 override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                     customProgress.hideProgress()

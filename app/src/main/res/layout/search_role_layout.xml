@@ -14,13 +14,14 @@
         <ImageView
             android:layout_width="@dimen/_45sdp"
             android:layout_height="@dimen/_45sdp"
+
             android:background="@drawable/circle_shape_search"></ImageView>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/_14sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
             android:drawableLeft="@drawable/search">
 
         </TextView>
@@ -30,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Search"
+            android:text="@string/Searchs"
             android:textColor="@color/black"
             android:textSize="@dimen/_18sdp"></TextView>
     </RelativeLayout>
@@ -41,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_20sdp"
-        android:text="Site name"
+        android:text="@string/search_site_name"
         android:textColor="#1E3F6C"
         android:textSize="@dimen/_14sdp">
 
@@ -85,7 +86,7 @@
             android:layout_gravity="center"
             android:background="@drawable/gradient_login_button"
             android:gravity="center"
-            android:text="SEARCH"
+            android:text="@string/search_submit"
             android:textColor="@color/white"
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold">

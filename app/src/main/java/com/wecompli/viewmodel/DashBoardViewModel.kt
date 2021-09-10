@@ -9,4 +9,7 @@ class DashBoardViewModel:ViewModel() {
     fun onAdhocClick(view:View){
         dashBoardHandler!!.openAdhocfault()
     }
+    fun openSearchList(view:View){
+        dashBoardHandler!!.showSiteList()
+    }
 }
