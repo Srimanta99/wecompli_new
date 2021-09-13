@@ -12,6 +12,7 @@ import com.wecompli.R
 import com.wecompli.screens.LoginActivity
 import com.wecompli.screens.MainActivity
 import com.wecompli.screens.fragment.AddSiteFragment
+import com.wecompli.utils.customfont.CustomTypeface
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -26,8 +27,12 @@ class CustomStatusSelectionDialog(val mainActivity: MainActivity,val addSiteFrag
          val typefaceSemiBold = Typeface.createFromAsset(mainActivity.getAssets(), "fonts/Rajdhani-SemiBold.ttf")
          val tvactive: TextView =findViewById(R.id.tvactive)
         val tvinactive: TextView =findViewById(R.id.tvinactive)
+        val tv_selectstatus:TextView=findViewById(R.id.tv_selectstatus)
+        tv_selectstatus.typeface= CustomTypeface.getRajdhaniBold(mainActivity)
          val llactive:LinearLayout=findViewById(R.id.llactive)
          val ll_inactive:LinearLayout=findViewById(R.id.ll_inactive)
+        tvactive.typeface= CustomTypeface.getRajdhaniRegular(mainActivity)
+        tvinactive.typeface= CustomTypeface.getRajdhaniRegular(mainActivity)
         llactive.setOnClickListener {
             dismiss()
             addSiteFragment.changeActiveStatus()

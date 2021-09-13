@@ -1,4 +1,5 @@
 import com.google.gson.JsonObject
+import com.wecompli.model.AddSiteModel
 import com.wecompli.model.LoginResponseModel
 import com.wecompli.model.SiteListResponseModel
 import com.wecompli.network.NetworkUtility
@@ -15,7 +16,7 @@ interface ApiInterface {
     fun callSiteListApi(@Header("Authorization") token:String,@Body body: JsonObject) : Call<SiteListResponseModel>
 
     @POST(NetworkUtility.SITE_CREATE)
-    fun callSiteCreate(@Header("Authorization") token:String, @Body body: JsonObject) : Call<ResponseBody>
+    fun callSiteCreate(@Header("Authorization") token:String, @Body body: JsonObject) : Call<AddSiteModel>
 
   /*  @POST(NetworkUtility.LOGIN)
     fun callLogInApi(@Body body: JsonObject): Call<LoginResponseModel>

@@ -18,6 +18,7 @@ import com.sculptee.utils.customprogress.CustomProgressDialog
 import com.wecompli.R
 import com.wecompli.databinding.FragmentAddSiteBinding
 import com.wecompli.handler.AddSiteHandler
+import com.wecompli.model.AddSiteModel
 import com.wecompli.model.LoginResponseModel
 import com.wecompli.network.Retrofit
 import com.wecompli.screens.MainActivity
@@ -93,18 +94,19 @@ class AddSiteFragment : Fragment(),AddSiteHandler {
             var jsonParser: JsonParser = JsonParser()
             var gsonObject: JsonObject = jsonParser.parse(obj.toString()) as JsonObject;
             val loginApiCall = apiInterface.callSiteCreate("Bearer "+loginUserData.token,gsonObject)
-            loginApiCall.enqueue(object : Callback<ResponseBody> {
-                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+            loginApiCall.enqueue(object : Callback<AddSiteModel> {
+                override fun onResponse(call: Call<AddSiteModel>, response: Response<AddSiteModel>) {
                     customProgress.hideProgress()
                     if (response.isSuccessful) {
-                       // if (response.body()!!.process) {
-                            //AppSheardPreference(loginActivity).putBooleanInPreference()
-
-                      //  }
+                       if (response.body()!!.process) {
+                           CustomAlert.showalert(activity as MainActivity,response!!.body()!!.message)
+                        }else{
+                           CustomAlert.showalert(activity as MainActivity,response!!.body()!!.message)
+                       }
                     }
                 }
 
-                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                override fun onFailure(call: Call<AddSiteModel>, t: Throwable) {
                     customProgress.hideProgress()
                 }
             })

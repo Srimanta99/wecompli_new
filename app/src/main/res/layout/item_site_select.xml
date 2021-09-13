@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="@dimen/_250sdp" android:layout_height="@dimen/_45sdp">
 
     <TextView
         android:id="@+id/tv_sitename"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_10sdp"></TextView>
+        android:textSize="@dimen/_11sdp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:layout_marginLeft="@dimen/_8sdp"></TextView>
 
-    <androidx.appcompat.widget.AppCompatCheckBox
+    <CheckBox
 
         android:id="@+id/chk_select"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_8sdp"
+        android:layout_marginLeft="@dimen/_3sdp"
+        android:layout_centerVertical="true"
         android:layout_alignParentRight="true">
 
-    </androidx.appcompat.widget.AppCompatCheckBox>
-
+    </CheckBox>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_below="@+id/chk_select"
+        android:background="@color/dialog_grey_color"></TextView>
 </RelativeLayout>

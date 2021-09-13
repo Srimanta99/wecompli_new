@@ -7,6 +7,7 @@ import com.wecompli.databinding.ItemSiteSelectBinding
 import com.wecompli.model.SiteListResponseModel
 import com.wecompli.screens.MainActivity
 import com.wecompli.screens.fragment.DashBoardFragment
+import com.wecompli.utils.customfont.CustomTypeface
 
 class SiteSelectionListAdapter(
     val activity: MainActivity,
@@ -26,6 +27,7 @@ class SiteSelectionListAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         itemView!!.tvSitename.setText(siteList.get(position).site_name)
+        itemView!!.tvSitename.typeface=CustomTypeface.getRajdhaniMedium(activity)
         if ( dashBoardFragment.siteListRow!!.get(position).isselect) {
             itemView!!.chkSelect.isChecked=true
         }

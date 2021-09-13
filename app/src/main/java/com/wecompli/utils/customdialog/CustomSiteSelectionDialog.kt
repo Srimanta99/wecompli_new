@@ -10,6 +10,7 @@ import com.wecompli.adapter.SiteSelectionListAdapter
 import com.wecompli.model.SiteListResponseModel
 import com.wecompli.screens.MainActivity
 import com.wecompli.screens.fragment.DashBoardFragment
+import com.wecompli.utils.customfont.CustomTypeface
 import java.util.ArrayList
 
 class CustomSiteSelectionDialog(
@@ -25,6 +26,10 @@ class CustomSiteSelectionDialog(
         val reclyerview:RecyclerView=findViewById(R.id.rec_sitelist)
         val tv_ok:TextView=findViewById(R.id.tv_ok)
         val cancel:TextView=findViewById(R.id.tv_no)
+        val tv_selectsite:TextView=findViewById(R.id.tv_selectsite)
+        tv_selectsite.typeface=CustomTypeface.getRajdhaniBold(mainActivity)
+        tv_ok.typeface=CustomTypeface.getRajdhaniMedium(mainActivity)
+        cancel.typeface=CustomTypeface.getRajdhaniMedium(mainActivity)
         tv_ok.setOnClickListener {
          dashBoardFragment.setselection()
             dismiss()

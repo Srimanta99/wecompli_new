@@ -3,13 +3,14 @@ package com.wecompli.screens.fragment
 import ApiInterface
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
@@ -29,6 +30,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -39,7 +41,7 @@ class DashBoardFragment : Fragment(),DashBoardHandler {
     private var param2: String? = null
     var viewmodel:DashBoardViewModel?=null
     var siteListRow:ArrayList<SiteListResponseModel.SiteDetails>?=null
-    var viewDashBoard:FragmentDashBoardBinding?=null
+    var viewDashBoard: FragmentDashBoardBinding?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -48,8 +50,17 @@ class DashBoardFragment : Fragment(),DashBoardHandler {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        viewDashBoard=DataBindingUtil.inflate(inflater,R.layout.fragment_dash_board,container,false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        viewDashBoard=DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_dash_board,
+            container,
+            false
+        )
       //  return inflater.inflate(R.layout.fragment_dash_board, container, false)
         viewmodel=ViewModelProviders.of(this).get(DashBoardViewModel::class.java)
         viewDashBoard!!.dashViewModel=viewmodel
@@ -69,9 +80,15 @@ class DashBoardFragment : Fragment(),DashBoardHandler {
             var obj: JSONObject = paramObject
             var jsonParser: JsonParser = JsonParser()
             var gsonObject: JsonObject = jsonParser.parse(obj.toString()) as JsonObject;
-            val sitelistapiCall = apiInterface.callSiteListApi("Bearer "+loginUserData.token,gsonObject )
+            val sitelistapiCall = apiInterface.callSiteListApi(
+                "Bearer " + loginUserData.token,
+                gsonObject
+            )
             sitelistapiCall.enqueue(object : Callback<SiteListResponseModel> {
-                override fun onResponse(call: Call<SiteListResponseModel>, response: Response<SiteListResponseModel>) {
+                override fun onResponse(
+                    call: Call<SiteListResponseModel>,
+                    response: Response<SiteListResponseModel>
+                ) {
                     customProgress.hideProgress()
                     if (response.isSuccessful) {
                         if (response.body()!!.process) {
@@ -106,7 +123,11 @@ class DashBoardFragment : Fragment(),DashBoardHandler {
     }
 
     override fun showSiteList() {
-       val customSIteListDialog=CustomSiteSelectionDialog(activity as MainActivity,siteListRow!!,this)
+       val customSIteListDialog=CustomSiteSelectionDialog(
+           activity as MainActivity,
+           siteListRow!!,
+           this
+       )
         customSIteListDialog.show()
     }
 
@@ -133,6 +154,14 @@ class DashBoardFragment : Fragment(),DashBoardHandler {
             if (siteListRow!!.get(i).isselect) {
                 val inflater: LayoutInflater =(activity!! as MainActivity).getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
                 var linearLayout = inflater.inflate(R.layout.selected_site_item, null)
+                val LayoutParams: LinearLayout.LayoutParams =
+                    LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+                LayoutParams.setMargins((activity!! as MainActivity).resources.getDimension(R.dimen._3sdp)
+                    .toInt(), (activity!! as MainActivity).resources.getDimension(R.dimen._3sdp)
+                    .toInt(), (activity!! as MainActivity).resources.getDimension(R.dimen._3sdp)
+                    .toInt(), (activity!! as MainActivity).resources.getDimension(R.dimen._3sdp)
+                    .toInt())
+                linearLayout.layoutParams=LayoutParams
                 val tvname: TextView = linearLayout.findViewById(R.id.tvname)
                 val cross: ImageView = linearLayout.findViewById(R.id.crossview)
                 tvname.setText(siteListRow!!.get(i).site_name)
