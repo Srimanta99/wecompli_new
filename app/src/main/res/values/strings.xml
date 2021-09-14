@@ -78,4 +78,18 @@
     <string name="faultcount">FAULT</string>
     <string name="DOCUMENTScount">DOCUMENTS</string>
     <string name="incidentscount">INCIDENTS</string>
+
+    //add role
+    <string name="role_name">Role Name(</string>
+    <string name="please_role_name">* please enter role name</string>
+    <string name="dashboard_add_role">DASHBOARD</string>
+    <string name="sites_add_role">SITES</string>
+    <string name="users_add_role">USERS</string>
+    <string name="role_add_role">ROLES</string>
+    <string name="checks_add_role">CHECKS</string>
+    <string name="faults_add_role">FAULTS</string>
+    <string name="incidents_add_role">INCIDENTS</string>
+    <string name="documents_add_role">DOCUMENTS</string>
+    <string name="help_add_role">HELP</string>
+    <string name="settings_add_role">SETTINGS</string>
 </resources>

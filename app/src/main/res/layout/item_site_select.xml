@@ -11,7 +11,7 @@
         android:layout_marginRight="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_8sdp"></TextView>
 
-    <CheckBox
+    <androidx.appcompat.widget.AppCompatCheckBox
 
         android:id="@+id/chk_select"
         android:layout_width="wrap_content"
@@ -19,9 +19,10 @@
         android:layout_marginRight="@dimen/_8sdp"
         android:layout_marginLeft="@dimen/_3sdp"
         android:layout_centerVertical="true"
+        android:button="@drawable/custom_checkbox_selector"
         android:layout_alignParentRight="true">
 
-    </CheckBox>
+    </androidx.appcompat.widget.AppCompatCheckBox>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1sdp"

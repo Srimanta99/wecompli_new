@@ -51,16 +51,8 @@ class DashBoardFragment : Fragment(),DashBoardHandler {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        viewDashBoard=DataBindingUtil.inflate(
-            inflater,
-            R.layout.fragment_dash_board,
-            container,
-            false
-        )
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        viewDashBoard=DataBindingUtil.inflate(inflater, R.layout.fragment_dash_board, container, false)
       //  return inflater.inflate(R.layout.fragment_dash_board, container, false)
         viewmodel=ViewModelProviders.of(this).get(DashBoardViewModel::class.java)
         viewDashBoard!!.dashViewModel=viewmodel
@@ -80,15 +72,11 @@ class DashBoardFragment : Fragment(),DashBoardHandler {
             var obj: JSONObject = paramObject
             var jsonParser: JsonParser = JsonParser()
             var gsonObject: JsonObject = jsonParser.parse(obj.toString()) as JsonObject;
-            val sitelistapiCall = apiInterface.callSiteListApi(
-                "Bearer " + loginUserData.token,
-                gsonObject
-            )
+            val sitelistapiCall = apiInterface.callSiteListApi("Bearer " + loginUserData.token, gsonObject)
             sitelistapiCall.enqueue(object : Callback<SiteListResponseModel> {
                 override fun onResponse(
                     call: Call<SiteListResponseModel>,
-                    response: Response<SiteListResponseModel>
-                ) {
+                    response: Response<SiteListResponseModel>) {
                     customProgress.hideProgress()
                     if (response.isSuccessful) {
                         if (response.body()!!.process) {
