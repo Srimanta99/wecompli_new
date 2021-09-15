@@ -22,7 +22,7 @@
             android:id="@+id/tv_header_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/role"
+            android:text="@string/menu_Users"
             android:textSize="@dimen/_16sdp"
             android:textColor="@color/white"
             android:gravity="center"
@@ -45,17 +45,85 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-       android:layout_below="@+id/rlheader"
+        android:layout_below="@+id/rlheader"
         android:background="@drawable/top_two_rounded_corner_white">
+
+        <LinearLayout
+            android:id="@+id/ll_addrole"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+           >
+
+            <RelativeLayout
+                android:id="@+id/rr_download"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_41sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangular_shape_rounded_corner_white"
+               >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="ADD ROLE"
+
+                    android:textColor="@color/textcolor"
+                    android:textSize="@dimen/_11sdp"
+                     ></TextView>
+
+                <ImageView
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:background="@drawable/add"></ImageView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rr_adhocfault"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_41sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangular_shape_blue_rounded_corner"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/circular">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="LIST ROLE"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp"></TextView>
+
+                <ImageView
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:background="@drawable/add"></ImageView>
+            </RelativeLayout>
+        </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rec_roles"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:itemCount="10"
-            tools:listitem="@layout/item_role_list"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_margin="@dimen/_10sdp"
             android:clipToPadding="false"
+            android:layout_below="@+id/ll_addrole"
             android:paddingBottom="@dimen/_100sdp">
 
         </androidx.recyclerview.widget.RecyclerView>
@@ -66,7 +134,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_20sdp"
-        android:text="ADD ROLE"
+        android:text="ADD USER"
         android:textColor="@color/white"
         app:backgroundTint="@color/button_color"
         app:icon="@drawable/add"

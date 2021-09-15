@@ -2,6 +2,6 @@
     android:shape="rectangle">
 
     <solid android:color="@color/login_bg_header" />
-    <corners android:radius="@dimen/_3sdp"></corners>
+    <corners android:radius="@dimen/_7sdp"></corners>
 
 </shape>

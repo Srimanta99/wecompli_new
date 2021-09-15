@@ -343,7 +343,7 @@
                                     android:layout_height="@dimen/_20sdp"
                                     android:layout_gravity="center_vertical"
                                     android:layout_margin="@dimen/_5sdp"
-                                    android:background="@drawable/custom_checkbox_add_role"></ImageView>
+                                    android:background="@drawable/checks_add_role"></ImageView>
                                 <TextView
                                     android:id="@+id/tv_checks_add_role"
                                     android:layout_width="wrap_content"

@@ -22,7 +22,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             tools:itemCount="10"
             android:orientation="vertical"
-            tools:listitem="@layout/site_list_item"
+            tools:listitem="@layout/item_site_list"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toTopOf="parent"
             android:clipToPadding="false"

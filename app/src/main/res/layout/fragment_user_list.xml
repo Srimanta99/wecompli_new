@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="roleListViewModel"
+            type="com.wecompli.viewmodel.RoleListViewModel" />
+    </data>-->
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/top_two_rounded_corner_white"
     android:orientation="vertical"
     tools:openDrawer="right">
-    <include android:id="@+id/content_managesite"
-        layout="@layout/content_role"></include>
+    <include android:id="@+id/content_user"
+        layout="@layout/content_user"></include>
     <LinearLayout
         android:layout_gravity="end"
         android:layout_width="wrap_content"
@@ -32,9 +41,5 @@
                 layout="@layout/search_role_layout"/>
         </com.google.android.material.navigation.NavigationView>
     </LinearLayout>
-
-
-
-
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -23,6 +23,7 @@ import com.wecompli.handler.DashBoardHandler
 import com.wecompli.model.SiteListResponseModel
 import com.wecompli.network.Retrofit
 import com.wecompli.screens.MainActivity
+import com.wecompli.utils.alert.CustomAlert
 import com.wecompli.utils.customdialog.CustomSiteSelectionDialog
 import com.wecompli.viewmodel.DashBoardViewModel
 import org.json.JSONObject
@@ -57,7 +58,10 @@ class DashBoardFragment : Fragment(),DashBoardHandler {
         viewmodel=ViewModelProviders.of(this).get(DashBoardViewModel::class.java)
         viewDashBoard!!.dashViewModel=viewmodel
         viewmodel!!.dashBoardHandler=this
+        if (CustomAlert.isNetworkAvailable(activity as MainActivity))
         callApiForSiteList()
+        else
+            CustomAlert.showaInternetlert(activity as MainActivity," No Internet Connection")
         return  viewDashBoard!!.root
     }
 
@@ -141,7 +145,7 @@ class DashBoardFragment : Fragment(),DashBoardHandler {
         for (i in 0 until siteListRow!!.size){
             if (siteListRow!!.get(i).isselect) {
                 val inflater: LayoutInflater =(activity!! as MainActivity).getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-                var linearLayout = inflater.inflate(R.layout.selected_site_item, null)
+                var linearLayout = inflater.inflate(R.layout.flex_selected_site_item, null)
                 val LayoutParams: LinearLayout.LayoutParams =
                     LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
                 LayoutParams.setMargins((activity!! as MainActivity).resources.getDimension(R.dimen._3sdp)

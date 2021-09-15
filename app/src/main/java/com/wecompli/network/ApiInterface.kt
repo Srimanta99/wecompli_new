@@ -1,7 +1,5 @@
 import com.google.gson.JsonObject
-import com.wecompli.model.AddSiteModel
-import com.wecompli.model.LoginResponseModel
-import com.wecompli.model.SiteListResponseModel
+import com.wecompli.model.*
 import com.wecompli.network.NetworkUtility
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -17,6 +15,12 @@ interface ApiInterface {
 
     @POST(NetworkUtility.SITE_CREATE)
     fun callSiteCreate(@Header("Authorization") token:String, @Body body: JsonObject) : Call<AddSiteModel>
+
+    @POST(NetworkUtility.ROLESLIST)
+    fun callRoeListApi(@Header("Authorization") token:String, @Body body: JsonObject) : Call<RoleListResponseModel>
+
+    @POST(NetworkUtility.USERLIST)
+    fun callUserListApi(@Header("Authorization") token:String, @Body body: JsonObject) : Call<UserListResponseModel>
 
   /*  @POST(NetworkUtility.LOGIN)
     fun callLogInApi(@Body body: JsonObject): Call<LoginResponseModel>

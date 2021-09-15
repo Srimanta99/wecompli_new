@@ -2,15 +2,14 @@ package com.wecompli.utils.alert
 
 import android.app.Activity
 import android.app.Dialog
-import android.content.DialogInterface
+import android.content.Context
 import android.content.Intent
-import android.text.Html
+import android.net.ConnectivityManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.Window
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.getSystemService
 import com.gsscanner.utils.AppSheardPreference
 import com.gsscanner.utils.PreferenceConstant
 import com.wecompli.R
@@ -21,13 +20,16 @@ import com.wecompli.utils.customfont.CustomTypeface
 
 class CustomAlert {
     companion object{
-        fun showYesNoAlert( activity: MainActivity, message: String) {
+        fun showYesNoAlert(activity: MainActivity, message: String) {
             // var deviceResolution:DeviceResolution?=null
             val alertDialog = Dialog(activity, R.style.Transparent)
             /*alertDialog.setTitle(activity.resources.getString(R.string.app_name))
             alertDialog.setMessage(message)*/
             alertDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-            val view: View = LayoutInflater.from(activity).inflate(R.layout.alert_layout_yesno, null)
+            val view: View = LayoutInflater.from(activity).inflate(
+                R.layout.alert_layout_yesno,
+                null
+            )
             alertDialog.setContentView(view)
             alertDialog.setCancelable(false)
             val tv_message: TextView = view.findViewById(R.id.tv_message)
@@ -38,7 +40,10 @@ class CustomAlert {
             tv_message.typeface = CustomTypeface.getRajdhaniRegular(activity)
             tv_ok.setOnClickListener {
                 alertDialog.dismiss()
-                AppSheardPreference(activity).putBooleanInPreference(PreferenceConstant.rememberMe,false)
+                AppSheardPreference(activity).putBooleanInPreference(
+                    PreferenceConstant.rememberMe,
+                    false
+                )
                 val i = Intent(activity, LoginActivity::class.java)
 // set the new task and clear flags
                 i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -80,7 +85,37 @@ class CustomAlert {
             //DialogInterface.OnClickListener { dialog, which -> dialog.dismiss() })
             //alertDialog.show()*//*
         }
+        fun showaInternetlert(activity: Activity, message: String) {
+            //  var deviceResolution:DeviceResolution?=null
+            val alertDialog = Dialog(activity, R.style.Transparent)
+            // */alertDialog.setTitle(activity.resources.getString(R.string.app_name))
+            //  alertDialog.setMessage(message)*//*
+            alertDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            val view: View = LayoutInflater.from(activity).inflate(R.layout.alert_layout, null)
+            alertDialog.setContentView(view)
+            alertDialog.setCancelable(false)
+            val tv_message: TextView = view.findViewById(R.id.tv_message)
+            val btn_ok: TextView = view.findViewById(R.id.btn_ok)
+            btn_ok.typeface = CustomTypeface.getRajdhaniMedium(activity)
+            //tv_message.typeface = CustomTypeface.getWhitniBold(activity)
+            btn_ok.setOnClickListener {
+                alertDialog.dismiss()
+                activity.finish()
+            }
+            tv_message.setText(message)
+            alertDialog.show()
+            //*//*alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+            //DialogInterface.OnClickListener { dialog, which -> dialog.dismiss() })
+            //alertDialog.show()*//*
+        }
+         fun isNetworkAvailable(activity:Activity): Boolean {
+            val connectivityManager = activity.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val activeNetworkInfo = connectivityManager.activeNetworkInfo
+            return activeNetworkInfo != null && activeNetworkInfo.isConnected
+        }
     }
+
+
    /* companion object{
 
         fun showalert(activity: Activity, message: String) {

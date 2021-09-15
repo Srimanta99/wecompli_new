@@ -25,7 +25,9 @@ import com.wecompli.databinding.ActivityMainBinding
 
 import com.wecompli.handler.MainHandler
 import com.wecompli.screens.fragment.DashBoardFragment
+import com.wecompli.screens.fragment.RolesListFragment
 import com.wecompli.screens.fragment.SiteListFragment
+import com.wecompli.screens.fragment.UserListFragment
 import com.wecompli.utils.alert.CustomAlert
 import com.wecompli.viewmodel.MainViewModel
 import org.jsoup.Jsoup
@@ -95,7 +97,7 @@ class MainActivity : AppCompatActivity(),MainHandler {
     }
 
     override fun openUserList() {
-        TODO("Not yet implemented")
+        openFragment(UserListFragment())
     }
 
     override fun openCheckLists() {

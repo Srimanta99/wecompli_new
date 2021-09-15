@@ -18,12 +18,12 @@
         android:background="@drawable/gradient_sidemenu"
         tools:context=".screens.MainActivity">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <RelativeLayout
             android:id="@+id/mainview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/bg_without_logo">
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <RelativeLayout
                 android:id="@+id/main_header"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_45sdp"
@@ -57,14 +57,13 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </RelativeLayout>
             <FrameLayout
                 android:id="@+id/content_frame"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/_55sdp"
-                app:layout_constraintTop_toBottomOf="@+id/main_header" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_below="@id/main_header"/>
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="@dimen/_210sdp"
@@ -246,6 +245,7 @@
                         android:id="@+id/ll_user"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_40sdp"
+                        android:onClick="@{mainmodel.openRolesList}"
                         android:orientation="horizontal">
 
                         <ImageView

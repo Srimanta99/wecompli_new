@@ -9,6 +9,8 @@ class NetworkUtility {
          const val LOG_IN="login"
         const val  SITE_LIST="site/list"
         const val  SITE_CREATE="site/create"
+        const val ROLESLIST="role/list"
+        const val  USERLIST="user/list"
 
     }
 }

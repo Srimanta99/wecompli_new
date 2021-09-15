@@ -20,4 +20,7 @@ class MainViewModel:ViewModel() {
     fun openDashboard(view: View){
         mainHandler!!.opdashboard()
     }
+    fun openRolesList(view: View){
+        mainHandler!!.openUserList()
+    }
 }
