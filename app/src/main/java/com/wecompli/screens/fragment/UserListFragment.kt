@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import com.gsscanner.utils.AppSheardPreference
@@ -13,10 +15,14 @@ import com.gsscanner.utils.PreferenceConstant
 import com.sculptee.utils.customprogress.CustomProgressDialog
 import com.wecompli.R
 import com.wecompli.adapter.SiteListAdapter
+import com.wecompli.adapter.UserListAdapter
+import com.wecompli.databinding.FragmentUserListBinding
+import com.wecompli.handler.UserListhandler
 import com.wecompli.model.SiteListResponseModel
 import com.wecompli.model.UserListResponseModel
 import com.wecompli.network.Retrofit
 import com.wecompli.screens.MainActivity
+import com.wecompli.viewmodel.UserListViewModel
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -27,11 +33,12 @@ import retrofit2.Response
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-class UserListFragment : Fragment() {
+class UserListFragment : Fragment(), UserListhandler {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
 
+    var userlistView:FragmentUserListBinding?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -41,8 +48,12 @@ class UserListFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+         userlistView=DataBindingUtil.inflate(inflater,R.layout.fragment_user_list, container, false)
+        var userViewModel:UserListViewModel=ViewModelProviders.of(this).get(UserListViewModel::class.java)
+        userlistView!!.userListModel=userViewModel
         callApiforUserList()
-        return inflater.inflate(R.layout.fragment_user_list, container, false)
+        userViewModel!!.userListHandler=this
+        return userlistView!!.root
     }
 
     private fun callApiforUserList() {
@@ -64,6 +75,8 @@ class UserListFragment : Fragment() {
                     if (response.isSuccessful) {
                         if (response.body()!!.process) {
                             // sitelistadapter!!.notifyDataSetChanged()
+                            val userlistadapter=UserListAdapter(activity as MainActivity,response!!.body()!!.rows,this@UserListFragment)
+                            userlistView!!.recUsers.adapter=userlistadapter
                         }
                     }
 
@@ -78,6 +91,11 @@ class UserListFragment : Fragment() {
         }
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        ( activity as MainActivity).activityMainBinding!!.mainHeader.visibility=View.GONE
+    }
+
     companion object {
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
@@ -87,5 +105,17 @@ class UserListFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun showrolelist() {
+        (activity as MainActivity).openFragment(RolesListFragment())
+    }
+
+    override fun addrole() {
+        (activity as MainActivity).openFragment(AddRoleFragment())
+    }
+
+    override fun adduser() {
+        (activity as MainActivity).openFragment(AddUserFragment())
     }
 }

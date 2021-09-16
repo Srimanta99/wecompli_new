@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.wecompli.R
 import com.wecompli.databinding.FragmentAddRoleBinding
 import com.wecompli.handler.AddRoleHandler
+import com.wecompli.screens.MainActivity
 import com.wecompli.viewmodel.AddRoleViewModel
 
 
@@ -37,6 +38,12 @@ class AddRoleFragment : Fragment(),AddRoleHandler {
         viewaddRoleBinding!!.addRole=viewmodel
         viewmodel!!.addRoleHandler=this
         return viewaddRoleBinding!!.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        ( activity as MainActivity).activityMainBinding!!.mainHeader.visibility=View.VISIBLE
+        ( activity as MainActivity).activityMainBinding!!.tvHeaderText.setText("ADD ROLE")
     }
 
     companion object {

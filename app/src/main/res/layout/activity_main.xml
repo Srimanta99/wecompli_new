@@ -22,11 +22,11 @@
             android:id="@+id/mainview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/bg_without_logo">
+            android:background="@drawable/bg">
             <RelativeLayout
                 android:id="@+id/main_header"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_45sdp"
+                android:layout_height="@dimen/_50sdp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent">
 

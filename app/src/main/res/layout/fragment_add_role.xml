@@ -160,8 +160,8 @@
                                 android:background="@drawable/rectangular_shape_rounded_corner_white">
                             <ImageView
                                 android:id="@+id/img_dashboard_add_role"
-                                android:layout_width="@dimen/_25sdp"
-                                android:layout_height="@dimen/_20sdp"
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="@dimen/_16sdp"
                               android:layout_gravity="center_vertical"
                                 android:layout_margin="@dimen/_5sdp"
                                 android:background="@drawable/dashboard_add_role"></ImageView>
@@ -200,8 +200,8 @@
                                 android:background="@drawable/rectangular_shape_rounded_corner_white">
                                 <ImageView
                                     android:id="@+id/img_site_add_role"
-                                    android:layout_width="@dimen/_25sdp"
-                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_18sdp"
                                     android:layout_gravity="center_vertical"
                                     android:layout_margin="@dimen/_5sdp"
                                     android:background="@drawable/sites_add_role"></ImageView>
@@ -249,8 +249,8 @@
                                 android:background="@drawable/rectangular_shape_rounded_corner_white">
                                 <ImageView
                                    android:id="@+id/img_users_add_role"
-                                    android:layout_width="@dimen/_25sdp"
-                                    android:layout_height="@dimen/_20sdp"
+                                    android:layout_width="@dimen/_22sdp"
+                                    android:layout_height="@dimen/_18sdp"
                                     android:layout_gravity="center_vertical"
                                     android:layout_margin="@dimen/_5sdp"
                                     android:background="@drawable/users_add_role"></ImageView>
@@ -290,8 +290,8 @@
                                 android:background="@drawable/rectangular_shape_rounded_corner_white">
                                 <ImageView
                                    android:id="@+id/img_add_role"
-                                    android:layout_width="@dimen/_25sdp"
-                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_width="@dimen/_20sdp"
+                                    android:layout_height="@dimen/_20sdp"
                                     android:layout_gravity="center_vertical"
                                     android:layout_margin="@dimen/_5sdp"
                                     android:background="@drawable/roles_add_role"></ImageView>
@@ -339,7 +339,7 @@
                                 android:background="@drawable/rectangular_shape_rounded_corner_white">
                                 <ImageView
                                     android:id="@+id/img_checks_add_role"
-                                    android:layout_width="@dimen/_25sdp"
+                                    android:layout_width="@dimen/_20sdp"
                                     android:layout_height="@dimen/_20sdp"
                                     android:layout_gravity="center_vertical"
                                     android:layout_margin="@dimen/_5sdp"
@@ -380,8 +380,8 @@
                                 android:background="@drawable/rectangular_shape_rounded_corner_white">
                                 <ImageView
                                     android:id="@+id/img_fault_add_role"
-                                    android:layout_width="@dimen/_25sdp"
-                                    android:layout_height="@dimen/_22sdp"
+                                    android:layout_width="@dimen/_20sdp"
+                                    android:layout_height="@dimen/_20sdp"
                                     android:layout_gravity="center_vertical"
                                     android:layout_margin="@dimen/_5sdp"
                                     android:background="@drawable/faults_add_role"></ImageView>
@@ -429,7 +429,7 @@
                                 android:background="@drawable/rectangular_shape_rounded_corner_white">
                                 <ImageView
                                    android:id="@+id/img_incidents_add_role"
-                                    android:layout_width="@dimen/_25sdp"
+                                    android:layout_width="@dimen/_20sdp"
                                     android:layout_height="@dimen/_20sdp"
                                     android:layout_gravity="center_vertical"
                                     android:layout_margin="@dimen/_5sdp"
@@ -470,7 +470,7 @@
                                 android:background="@drawable/rectangular_shape_rounded_corner_white">
                                 <ImageView
                                     android:id="@+id/img_document_add_role"
-                                    android:layout_width="@dimen/_25sdp"
+                                    android:layout_width="@dimen/_22sdp"
                                     android:layout_height="@dimen/_22sdp"
                                     android:layout_gravity="center_vertical"
                                     android:layout_margin="@dimen/_5sdp"
@@ -519,7 +519,7 @@
                                 android:background="@drawable/rectangular_shape_rounded_corner_white">
                                 <ImageView
                                    android:id="@+id/img_help_add_role"
-                                    android:layout_width="@dimen/_25sdp"
+                                    android:layout_width="@dimen/_20sdp"
                                     android:layout_height="@dimen/_20sdp"
                                     android:layout_gravity="center_vertical"
                                     android:layout_margin="@dimen/_5sdp"
@@ -560,7 +560,7 @@
                                 android:background="@drawable/rectangular_shape_rounded_corner_white">
                                 <ImageView
                                     android:id="@+id/img_settings_add_role"
-                                    android:layout_width="@dimen/_25sdp"
+                                    android:layout_width="@dimen/_22sdp"
                                     android:layout_height="@dimen/_22sdp"
                                     android:layout_gravity="center_vertical"
                                     android:layout_margin="@dimen/_5sdp"

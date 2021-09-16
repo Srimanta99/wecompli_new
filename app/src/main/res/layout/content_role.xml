@@ -4,12 +4,12 @@
 
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="@drawable/bg_without_logo"
+    android:background="@drawable/bg"
     android:layout_height="match_parent">
     <RelativeLayout
         android:id="@+id/rlheader"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_55sdp"
+        android:layout_height="@dimen/_50sdp"
         >
         <ImageView
             android:id="@+id/img_menu"

@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.wecompli.R
 import com.wecompli.databinding.ItemRoleListBinding
 import com.wecompli.model.RoleListResponseModel
@@ -52,8 +53,11 @@ class RoleListAdapter(val activity: MainActivity, val rolelist:ArrayList<RoleLis
                  .toInt())
              linearLayout.layoutParams=LayoutParams
              val tvname: TextView = linearLayout.findViewById(R.id.tvname)
-             val cross: ImageView = linearLayout.findViewById(R.id.crossview)
+             val img: ImageView = linearLayout.findViewById(R.id.crossview)
              tvname.setText(rolelist.get(position).role_list.get(i).function_display_name)
+             Glide.with(activity)
+                 .load(rolelist.get(position).role_list.get(i).function_icon)
+                 .into(img)
              itemView!!.flexboxlayoutRole!!.addView(linearLayout)
          }
 

@@ -80,7 +80,7 @@ class RolesListFragment : Fragment() {
         val apiInterface= Retrofit.retrofitInstance?.create(ApiInterface::class.java)
         try {
             val paramObject = JSONObject()
-            paramObject.put("company_id", "79")
+            paramObject.put("company_id", "9")
             paramObject.put("status_id","1")
             var obj: JSONObject = paramObject
             var jsonParser: JsonParser = JsonParser()

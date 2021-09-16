@@ -54,6 +54,7 @@ class DashBoardFragment : Fragment(),DashBoardHandler {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         viewDashBoard=DataBindingUtil.inflate(inflater, R.layout.fragment_dash_board, container, false)
+
       //  return inflater.inflate(R.layout.fragment_dash_board, container, false)
         viewmodel=ViewModelProviders.of(this).get(DashBoardViewModel::class.java)
         viewDashBoard!!.dashViewModel=viewmodel
