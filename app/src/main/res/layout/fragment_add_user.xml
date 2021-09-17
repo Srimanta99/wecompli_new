@@ -23,7 +23,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="@dimen/_11sdp"
+                android:layout_margin="@dimen/_13sdp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -34,7 +34,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="ACCESS INFO"
-                        android:textSize="@dimen/_20sdp"
+                        android:textSize="@dimen/_18sdp"
                         app:font="@{`rajDhaniBold`}"></TextView>
 
                     <TextView
@@ -42,6 +42,7 @@
                         android:layout_height="@dimen/_1sdp"
 
                         android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginLeft="@dimen/_5sdp"
                         android:background="@color/textcolor"
                         android:gravity="center_vertical"></TextView>
                 </LinearLayout>
@@ -57,17 +58,211 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Select Sitee"
+                        android:text="Select Site"
                         android:textSize="@dimen/_11sdp"
                         app:font="@{`rajDhaniSemiBold`}"></TextView>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:onClick="@{addUser.opesiteList}"
+                        android:background="@drawable/rectangular_shape_rounded_corner_white">
+
+                        <ImageView
+                            android:id="@+id/imgdropdown"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginRight="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_17sdp"
+
+                            android:background="@drawable/down_arrow"></ImageView>
+
+                        <com.google.android.flexbox.FlexboxLayout
+                            android:id="@+id/flexboxlayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginRight="@dimen/_15sdp"
+                            app:flexDirection="row"
+
+                            app:flexWrap="wrap"
+                            app:justifyContent="flex_start"></com.google.android.flexbox.FlexboxLayout>
+                    </RelativeLayout>
 
 
-                    <EditText
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Select Role"
+                        app:font="@{`rajDhaniSemiBold`}"
+                        android:layout_marginTop="@dimen/_12sdp"></TextView>
+                    <TextView
+                        android:id="@+id/tv_role"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_40sdp"
                         android:layout_below="@id/tv_rolename"
                         android:layout_marginTop="@dimen/_10sdp"
+                        app:font="@{`rajDhaniSemiBold`}"
+                        android:drawableRight="@drawable/down_arrow"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_12sdp"
+                        android:padding="@dimen/_7sdp"
+                        android:onClick="@{addUser.openRoleList}"
+                        android:background="@drawable/rectangular_shape_rounded_corner_white"></TextView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_25sdp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="PERSONAL INFO"
+                            android:textSize="@dimen/_18sdp"
+                            app:font="@{`rajDhaniBold`}"></TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_1sdp"
+
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:background="@color/textcolor"
+                            android:gravity="center_vertical"></TextView>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name"
+                        android:textSize="@dimen/_11sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:font="@{`rajDhaniSemiBold`}"></TextView>
+
+
+                    <EditText
+                        android:id="@+id/et_user_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_below="@id/tv_rolename"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:font="@{`rajDhaniSemiBold`}"
+                        android:padding="@dimen/_7sdp"
                         android:background="@drawable/rectangular_shape_rounded_corner_white"></EditText>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email"
+                        android:textSize="@dimen/_11sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:font="@{`rajDhaniSemiBold`}"></TextView>
+
+
+                    <EditText
+                        android:id="@+id/et_user_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_below="@id/tv_rolename"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:font="@{`rajDhaniSemiBold`}"
+                        android:padding="@dimen/_7sdp"
+                        android:background="@drawable/rectangular_shape_rounded_corner_white"></EditText>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+
+                        android:layout_marginTop="@dimen/_20sdp"
+
+                        android:background="@color/textcolor"
+                        android:gravity="center_vertical"></TextView>
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvsitestatus"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:text="@string/add_site_status"
+                            android:textColor="@color/textcolor"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            app:font="@{`rajDhaniSemiBold`}"
+                            android:textSize="@dimen/_11sdp"></TextView>
+
+
+                        <LinearLayout
+                            android:id="@+id/ll_status"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginTop="@dimen/_9sdp"
+                            android:background="@drawable/rectangular_shape_rounded_corner_login">
+                            <ImageView
+                                android:id="@+id/img_status"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_5sdp"
+                                android:background="@drawable/active"
+                                android:layout_gravity="center_vertical"></ImageView>
+
+                            <TextView
+                                android:id="@+id/tvstatus"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp"
+
+                                android:textStyle="normal"
+                                android:paddingLeft="@dimen/_10sdp"
+                                android:paddingRight="@dimen/_9sdp"
+                                android:paddingTop="@dimen/_10sdp"
+                                android:paddingBottom="@dimen/_10sdp"
+                                android:textSize="@dimen/_12sdp"
+                                android:hint="@string/active_site"
+                                app:font="@{`rajDhaniSemiBold`}"
+                                android:onClick="@{addUser.selectStatus}"
+                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:drawableRight="@drawable/down_arrow"
+                                >
+                            </TextView>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+
+                        android:layout_marginBottom="@dimen/_40sdp">
+
+
+                        <TextView
+                            android:id="@+id/tv_submit_site"
+                            android:layout_width="@dimen/_170sdp"
+                            android:layout_height="@dimen/_44sdp"
+                            android:text="@string/submit"
+                            android:textColor="#fff"
+                            android:textSize="@dimen/_12sdp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/_15sdp"
+                            app:font="@{`rajDhaniBold`}"
+                            android:background="@drawable/botton_rounded_corner"
+                            android:onClick="@{addUser.onSubmit}"
+                            android:gravity="center">
+
+                        </TextView>
+                    </RelativeLayout>
                 </LinearLayout>
 
             </LinearLayout>

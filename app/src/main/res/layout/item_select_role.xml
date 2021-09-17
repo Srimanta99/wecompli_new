@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rr_selectrole"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="@dimen/_250sdp" android:layout_height="@dimen/_37sdp">
+
+    <TextView
+        android:id="@+id/tv_sitename"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:textSize="@dimen/_11sdp"
+        android:gravity="center_vertical"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:layout_marginLeft="@dimen/_8sdp"></TextView>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+            android:layout_below="@+id/tv_sitename"
+        android:background="@color/dialog_grey_color"></TextView>
+</RelativeLayout>

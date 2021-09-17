@@ -116,11 +116,7 @@ class DashBoardFragment : Fragment(),DashBoardHandler {
     }
 
     override fun showSiteList() {
-       val customSIteListDialog=CustomSiteSelectionDialog(
-           activity as MainActivity,
-           siteListRow!!,
-           this
-       )
+       val customSIteListDialog=CustomSiteSelectionDialog(activity as MainActivity, siteListRow!!, this)
         customSIteListDialog.show()
     }
 

@@ -1,8 +1,6 @@
 package com.wecompli.screens.fragment
 
 import ApiInterface
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,13 +17,11 @@ import com.wecompli.R
 import com.wecompli.databinding.FragmentAddSiteBinding
 import com.wecompli.handler.AddSiteHandler
 import com.wecompli.model.AddSiteModel
-import com.wecompli.model.LoginResponseModel
 import com.wecompli.network.Retrofit
 import com.wecompli.screens.MainActivity
 import com.wecompli.utils.alert.CustomAlert
-import com.wecompli.utils.customdialog.CustomStatusSelectionDialog
+import com.wecompli.utils.customdialog.CustomStatusSelectionAddSite
 import com.wecompli.viewmodel.AddSiteViewModel
-import okhttp3.ResponseBody
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -118,7 +114,7 @@ class AddSiteFragment : Fragment(),AddSiteHandler {
     }
 
     override fun openStatusSelection() {
-        val customStatusSelectionDialog=CustomStatusSelectionDialog(activity as MainActivity,this)
+        val customStatusSelectionDialog=CustomStatusSelectionAddSite(activity as MainActivity,this)
         customStatusSelectionDialog.show()
     }
 

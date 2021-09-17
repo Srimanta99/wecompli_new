@@ -16,7 +16,7 @@ import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import com.sculptee.utils.customprogress.CustomProgressDialog
 import com.wecompli.R
-import com.wecompli.databinding.ItemUserListBinding
+
 
 import com.wecompli.model.UserListResponseModel
 
@@ -30,7 +30,7 @@ class UserListAdapter(
     val userlist: ArrayList<UserListResponseModel.UserDetails>,
     val  userListFragment: UserListFragment
 ): RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
-    var  itemView: ItemUserListBinding?=null
+ //   var  itemView: ItemUserListBinding?=null
     class ViewHolder(val  itemView: View) : RecyclerView.ViewHolder(itemView){
         val tvuser: TextView = itemView.findViewById(R.id.tv_username)
         val expand_colps:RelativeLayout=itemView.findViewById(R.id.rl_expand)
@@ -44,6 +44,7 @@ class UserListAdapter(
         val status:TextView=itemView.findViewById(R.id.tv_status)
         val imgstatus:ImageView=itemView.findViewById(R.id.imgstatus)
         val sites:TextView=itemView.findViewById(R.id.tv_site)
+
         val flessites:FlexboxLayout=itemView.findViewById(R.id.flexboxlayout_sites)
 
     }
@@ -65,15 +66,15 @@ class UserListAdapter(
         holder!!.role.typeface=CustomTypeface.getRajdhaniBold(activity)
         holder!!.rolename.typeface=CustomTypeface.getRajdhaniMedium(activity)
         holder!!.site.typeface=CustomTypeface.getRajdhaniMedium(activity)
-
+         holder!!.sites.typeface=CustomTypeface.getRajdhaniBold(activity)
         holder!!.tvuser.setText(userlist.get(position).user_first_name)
         holder!!.email.setText(userlist.get(position).user_email_ID)
         holder.rolename.setText(userlist.get(position).roles.get(0).role_name)
-       /* if(userlist.get(position).status_id==1){
-            holder.imgstatus.setBackgroundResource(activity.resources.getDrawable(R.drawable.active) as Int)
+        if(userlist.get(position).status_id==1){
+            holder.imgstatus.setBackgroundResource(R.drawable.active)
         }else{
-            holder.imgstatus.setBackgroundResource(activity.resources.getDrawable(R.drawable.inactive) as Int)
-        }*/
+            holder.imgstatus.setBackgroundResource(R.drawable.inactive)
+        }
         holder!!.expand_colps.setOnClickListener {
             if(holder!!.llDetails.visibility==View.GONE)
                 holder!!.llDetails.visibility=View.VISIBLE

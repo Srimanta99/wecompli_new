@@ -11,6 +11,7 @@ class NetworkUtility {
         const val  SITE_CREATE="site/create"
         const val ROLESLIST="role/list"
         const val  USERLIST="user/list"
+        const val  UserCREATE="user/create"
 
     }
 }

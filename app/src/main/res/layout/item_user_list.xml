@@ -79,20 +79,20 @@
         android:id="@+id/ll_userdetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="gone"
         android:orientation="vertical">
         <LinearLayout
             android:id="@+id/lluser_detailsview"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_200sdp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_margin="@dimen/_7sdp"
             android:background="@drawable/rectangular_shape_white_round_corner_lightgrey_broder">
        <LinearLayout
            android:layout_width="match_parent"
-           android:layout_height="0dp"
+           android:layout_height="@dimen/_42sdp"
            android:orientation="horizontal"
-           android:layout_weight="1">
+          >
            <RelativeLayout
                android:layout_width="0dp"
                android:layout_height="match_parent"
@@ -134,8 +134,7 @@
                 android:background="@color/dialog_grey_color"></TextView>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1.9">
+                android:layout_height="wrap_content">
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -178,8 +177,8 @@
                 android:background="@color/dialog_grey_color"></TextView>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
+                android:layout_height="@dimen/_42sdp"
+               >
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -221,8 +220,8 @@
                 android:background="@color/dialog_grey_color"></TextView>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
+                android:layout_height="@dimen/_42sdp"
+               >
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"

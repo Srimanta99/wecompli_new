@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="@dimen/_220sdp"
+    android:layout_margin="@dimen/_10sdp"
+    android:background="@drawable/rectangular_shape_white_round_corner_lightgrey_broder"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tv_selectsite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SELECT ROLE"
+        android:textSize="@dimen/_16sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:gravity="center"></TextView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rec_sitelist"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_160sdp"
+        android:layout_marginBottom="@dimen/_12sdp"
+
+        tools:itemCount="10"
+        tools:listitem="@layout/item_site_select"
+        android:layout_below="@+id/tv_selectsite"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+
+    </androidx.recyclerview.widget.RecyclerView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/_14sdp">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/tv_ok"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_alignParentBottom="true"
+                android:text="@string/ok"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="center"
+                android:background="@drawable/rectangular_shape_blue"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/_10sdp"
+                ></TextView>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/tv_no"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_alignParentBottom="true"
+                android:text="@string/cancel"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp"
+                android:background="@drawable/rectangular_shape_red"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:layout_marginLeft="@dimen/_10sdp"
+                ></TextView>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

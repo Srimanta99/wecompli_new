@@ -12,11 +12,12 @@ import com.wecompli.R
 import com.wecompli.screens.LoginActivity
 import com.wecompli.screens.MainActivity
 import com.wecompli.screens.fragment.AddSiteFragment
+import com.wecompli.screens.fragment.AddUserFragment
 import com.wecompli.utils.customfont.CustomTypeface
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class CustomStatusSelectionDialog(val mainActivity: MainActivity,val addSiteFragment: AddSiteFragment): Dialog(mainActivity) {
+class CustomStatusSelectionAddUser(val mainActivity: MainActivity, val adduserFragment: AddUserFragment): Dialog(mainActivity) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,11 +36,11 @@ class CustomStatusSelectionDialog(val mainActivity: MainActivity,val addSiteFrag
         tvinactive.typeface= CustomTypeface.getRajdhaniRegular(mainActivity)
         llactive.setOnClickListener {
             dismiss()
-            addSiteFragment.changeActiveStatus()
+            adduserFragment.changeActiveStatus()
         }
         ll_inactive.setOnClickListener {
             dismiss()
-            addSiteFragment.changeInActiveStatus()
+            adduserFragment.changeInActiveStatus()
         }
 
     }

@@ -163,6 +163,7 @@
             app:font="@{`rajDhaniBold`}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+            android:onClick="@{UserListModel.addsite}"
 
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
