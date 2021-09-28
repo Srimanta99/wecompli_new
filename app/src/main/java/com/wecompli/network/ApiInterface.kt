@@ -25,6 +25,9 @@ interface ApiInterface {
     @POST(NetworkUtility.UserCREATE)
     fun callUserCreate(@Header("Authorization") token:String, @Body body: JsonObject) : Call<AddSiteModel>
 
+    @POST(NetworkUtility.CHECKLIST)
+    fun callChecklist(@Header("Authorization") token:String, @Body body: JsonObject) : Call<CheckListResponseModel>
+
   /*  @POST(NetworkUtility.LOGIN)
     fun callLogInApi(@Body body: JsonObject): Call<LoginResponseModel>
 

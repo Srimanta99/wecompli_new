@@ -23,4 +23,7 @@ class MainViewModel:ViewModel() {
     fun openRolesList(view: View){
         mainHandler!!.openUserList()
     }
+    fun opencheckList(view: View){
+        mainHandler!!.openCheckLists()
+    }
 }

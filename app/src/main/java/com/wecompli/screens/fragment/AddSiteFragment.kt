@@ -99,7 +99,8 @@ class AddSiteFragment : Fragment(),AddSiteHandler {
                         }else{
                            CustomAlert.showalert(activity as MainActivity,response!!.body()!!.message)
                        }
-                    }
+                    }else
+                        CustomAlert.showalert(activity as MainActivity,"something wrong")
                 }
 
                 override fun onFailure(call: Call<AddSiteModel>, t: Throwable) {
@@ -131,5 +132,9 @@ class AddSiteFragment : Fragment(),AddSiteHandler {
          addSiteView!!.tvstatus.setText("Inactive")
          addSiteView!!.imgStatus.setBackgroundResource(R.drawable.inactive)
          siteStatus="0"
+    }
+    override fun onResume() {
+        super.onResume()
+        (activity as MainActivity).activityMainBinding!!.mainHeader.visibility=View.VISIBLE
     }
 }

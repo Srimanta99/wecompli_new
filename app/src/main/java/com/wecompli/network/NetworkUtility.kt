@@ -12,6 +12,7 @@ class NetworkUtility {
         const val ROLESLIST="role/list"
         const val  USERLIST="user/list"
         const val  UserCREATE="user/create"
+        const val  CHECKLIST="checklist/list"
 
     }
 }

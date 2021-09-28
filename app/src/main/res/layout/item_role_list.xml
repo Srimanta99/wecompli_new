@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_5sdp"
-
+            android:orientation="vertical"
             android:layout_marginLeft="@dimen/_5sdp">
             <com.google.android.flexbox.FlexboxLayout
                 android:id="@+id/flexboxlayout_role"
@@ -63,51 +63,51 @@
                 app:flexDirection="row"
                 app:flexWrap="wrap"
                 app:justifyContent="flex_start"></com.google.android.flexbox.FlexboxLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_5sdp">
+                <RelativeLayout
+                    android:id="@+id/rl_delete"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:background="@drawable/rectangular_shape_rounded_corner_blue">
+                    <ImageView
+                        android:id="@+id/img_delete"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_16sdp"
+                        android:layout_centerInParent="true"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:background="@drawable/delete_site"></ImageView>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+
+                    android:layout_centerVertical="true"
+
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_toLeftOf="@id/rl_delete"
+                    android:background="@drawable/rectangular_shape_rounded_corner_grey">
+                    <ImageView
+                        android:id="@+id/img_edit"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_centerInParent="true"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:background="@drawable/edit_site"></ImageView>
+                </RelativeLayout>
+
+            </RelativeLayout>
 
         </LinearLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_45sdp"
-            android:layout_marginRight="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_7sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_marginLeft="@dimen/_5sdp">
-            <RelativeLayout
-                android:id="@+id/rl_delete"
-                android:layout_width="@dimen/_35sdp"
-                android:layout_height="@dimen/_35sdp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-
-                android:layout_marginRight="@dimen/_5sdp"
-                android:background="@drawable/rectangular_shape_rounded_corner_blue">
-                <ImageView
-                    android:id="@+id/img_delete"
-                    android:layout_width="@dimen/_15sdp"
-                    android:layout_height="@dimen/_16sdp"
-                    android:layout_centerInParent="true"
-                    android:layout_margin="@dimen/_5sdp"
-                    android:background="@drawable/delete_site"></ImageView>
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="@dimen/_35sdp"
-                android:layout_height="@dimen/_35sdp"
-
-                android:layout_centerVertical="true"
-
-                android:layout_marginRight="@dimen/_10sdp"
-                android:layout_toLeftOf="@id/rl_delete"
-                android:background="@drawable/rectangular_shape_rounded_corner_grey">
-                <ImageView
-                    android:id="@+id/img_edit"
-                    android:layout_width="@dimen/_15sdp"
-                    android:layout_height="@dimen/_15sdp"
-                    android:layout_centerInParent="true"
-                    android:layout_margin="@dimen/_5sdp"
-                    android:background="@drawable/edit_site"></ImageView>
-            </RelativeLayout>
-
-        </RelativeLayout>
     </LinearLayout>
     <TextView
         android:layout_width="match_parent"

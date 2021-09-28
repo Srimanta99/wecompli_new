@@ -134,6 +134,7 @@ class DashBoardFragment : Fragment(),DashBoardHandler {
 
     override fun onResume() {
         super.onResume()
+        (activity as MainActivity).activityMainBinding!!.mainHeader.visibility=View.VISIBLE
         (activity as MainActivity).activityMainBinding!!.tvHeaderText.setText(resources.getString(R.string.dashboard))
     }
 
@@ -162,4 +163,5 @@ class DashBoardFragment : Fragment(),DashBoardHandler {
             }
         }
     }
+
 }

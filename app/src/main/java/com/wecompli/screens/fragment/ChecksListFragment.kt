@@ -14,15 +14,15 @@ import com.gsscanner.utils.AppSheardPreference
 import com.gsscanner.utils.PreferenceConstant
 import com.sculptee.utils.customprogress.CustomProgressDialog
 import com.wecompli.R
-import com.wecompli.adapter.SiteListAdapter
+import com.wecompli.adapter.CheckListAdapter
 import com.wecompli.adapter.UserListAdapter
-import com.wecompli.databinding.FragmentUserListBinding
-import com.wecompli.handler.UserListhandler
-import com.wecompli.model.SiteListResponseModel
+import com.wecompli.databinding.FragmentChecksListBinding
+import com.wecompli.model.CheckListResponseModel
 import com.wecompli.model.UserListResponseModel
 import com.wecompli.network.Retrofit
 import com.wecompli.screens.MainActivity
-import com.wecompli.viewmodel.UserListViewModel
+import com.wecompli.viewmodel.ChecksListViewModel
+import okhttp3.ResponseBody
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -33,12 +33,19 @@ import retrofit2.Response
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-class UserListFragment : Fragment(), UserListhandler {
+/**
+ * A simple [Fragment] subclass.
+ * Use the [ChecksListFragment.newInstance] factory method to
+ * create an instance of this fragment.
+ */
+class ChecksListFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    var checklistView:FragmentChecksListBinding?=null
+    var checksListViewModel:ChecksListViewModel?=null
+    var checklist=ArrayList<CheckListResponseModel.RowDetails>()
 
-    var userlistView:FragmentUserListBinding?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -47,75 +54,63 @@ class UserListFragment : Fragment(), UserListhandler {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-         userlistView=DataBindingUtil.inflate(inflater,R.layout.fragment_user_list, container, false)
-        var userViewModel:UserListViewModel=ViewModelProviders.of(this).get(UserListViewModel::class.java)
-        userlistView!!.userListModel=userViewModel
-        callApiforUserList()
-        userViewModel!!.userListHandler=this
-        return userlistView!!.root
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        checklistView=DataBindingUtil.inflate(inflater,R.layout.fragment_checks_list,container,false)
+        checksListViewModel=ViewModelProviders.of(this).get(ChecksListViewModel::class.java)
+        checklistView!!.checkList=checksListViewModel
+        checklistApicall()
+        return checklistView!!.root
     }
 
-    private fun callApiforUserList() {
+    private fun checklistApicall() {
         var loginUserData= AppSheardPreference(activity as MainActivity).getUser(PreferenceConstant.userData)
         val  customProgress: CustomProgressDialog = CustomProgressDialog().getInstance()
         customProgress.showProgress(activity as MainActivity, "Please Wait..", false)
         val apiInterface= Retrofit.retrofitInstance?.create(ApiInterface::class.java)
         try {
             val paramObject = JSONObject()
-            paramObject.put("company_id",loginUserData.company_id)
-            paramObject.put("status_id", "1")
+            paramObject.put("company_id","9")
+
             var obj: JSONObject = paramObject
             var jsonParser: JsonParser = JsonParser()
             var gsonObject: JsonObject = jsonParser.parse(obj.toString()) as JsonObject;
-            val sitelistapiCall = apiInterface.callUserListApi("Bearer "+loginUserData.token,gsonObject )
-            sitelistapiCall.enqueue(object : Callback<UserListResponseModel> {
-                override fun onResponse(call: Call<UserListResponseModel>, response: Response<UserListResponseModel>) {
+            val sitelistapiCall = apiInterface.callChecklist("Bearer "+loginUserData.token,gsonObject )
+            sitelistapiCall.enqueue(object : Callback<CheckListResponseModel> {
+                override fun onResponse(call: Call<CheckListResponseModel>, response: Response<CheckListResponseModel>) {
                     customProgress.hideProgress()
                     if (response.isSuccessful) {
-                         if (response.body()!!.process) {
-                            // sitelistadapter!!.notifyDataSetChanged()
-                            val userlistadapter=UserListAdapter(activity as MainActivity,response!!.body()!!.rows,this@UserListFragment)
-                            userlistView!!.recUsers.adapter=userlistadapter
-                        }
+                       if(response.body()!!.process){
+                           checklist=response!!.body()!!.rows
+                           val checkListAdapter=CheckListAdapter(activity as MainActivity,checklist,this@ChecksListFragment)
+                           checklistView!!.recChecklist.adapter=checkListAdapter
+                       }
                     }
 
                 }
 
-                override fun onFailure(call: Call<UserListResponseModel>, t: Throwable) {
+                override fun onFailure(call: Call<CheckListResponseModel>, t: Throwable) {
                     customProgress.hideProgress()
                 }
             })
         }catch (e: Exception){
-
+            e.printStackTrace()
         }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        ( activity as MainActivity).activityMainBinding!!.mainHeader.visibility=View.GONE
     }
 
     companion object {
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            UserListFragment().apply {
+            ChecksListFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
                 }
             }
     }
-
-    override fun showrolelist() {
-        (activity as MainActivity).openFragment(RolesListFragment())
+    override fun onResume() {
+        super.onResume()
+        (activity as MainActivity).activityMainBinding!!.mainHeader.visibility=View.GONE
     }
 
-    override fun addrole() {
-        (activity as MainActivity).openFragment(AddRoleFragment())
-    }
-
-    override fun adduser() {
-        (activity as MainActivity).openFragment(AddUserFragment())
-    }
 }

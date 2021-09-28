@@ -2,6 +2,7 @@ package com.wecompli.adapter
 
 import android.app.Dialog
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,6 +23,8 @@ import com.wecompli.model.UserListResponseModel
 
 import com.wecompli.network.Retrofit
 import com.wecompli.screens.MainActivity
+
+import com.wecompli.screens.fragment.UserEditFragment
 import com.wecompli.screens.fragment.UserListFragment
 import com.wecompli.utils.customfont.CustomTypeface
 
@@ -46,6 +49,7 @@ class UserListAdapter(
         val sites:TextView=itemView.findViewById(R.id.tv_site)
 
         val flessites:FlexboxLayout=itemView.findViewById(R.id.flexboxlayout_sites)
+        val rl_edit:RelativeLayout=itemView.findViewById(R.id.rl_edit)
 
     }
 
@@ -80,6 +84,13 @@ class UserListAdapter(
                 holder!!.llDetails.visibility=View.VISIBLE
             else
                 holder!!.llDetails.visibility=View.GONE
+        }
+        holder.rl_edit.setOnClickListener {
+            val editUserFragment= UserEditFragment()
+            var bundle= Bundle()
+            bundle.putParcelable("userinfo",userlist.get(position))
+            editUserFragment.arguments=bundle
+            activity.openFragment(editUserFragment)
         }
 
         for (i in 0 until userlist.get(position).sites.size){

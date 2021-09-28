@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="checkList"
+            type="com.wecompli.viewmodel.ChecksListViewModel" />
+    </data>
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/drawer_layout"
+        android:background="@drawable/top_two_rounded_corner_white"
+        android:orientation="vertical"
+        tools:openDrawer="right">
+        <RelativeLayout
+
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:background="@drawable/bg"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/rlheader"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                >
+                <ImageView
+                    android:id="@+id/img_menu"
+                    android:layout_width="@dimen/_19sdp"
+                    android:layout_height="@dimen/_17sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:background="@drawable/menu"/>
+                <TextView
+                    android:id="@+id/tv_header_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="CHECKS"
+                    android:textSize="@dimen/_16sdp"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    app:font="@{`rajDhaniBold`}"
+                    android:layout_marginTop="@dimen/_5sdp"
+
+                    android:layout_centerHorizontal="true"/>
+
+                <ImageView
+                    android:id="@+id/img_Search"
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:background="@drawable/searchwithbg"
+                    android:visibility="visible"></ImageView>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/rlheader"
+                android:background="@drawable/top_two_rounded_corner_white">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rec_checklist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:itemCount="10"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:clipToPadding="false"
+                    tools:listitem="@layout/item_checklist"
+                    android:paddingBottom="@dimen/_100sdp">
+
+                </androidx.recyclerview.widget.RecyclerView>
+            </RelativeLayout>
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_20sdp"
+                android:text="ADD NEW"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/button_color"
+                app:icon="@drawable/add"
+                app:iconTint="@color/white"
+                android:textSize="@dimen/_12sdp"
+                app:font="@{`rajDhaniBold`}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                app:rippleColor="@color/white"></com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_gravity="end"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/img_navopen"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:src="@drawable/searchwithbg"
+                android:layout_alignParentRight="true"></ImageView>
+
+            <com.google.android.material.navigation.NavigationView
+                android:id="@+id/nav_view"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:fitsSystemWindows="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/_45sdp"
+                            android:layout_height="@dimen/_45sdp"
+
+                            android:background="@drawable/circle_shape_search"></ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/_12sdp"
+                            android:drawableLeft="@drawable/search">
+
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/tv_Search"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="@string/Searchs"
+                            app:font="@{`rajDhaniBold`}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_18sdp"></TextView>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_sitename"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:text="@string/search_site_name"
+                        android:textColor="#1E3F6C"
+                        app:font="@{`rajDhanisemiBold`}"
+                        android:textSize="@dimen/_14sdp">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/etsherch_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@drawable/rectangular_shape_rounded_corner_grey"
+                        android:inputType="text"
+                        android:paddingLeft="@dimen/_9sdp"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_9sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="normal"
+
+                        >
+
+                    </EditText>
+
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:gravity="bottom">
+
+
+                        <TextView
+                            android:id="@+id/Searchsite"
+                            android:layout_width="@dimen/_170sdp"
+                            android:layout_height="@dimen/_44sdp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_gravity="center"
+                            android:background="@drawable/gradient_login_button"
+                            android:gravity="center"
+                            android:text="@string/search_submit"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12sdp"
+                            app:font="@{`rajDhaniBold`}"
+                            android:textStyle="bold">
+
+                        </TextView>
+
+
+                    </RelativeLayout>
+                </LinearLayout>
+            </com.google.android.material.navigation.NavigationView>
+        </LinearLayout>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</layout>

@@ -121,4 +121,5 @@ class RolesListFragment : Fragment() {
                 }
             }
     }
+
 }

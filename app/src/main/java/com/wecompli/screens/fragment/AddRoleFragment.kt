@@ -60,4 +60,8 @@ class AddRoleFragment : Fragment(),AddRoleHandler {
     override fun addroleSubmit() {
 
     }
+    override fun onResume() {
+        super.onResume()
+        (activity as MainActivity).activityMainBinding!!.mainHeader.visibility=View.VISIBLE
+    }
 }
