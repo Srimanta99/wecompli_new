@@ -17,6 +17,9 @@ import com.wecompli.R
 import com.wecompli.adapter.CheckListAdapter
 import com.wecompli.adapter.UserListAdapter
 import com.wecompli.databinding.FragmentChecksListBinding
+import com.wecompli.handler.CheckListHandler
+
+
 import com.wecompli.model.CheckListResponseModel
 import com.wecompli.model.UserListResponseModel
 import com.wecompli.network.Retrofit
@@ -33,16 +36,11 @@ import retrofit2.Response
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ChecksListFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ChecksListFragment : Fragment() {
+class ChecksListFragment : Fragment(), CheckListHandler {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    var checklistView:FragmentChecksListBinding?=null
+    var checklistView: FragmentChecksListBinding?=null
     var checksListViewModel:ChecksListViewModel?=null
     var checklist=ArrayList<CheckListResponseModel.RowDetails>()
 
@@ -59,6 +57,7 @@ class ChecksListFragment : Fragment() {
         checklistView=DataBindingUtil.inflate(inflater,R.layout.fragment_checks_list,container,false)
         checksListViewModel=ViewModelProviders.of(this).get(ChecksListViewModel::class.java)
         checklistView!!.checkList=checksListViewModel
+        checksListViewModel!!.checklisthander=this
         checklistApicall()
         return checklistView!!.root
     }
@@ -83,7 +82,7 @@ class ChecksListFragment : Fragment() {
                        if(response.body()!!.process){
                            checklist=response!!.body()!!.rows
                            val checkListAdapter=CheckListAdapter(activity as MainActivity,checklist,this@ChecksListFragment)
-                           checklistView!!.recChecklist.adapter=checkListAdapter
+                           checklistView!!.recChecklist!!.adapter=checkListAdapter
                        }
                     }
 
@@ -111,6 +110,10 @@ class ChecksListFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         (activity as MainActivity).activityMainBinding!!.mainHeader.visibility=View.GONE
+    }
+
+    override fun addnewCheck() {
+        (activity as MainActivity).openFragment(AddCheckFragment())
     }
 
 }

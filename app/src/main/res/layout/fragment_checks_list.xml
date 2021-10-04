@@ -79,7 +79,7 @@
                 </androidx.recyclerview.widget.RecyclerView>
             </RelativeLayout>
             <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-
+                 android:id="@+id/add_new_check"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -91,6 +91,7 @@
                 app:iconTint="@color/white"
                 android:textSize="@dimen/_12sdp"
                 app:font="@{`rajDhaniBold`}"
+                android:onClick="@{checkList.addnew}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
 

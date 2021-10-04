@@ -94,6 +94,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
                             android:background="@drawable/star"></ImageView>
 
                         <TextView
@@ -132,7 +133,7 @@
                     android:layout_marginRight="@dimen/_18sdp">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_41sdp"
+                        android:layout_height="@dimen/_39sdp"
                         android:layout_marginRight="@dimen/_5sdp"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:layout_marginLeft="@dimen/_5sdp">
@@ -140,13 +141,15 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:onClick="@{addRole.dasdBoardClick}"
                             android:layout_marginRight="@dimen/_7sdp"
                            >
                          <androidx.appcompat.widget.AppCompatCheckBox
                              android:id="@+id/chk_dashboard"
                              android:layout_width="@dimen/_15sdp"
-                             android:layout_height="@dimen/_15sdp"
+                             android:layout_height="@dimen/_14sdp"
                              android:layout_gravity="center_vertical"
+                             android:onClick="@{addRole.dasdBoardClick}"
                              android:button="@drawable/custom_checkbox_add_role">
 
                          </androidx.appcompat.widget.AppCompatCheckBox>
@@ -160,8 +163,8 @@
                                 android:background="@drawable/rectangular_shape_rounded_corner_white">
                             <ImageView
                                 android:id="@+id/img_dashboard_add_role"
-                                android:layout_width="@dimen/_20sdp"
-                                android:layout_height="@dimen/_16sdp"
+                                android:layout_width="@dimen/_19sdp"
+                                android:layout_height="@dimen/_14sdp"
                               android:layout_gravity="center_vertical"
                                 android:layout_margin="@dimen/_5sdp"
                                 android:background="@drawable/dashboard_add_role"></ImageView>
@@ -173,6 +176,7 @@
                                 android:text="@string/dashboard_add_role"
                                 app:font="@{`rajDhaniBold`}"
                                 android:textSize="@dimen/_10sdp"
+                                android:textColor="@color/add_role_text_color"
                                 android:gravity="center_vertical"></TextView>
 
                         </LinearLayout>
@@ -186,8 +190,9 @@
                             <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/chk_sites"
                                 android:layout_width="@dimen/_15sdp"
-                                android:layout_height="@dimen/_15sdp"
+                                android:layout_height="@dimen/_14sdp"
                                 android:layout_gravity="center_vertical"
+                                android:onClick="@{addRole.sitesClick}"
                                 android:button="@drawable/custom_checkbox_add_role">
 
                             </androidx.appcompat.widget.AppCompatCheckBox>
@@ -221,7 +226,7 @@
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_41sdp"
+                        android:layout_height="@dimen/_39sdp"
                         android:layout_marginRight="@dimen/_5sdp"
                         android:layout_marginTop="@dimen/_12sdp"
                         android:layout_marginLeft="@dimen/_5sdp">
@@ -232,10 +237,11 @@
                             android:layout_marginRight="@dimen/_7sdp"
                             >
                             <androidx.appcompat.widget.AppCompatCheckBox
-                                android:id="@+id/chk_role"
+                                android:id="@+id/chk_user"
                                 android:layout_width="@dimen/_15sdp"
-                                android:layout_height="@dimen/_15sdp"
+                                android:layout_height="@dimen/_14sdp"
                                 android:layout_gravity="center_vertical"
+                                android:onClick="@{addRole.userClick}"
                                 android:button="@drawable/custom_checkbox_add_role">
 
                             </androidx.appcompat.widget.AppCompatCheckBox>
@@ -276,8 +282,9 @@
                             <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/chk_roles"
                                 android:layout_width="@dimen/_15sdp"
-                                android:layout_height="@dimen/_15sdp"
+                                android:layout_height="@dimen/_14sdp"
                                 android:layout_gravity="center_vertical"
+                                android:onClick="@{addRole.rolesClick}"
                                 android:button="@drawable/custom_checkbox_add_role">
 
                             </androidx.appcompat.widget.AppCompatCheckBox>
@@ -311,7 +318,7 @@
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_41sdp"
+                        android:layout_height="@dimen/_39sdp"
                         android:layout_marginRight="@dimen/_5sdp"
                         android:layout_marginTop="@dimen/_12sdp"
                         android:layout_marginLeft="@dimen/_5sdp">
@@ -324,8 +331,9 @@
                             <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/chk_checks"
                                 android:layout_width="@dimen/_15sdp"
-                                android:layout_height="@dimen/_15sdp"
+                                android:layout_height="@dimen/_14sdp"
                                 android:layout_gravity="center_vertical"
+                                android:onClick="@{addRole.checksCLick}"
                                 android:button="@drawable/custom_checkbox_add_role">
 
                             </androidx.appcompat.widget.AppCompatCheckBox>
@@ -366,8 +374,9 @@
                             <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/chk_fault"
                                 android:layout_width="@dimen/_15sdp"
-                                android:layout_height="@dimen/_15sdp"
+                                android:layout_height="@dimen/_14sdp"
                                 android:layout_gravity="center_vertical"
+                                android:onClick="@{addRole.faultClick}"
                                 android:button="@drawable/custom_checkbox_add_role">
 
                             </androidx.appcompat.widget.AppCompatCheckBox>
@@ -401,7 +410,7 @@
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_41sdp"
+                        android:layout_height="@dimen/_39sdp"
                         android:layout_marginRight="@dimen/_5sdp"
                         android:layout_marginTop="@dimen/_12sdp"
                         android:layout_marginLeft="@dimen/_5sdp">
@@ -414,8 +423,9 @@
                             <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/chk_incidents"
                                 android:layout_width="@dimen/_15sdp"
-                                android:layout_height="@dimen/_15sdp"
+                                android:layout_height="@dimen/_14sdp"
                                 android:layout_gravity="center_vertical"
+                                android:onClick="@{addRole.incidentsClick}"
                                 android:button="@drawable/custom_checkbox_add_role">
 
                             </androidx.appcompat.widget.AppCompatCheckBox>
@@ -456,8 +466,9 @@
                             <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/chk_documents"
                                 android:layout_width="@dimen/_15sdp"
-                                android:layout_height="@dimen/_15sdp"
+                                android:layout_height="@dimen/_14sdp"
                                 android:layout_gravity="center_vertical"
+                                android:onClick="@{addRole.documentsClick}"
                                 android:button="@drawable/custom_checkbox_add_role">
 
                             </androidx.appcompat.widget.AppCompatCheckBox>
@@ -491,7 +502,7 @@
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_41sdp"
+                        android:layout_height="@dimen/_39sdp"
                         android:layout_marginRight="@dimen/_5sdp"
                         android:layout_marginTop="@dimen/_12sdp"
                         android:layout_marginLeft="@dimen/_5sdp">
@@ -504,8 +515,9 @@
                             <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/chk_help"
                                 android:layout_width="@dimen/_15sdp"
-                                android:layout_height="@dimen/_15sdp"
+                                android:layout_height="@dimen/_14sdp"
                                 android:layout_gravity="center_vertical"
+                                android:onClick="@{addRole.helpClick}"
                                 android:button="@drawable/custom_checkbox_add_role">
 
                             </androidx.appcompat.widget.AppCompatCheckBox>
@@ -523,7 +535,7 @@
                                     android:layout_height="@dimen/_20sdp"
                                     android:layout_gravity="center_vertical"
                                     android:layout_margin="@dimen/_5sdp"
-                                    android:background="@drawable/settings_add_role"></ImageView>
+                                    android:background="@drawable/help_add_role"></ImageView>
                                 <TextView
                                     android:id="@+id/tv_help_add_role"
                                     android:layout_width="wrap_content"
@@ -546,8 +558,9 @@
                             <androidx.appcompat.widget.AppCompatCheckBox
                                 android:id="@+id/chk_settings"
                                 android:layout_width="@dimen/_15sdp"
-                                android:layout_height="@dimen/_15sdp"
+                                android:layout_height="@dimen/_14sdp"
                                 android:layout_gravity="center_vertical"
+                                android:onClick="@{addRole.settingClick}"
                                 android:button="@drawable/custom_checkbox_add_role">
 
                             </androidx.appcompat.widget.AppCompatCheckBox>
@@ -564,7 +577,7 @@
                                     android:layout_height="@dimen/_22sdp"
                                     android:layout_gravity="center_vertical"
                                     android:layout_margin="@dimen/_5sdp"
-                                    android:background="@drawable/sites_add_role"></ImageView>
+                                    android:background="@drawable/settings_add_role"></ImageView>
                                 <TextView
                                     android:id="@+id/tv_settings_add_role"
                                     android:layout_width="wrap_content"
