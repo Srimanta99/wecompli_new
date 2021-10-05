@@ -1,29 +1,52 @@
 package com.wecompli.screens.fragment
 
+import ApiInterface
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
+import com.google.gson.JsonObject
+import com.google.gson.JsonParser
+import com.gsscanner.utils.AppSheardPreference
+import com.gsscanner.utils.PreferenceConstant
+import com.sculptee.utils.customprogress.CustomProgressDialog
 import com.wecompli.R
 import com.wecompli.databinding.FragmentAddCheckBinding
+import com.wecompli.handler.AddCheckHandler
+import com.wecompli.model.SiteListResponseModel
+import com.wecompli.network.Retrofit
 import com.wecompli.screens.MainActivity
+import com.wecompli.utils.customdialog.CustomSiteSelectionDialogAddCheckList
+import com.wecompli.utils.customdialog.CustomSiteSelectionDialogAddUser
+import com.wecompli.utils.customdialog.CustomStatusSelectionAddChecks
+import com.wecompli.utils.customdialog.CustomStatusSelectionAddUser
 import com.wecompli.viewmodel.AddCheckViewModel
+import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-class AddCheckFragment : Fragment() {
+class AddCheckFragment : Fragment(), AddCheckHandler {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
     var addcheckView:FragmentAddCheckBinding?=null
     var viewModel:AddCheckViewModel?=null
-
+    var siteListRow:ArrayList<SiteListResponseModel.SiteDetails>?=null
+     var siteStatus=""
+    var siteids=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -36,6 +59,8 @@ class AddCheckFragment : Fragment() {
           addcheckView=DataBindingUtil.inflate(inflater,R.layout.fragment_add_check,container,false)
             viewModel=ViewModelProviders.of(this).get(AddCheckViewModel::class.java)
           addcheckView!!.addCheck=viewModel
+        viewModel!!.addCheckHandler=this
+        callApiForSiteList()
           return  addcheckView!!.root
 
       //  return inflater.inflate(R.layout.fragment_add_check, container, false)
@@ -55,5 +80,107 @@ class AddCheckFragment : Fragment() {
         super.onResume()
         (activity as MainActivity).activityMainBinding!!.mainHeader.visibility=View.VISIBLE
         (activity as MainActivity).activityMainBinding!!.tvHeaderText.setText("ADD CHECKLIST")
+    }
+    private fun callApiForSiteList() {
+        var loginUserData= AppSheardPreference(activity as MainActivity).getUser(PreferenceConstant.userData)
+        val  customProgress: CustomProgressDialog = CustomProgressDialog().getInstance()
+        customProgress.showProgress(activity as MainActivity, "Please Wait..", false)
+        val apiInterface= Retrofit.retrofitInstance?.create(ApiInterface::class.java)
+        try {
+            val paramObject = JSONObject()
+            paramObject.put("company_id", loginUserData.company_id)
+            var obj: JSONObject = paramObject
+            var jsonParser: JsonParser = JsonParser()
+            var gsonObject: JsonObject = jsonParser.parse(obj.toString()) as JsonObject;
+            val sitelistapiCall = apiInterface.callSiteListApi("Bearer " + loginUserData.token, gsonObject)
+            sitelistapiCall.enqueue(object : Callback<SiteListResponseModel> {
+                override fun onResponse(
+                    call: Call<SiteListResponseModel>,
+                    response: Response<SiteListResponseModel>
+                ) {
+                    customProgress.hideProgress()
+                    if (response.isSuccessful) {
+                        if (response.body()!!.process) {
+                            siteListRow = response!!.body()!!.rows
+                        }
+                    }
+
+                }
+
+                override fun onFailure(call: Call<SiteListResponseModel>, t: Throwable) {
+                    customProgress.hideProgress()
+                }
+            })
+        }catch (e: Exception){
+
+        }
+    }
+
+    public fun setselection(){
+        addcheckView!!.flexboxlayout.removeAllViews()
+        siteids="";
+        for (i in 0 until siteListRow!!.size){
+            if (siteListRow!!.get(i).isselect) {
+                siteids=siteids+","+siteListRow!!.get(i).id.toString()
+                val inflater: LayoutInflater =(activity!! as MainActivity).getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+                var linearLayout = inflater.inflate(R.layout.flex_selected_site_item, null)
+                val LayoutParams: LinearLayout.LayoutParams =
+                    LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+                LayoutParams.setMargins((activity!! as MainActivity).resources.getDimension(R.dimen._3sdp)
+                    .toInt(), (activity!! as MainActivity).resources.getDimension(R.dimen._3sdp)
+                    .toInt(), (activity!! as MainActivity).resources.getDimension(R.dimen._3sdp)
+                    .toInt(), (activity!! as MainActivity).resources.getDimension(R.dimen._3sdp)
+                    .toInt())
+                linearLayout.layoutParams=LayoutParams
+                val tvname: TextView = linearLayout.findViewById(R.id.tvname)
+                val cross: ImageView = linearLayout.findViewById(R.id.crossview)
+                tvname.setText(siteListRow!!.get(i).site_name)
+                cross.setOnClickListener {
+                    addcheckView!!.flexboxlayout.removeView(linearLayout)
+                    siteListRow!!.get(i).isselect=false
+                }
+                addcheckView!!.flexboxlayout!!.addView(linearLayout)
+            }
+        }
+    }
+    public fun changeActiveStatus(){
+        addcheckView!!.statusValue.setText("Active")
+        addcheckView!!.imgStatus.setBackgroundResource(R.drawable.active)
+        siteStatus="1"
+        //  addSiteView!!.llStatus.setBackgroundResource(R.drawable.asscolor_round)
+        //  addSiteView!!.tvStatus1.setTextColor(activity!!.resources.getColor(R.color.textColor))
+
+    }
+
+    public fun changeInActiveStatus(){
+        addcheckView!!.statusValue.setText("Inactive")
+        addcheckView!!.imgStatus.setBackgroundResource(R.drawable.inactive)
+        siteStatus="0"
+    }
+    override fun openSite() {
+        val customstatustDialog= CustomSiteSelectionDialogAddCheckList(activity as MainActivity, siteListRow!!, this)
+        customstatustDialog.show()
+    }
+
+    override fun selectType() {
+
+    }
+
+    override fun submitCheck() {
+    if(!addcheckView!!.etChecklistname.text.toString().equals("")){
+        addcheckView!!.etChecklistname.setBackgroundResource(R.drawable.rectangular_shape_rounded_corner_white)
+        if(!addcheckView!!.etNote.text.toString().equals("")){
+            addcheckView!!.etNote.setBackgroundResource(R.drawable.rectangular_shape_rounded_corner_white)
+
+        }else
+            addcheckView!!.etNote.setBackgroundResource(R.drawable.rectangular_shape_rounded_corner_red_broder)
+
+    }else
+        addcheckView!!.etChecklistname.setBackgroundResource(R.drawable.rectangular_shape_rounded_corner_red_broder)
+    }
+
+    override fun selectStatus() {
+        val customStatusSelectionDialog= CustomStatusSelectionAddChecks(activity as MainActivity,this)
+        customStatusSelectionDialog.show()
     }
 }

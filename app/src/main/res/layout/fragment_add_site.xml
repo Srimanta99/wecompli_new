@@ -24,11 +24,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/add_site_name"
-               ></TextView>
+                app:font="@{`rajDhaniSemiBold`}"
+                android:text="@string/add_site_name"></TextView>
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/star"></ImageView>
             <TextView
                 android:layout_width="wrap_content"
@@ -101,6 +102,7 @@
                     android:paddingBottom="@dimen/_10sdp"
                     android:textSize="@dimen/_12sdp"
                     android:hint="@string/active_site"
+                    app:font="@{`rajDhaniSemiBold`}"
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:drawableRight="@drawable/down_arrow"
                     >
