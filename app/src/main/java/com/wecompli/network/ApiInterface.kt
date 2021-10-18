@@ -28,6 +28,9 @@ interface ApiInterface {
     @POST(NetworkUtility.CHECKLIST)
     fun callChecklist(@Header("Authorization") token:String, @Body body: JsonObject) : Call<CheckListResponseModel>
 
+   @POST(NetworkUtility.CHECKLISTCREATE)
+    fun callCheckCreate(@Header("Authorization") token:String, @Body body: JsonObject) : Call<ResponseBody>
+
   /*  @POST(NetworkUtility.LOGIN)
     fun callLogInApi(@Body body: JsonObject): Call<LoginResponseModel>
 

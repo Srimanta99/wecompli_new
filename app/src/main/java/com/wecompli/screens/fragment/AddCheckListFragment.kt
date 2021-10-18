@@ -18,16 +18,15 @@ import com.gsscanner.utils.AppSheardPreference
 import com.gsscanner.utils.PreferenceConstant
 import com.sculptee.utils.customprogress.CustomProgressDialog
 import com.wecompli.R
-import com.wecompli.databinding.FragmentAddCheckBinding
+
+import com.wecompli.databinding.FragmentAddChecklistBinding
 import com.wecompli.handler.AddCheckHandler
 import com.wecompli.model.SiteListResponseModel
 import com.wecompli.network.Retrofit
 import com.wecompli.screens.MainActivity
-import com.wecompli.utils.customdialog.CustomSiteSelectionDialogAddCheckList
-import com.wecompli.utils.customdialog.CustomSiteSelectionDialogAddUser
-import com.wecompli.utils.customdialog.CustomStatusSelectionAddChecks
-import com.wecompli.utils.customdialog.CustomStatusSelectionAddUser
+import com.wecompli.utils.customdialog.*
 import com.wecompli.viewmodel.AddCheckViewModel
+import okhttp3.ResponseBody
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -42,11 +41,12 @@ class AddCheckFragment : Fragment(), AddCheckHandler {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    var addcheckView:FragmentAddCheckBinding?=null
+    var addcheckView:FragmentAddChecklistBinding?=null
     var viewModel:AddCheckViewModel?=null
     var siteListRow:ArrayList<SiteListResponseModel.SiteDetails>?=null
      var siteStatus=""
     var siteids=""
+    var selectedweekdays:ArrayList<String>?=ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -56,7 +56,7 @@ class AddCheckFragment : Fragment(), AddCheckHandler {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-          addcheckView=DataBindingUtil.inflate(inflater,R.layout.fragment_add_check,container,false)
+          addcheckView=DataBindingUtil.inflate(inflater,R.layout.fragment_add_checklist,container,false)
             viewModel=ViewModelProviders.of(this).get(AddCheckViewModel::class.java)
           addcheckView!!.addCheck=viewModel
         viewModel!!.addCheckHandler=this
@@ -94,10 +94,7 @@ class AddCheckFragment : Fragment(), AddCheckHandler {
             var gsonObject: JsonObject = jsonParser.parse(obj.toString()) as JsonObject;
             val sitelistapiCall = apiInterface.callSiteListApi("Bearer " + loginUserData.token, gsonObject)
             sitelistapiCall.enqueue(object : Callback<SiteListResponseModel> {
-                override fun onResponse(
-                    call: Call<SiteListResponseModel>,
-                    response: Response<SiteListResponseModel>
-                ) {
+                override fun onResponse(call: Call<SiteListResponseModel>, response: Response<SiteListResponseModel>) {
                     customProgress.hideProgress()
                     if (response.isSuccessful) {
                         if (response.body()!!.process) {
@@ -163,7 +160,8 @@ class AddCheckFragment : Fragment(), AddCheckHandler {
     }
 
     override fun selectType() {
-
+      val customCheckListTypeSelectionDialog=CustomCheckListTypeSelectionDialog(activity as MainActivity,this)
+        customCheckListTypeSelectionDialog.show()
     }
 
     override fun submitCheck() {
@@ -171,12 +169,51 @@ class AddCheckFragment : Fragment(), AddCheckHandler {
         addcheckView!!.etChecklistname.setBackgroundResource(R.drawable.rectangular_shape_rounded_corner_white)
         if(!addcheckView!!.etNote.text.toString().equals("")){
             addcheckView!!.etNote.setBackgroundResource(R.drawable.rectangular_shape_rounded_corner_white)
+            callApiforCheckadd();
 
         }else
             addcheckView!!.etNote.setBackgroundResource(R.drawable.rectangular_shape_rounded_corner_red_broder)
 
     }else
         addcheckView!!.etChecklistname.setBackgroundResource(R.drawable.rectangular_shape_rounded_corner_red_broder)
+    }
+
+    private fun callApiforCheckadd() {
+        var loginUserData= AppSheardPreference(activity as MainActivity).getUser(PreferenceConstant.userData)
+        val  customProgress: CustomProgressDialog = CustomProgressDialog().getInstance()
+        customProgress.showProgress(activity as MainActivity, "Please Wait..", false)
+        val apiInterface= Retrofit.retrofitInstance?.create(ApiInterface::class.java)
+        try {
+            val paramObject = JSONObject()
+            paramObject.put("company_id", loginUserData.company_id)
+            paramObject.put("category_name",addcheckView!!.etChecklistname.text.toString())
+            paramObject.put("site_ids",siteids.substring(1))
+            paramObject.put("category_note","")
+            paramObject.put("category_purpose","")
+            paramObject.put("check_date","")
+            paramObject.put("season_id","")
+            paramObject.put("status_id",siteStatus)
+            var obj: JSONObject = paramObject
+            var jsonParser: JsonParser = JsonParser()
+            var gsonObject: JsonObject = jsonParser.parse(obj.toString()) as JsonObject;
+            val sitelistapiCall = apiInterface.callCheckCreate("Bearer " + loginUserData.token, gsonObject)
+            sitelistapiCall.enqueue(object : Callback<ResponseBody> {
+                override fun onResponse(
+                    call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                    customProgress.hideProgress()
+                    if (response.isSuccessful) {
+
+                    }
+
+                }
+
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                    customProgress.hideProgress()
+                }
+            })
+        }catch (e: Exception){
+
+        }
     }
 
     override fun selectStatus() {

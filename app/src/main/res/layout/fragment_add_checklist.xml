@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".screens.fragment.AddCheckFragment">
+    <data>
+        <variable
+            name="addCheck"
+            type="com.wecompli.viewmodel.AddCheckViewModel" />
+    </data>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/top_two_rounded_corner_white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_12sdp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:text="@string/add_site_name"
+                    android:textSize="@dimen/_10sdp"
+                    app:font="@{`rajDhaniSemiBold`}"></TextView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/star"></ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=")"></TextView>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/rectangular_shape_rounded_corner_white">
+
+                <ImageView
+                    android:id="@+id/imgdropdown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_12sdp"
+                    android:layout_marginBottom="@dimen/_17sdp"
+                    android:background="@drawable/down_arrow"
+
+                    android:onClick="@{addCheck.openiteSelection}"></ImageView>
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/flexboxlayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    app:flexDirection="row"
+
+                    app:flexWrap="wrap"
+                    app:justifyContent="flex_start"></com.google.android.flexbox.FlexboxLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:text="CheckList Name ("
+                        android:textSize="@dimen/_10sdp"
+                        app:font="@{`rajDhaniSemiBold`}"></TextView>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/star"></ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=")"></TextView>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:paddingRight="@dimen/_5sdp"
+                    android:text=" * Please Enter checklist name"
+                    android:textColor="@color/red_text_color"></TextView>
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/et_checklistname"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/rectangular_shape_rounded_corner_login"
+                android:padding="@dimen/_4sdp"></EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:paddingLeft="@dimen/_5sdp"
+                android:text="Add Note"
+                android:textSize="@dimen/_10sdp"
+                app:font="@{`rajDhaniSemiBold`}"></TextView>
+
+            <EditText
+                android:id="@+id/et_note"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/rectangular_shape_rounded_corner_login"
+                android:gravity="top"
+                android:padding="@dimen/_7sdp"
+                android:textSize="@dimen/_10sdp"
+                app:font="@{`rajDhaniSemiBold`}"></EditText>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:text="Select Type"
+                    android:textSize="@dimen/_10sdp"
+                    app:font="@{`rajDhaniSemiBold`}"></TextView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/star"></ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=")"></TextView>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvselecttype"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/rectangular_shape_rounded_corner_login"
+                android:drawableRight="@drawable/down_arrow"
+                android:hint="Select Type"
+                android:onClick="@{addCheck.selectType}"
+                android:paddingLeft="@dimen/_10sdp"
+                android:paddingTop="@dimen/_13sdp"
+                android:paddingRight="@dimen/_9sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="normal"
+                app:font="@{`rajDhaniSemiBold`}"></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:text="Select Status"
+                    android:textSize="@dimen/_10sdp"
+                    app:font="@{`rajDhaniSemiBold`}"></TextView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/star"></ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=")"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_status"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/rectangular_shape_rounded_corner_login"
+                android:onClick="@{addCheck.selectStatus}">
+
+                <ImageView
+                    android:id="@+id/img_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@drawable/active"></ImageView>
+
+                <TextView
+                    android:id="@+id/statusValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:drawableRight="@drawable/down_arrow"
+                    android:hint="@string/active_site"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingRight="@dimen/_9sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="normal"
+                    app:font="@{`rajDhaniSemiBold`}"></TextView>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+
+                >
+
+
+                <TextView
+                    android:id="@+id/tv_submit_site"
+                    android:layout_width="@dimen/_170sdp"
+                    android:layout_height="@dimen/_44sdp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:background="@drawable/botton_rounded_corner"
+                    android:gravity="center"
+                    android:onClick="@{addCheck.submitCheck}"
+                    android:text="@string/submit"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/_12sdp"
+                    app:font="@{`rajDhaniBold`}">
+
+                </TextView>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+
+</layout>

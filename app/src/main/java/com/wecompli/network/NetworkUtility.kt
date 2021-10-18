@@ -13,6 +13,7 @@ class NetworkUtility {
         const val  USERLIST="user/list"
         const val  UserCREATE="user/create"
         const val  CHECKLIST="checklist/list"
+        const val  CHECKLISTCREATE="checklist/create"
 
     }
 }
