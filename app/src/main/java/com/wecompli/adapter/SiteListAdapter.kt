@@ -10,7 +10,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.wecompli.R
-import com.wecompli.databinding.ItemSiteListBinding
+
 
 import com.wecompli.model.SiteListResponseModel
 import com.wecompli.screens.MainActivity

@@ -23,6 +23,14 @@ class CustomYearlyDateSelectionDialog(
         setCanceledOnTouchOutside(false)
         customyearlyDateSelectionLayoutBinding =CustomYearlyDateSelectionLayoutBinding.inflate(LayoutInflater.from(mainActivity))
          setContentView(customyearlyDateSelectionLayoutBinding!!.root)
+        customyearlyDateSelectionLayoutBinding!!.tvSelectYearly.typeface=CustomTypeface.getRajdhaniBold(mainActivity)
+        customyearlyDateSelectionLayoutBinding!!.tvSave.typeface=CustomTypeface.getRajdhaniSemiBold(mainActivity)
+        customyearlyDateSelectionLayoutBinding!!.tvClose.typeface=CustomTypeface.getRajdhaniSemiBold(mainActivity)
+        customyearlyDateSelectionLayoutBinding!!.tvQuater1.typeface=CustomTypeface.getRajdhaniSemiBold(mainActivity)
+
+        customyearlyDateSelectionLayoutBinding!!.tvQuater1Date.typeface=CustomTypeface.getRajdhaniSemiBold(mainActivity)
+
+
         customyearlyDateSelectionLayoutBinding!!.tvClose.setOnClickListener {
             dismiss()
         }

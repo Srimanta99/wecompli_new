@@ -17,6 +17,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.gsscanner.utils.AppSheardPreference
 import com.gsscanner.utils.PreferenceConstant
@@ -24,6 +25,7 @@ import com.wecompli.R
 import com.wecompli.databinding.ActivityMainBinding
 
 import com.wecompli.handler.MainHandler
+import com.wecompli.network.NetworkUtility
 import com.wecompli.screens.fragment.*
 import com.wecompli.utils.alert.CustomAlert
 import com.wecompli.viewmodel.MainViewModel
@@ -62,8 +64,51 @@ class MainActivity : AppCompatActivity(),MainHandler {
          val userdata=AppSheardPreference(this).getUser(PreferenceConstant.userData)
         activityMainBinding!!.tvUsername.setText(userdata.full_name)
         activityMainBinding!!.tvCompanyname.setText(userdata.company_name)
-
+        setSideMenuIcon()
        // getCurrentVersion()
+    }
+
+    private fun setSideMenuIcon() {
+        Glide.with(this)
+            .load(NetworkUtility.DASHBOARD)
+            .into(activityMainBinding!!.imgDashboard)
+
+        Glide.with(this)
+            .load(NetworkUtility.SITES)
+            .into(activityMainBinding!!.imgSites)
+
+        Glide.with(this)
+            .load(NetworkUtility.USERS)
+            .into(activityMainBinding!!.imgUsers)
+
+        Glide.with(this)
+            .load(NetworkUtility.USERS)
+            .into(activityMainBinding!!.imgUsers)
+
+
+        Glide.with(this)
+            .load(NetworkUtility.CHECKLISTIMAGE)
+            .into(activityMainBinding!!.imgChecklist)
+
+        Glide.with(this)
+            .load(NetworkUtility.FAULTS)
+            .into(activityMainBinding!!.imgFault)
+
+
+
+        Glide.with(this)
+            .load(NetworkUtility.INCIDENTS)
+            .into(activityMainBinding!!.imgIncident)
+
+
+        Glide.with(this)
+            .load(NetworkUtility.DOCUMENTS)
+            .into(activityMainBinding!!.imgDocument)
+
+        Glide.with(this)
+            .load(NetworkUtility.EMAIL)
+            .into(activityMainBinding!!.imgEmail)
+
     }
 
     public fun openFragment(fragment: Fragment) {

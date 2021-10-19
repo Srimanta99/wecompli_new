@@ -1,64 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="@dimen/_270sdp"
     android:layout_height="wrap_content"
     android:background="@color/bg_color">
     <TextView
-        android:id="@+id/tv_select_weekly"
+        android:id="@+id/tv_select_monthly"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
         android:background="@drawable/rectangular_shape_white_round_corner_lightgrey_broder"
         android:gravity="center"
         android:textSize="@dimen/_16sdp"
         android:text="SELECT MONTH DAY"></TextView>
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_30sdp"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:layout_marginTop="@dimen/_14sdp"
-        android:layout_marginBottom="@dimen/_14sdp">
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-            <TextView
-                android:id="@+id/tv_save"
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_alignParentBottom="true"
-                android:text="SAVE"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_12sdp"
-                android:gravity="center"
-                android:background="@drawable/rectangular_shape_blue"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/_10sdp"
-                ></TextView>
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-            <TextView
-                android:id="@+id/tv_close"
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_alignParentBottom="true"
-                android:text="CLOSE"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_12sdp"
-                android:background="@drawable/rectangular_shape_red"
-                android:layout_alignParentLeft="true"
-                android:gravity="center"
-                android:layout_marginLeft="@dimen/_10sdp"
-                ></TextView>
-        </RelativeLayout>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rec_monthlyday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:itemCount="31"
+            tools:listitem="@layout/item_month_day_selection"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:layout_marginBottom="@dimen/_14sdp">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/tv_save"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_alignParentBottom="true"
+                    android:text="SAVE"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp"
+                    android:gravity="center"
+                    android:background="@drawable/rectangular_shape_blue"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    ></TextView>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/tv_close"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_alignParentBottom="true"
+                    android:text="CLOSE"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp"
+                    android:background="@drawable/rectangular_shape_red"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="center"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    ></TextView>
+            </RelativeLayout>
+
+        </LinearLayout>
+
 
     </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.google.gson.JsonObject
@@ -47,6 +48,8 @@ class AddCheckFragment : Fragment(), AddCheckHandler {
      var siteStatus=""
     var siteids=""
     var selectedweekdays:ArrayList<String>?=ArrayList()
+    var seletedmonthdDay:ArrayList<String>?=ArrayList()
+    var checkListSessionId=0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -56,14 +59,13 @@ class AddCheckFragment : Fragment(), AddCheckHandler {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-          addcheckView=DataBindingUtil.inflate(inflater,R.layout.fragment_add_checklist,container,false)
-            viewModel=ViewModelProviders.of(this).get(AddCheckViewModel::class.java)
-          addcheckView!!.addCheck=viewModel
-        viewModel!!.addCheckHandler=this
-        callApiForSiteList()
-          return  addcheckView!!.root
-
-      //  return inflater.inflate(R.layout.fragment_add_check, container, false)
+         addcheckView=DataBindingUtil.inflate(inflater,R.layout.fragment_add_checklist,container,false)
+         viewModel=ViewModelProviders.of(this).get(AddCheckViewModel::class.java)
+         addcheckView!!.addCheck=viewModel
+         viewModel!!.addCheckHandler=this
+         callApiForSiteList()
+         return  addcheckView!!.root
+         //  return inflater.inflate(R.layout.fragment_add_check, container, false)
     }
 
     companion object {
@@ -165,18 +167,26 @@ class AddCheckFragment : Fragment(), AddCheckHandler {
     }
 
     override fun submitCheck() {
-    if(!addcheckView!!.etChecklistname.text.toString().equals("")){
-        addcheckView!!.etChecklistname.setBackgroundResource(R.drawable.rectangular_shape_rounded_corner_white)
-        if(!addcheckView!!.etNote.text.toString().equals("")){
-            addcheckView!!.etNote.setBackgroundResource(R.drawable.rectangular_shape_rounded_corner_white)
-            callApiforCheckadd();
+        if (!siteids.equals("")) {
+            if (!addcheckView!!.etChecklistname.text.toString().equals("")) {
+                addcheckView!!.etChecklistname.setBackgroundResource(R.drawable.rectangular_shape_rounded_corner_white)
+                if (!addcheckView!!.etNote.text.toString().equals("")) {
+                    addcheckView!!.etNote.setBackgroundResource(R.drawable.rectangular_shape_rounded_corner_white)
+                    if (checkListSessionId > 0) {
+                         var ss: String = seletedmonthdDay!!.joinToString(separator = ",")
+                       // callApiforCheckadd();
+                    } else
+                        Toast.makeText(activity as MainActivity, "Select Check type", Toast.LENGTH_LONG).show()
 
-        }else
-            addcheckView!!.etNote.setBackgroundResource(R.drawable.rectangular_shape_rounded_corner_red_broder)
+                } else
+                    addcheckView!!.etNote.setBackgroundResource(R.drawable.rectangular_shape_rounded_corner_red_broder)
 
-    }else
-        addcheckView!!.etChecklistname.setBackgroundResource(R.drawable.rectangular_shape_rounded_corner_red_broder)
+            } else
+                addcheckView!!.etChecklistname.setBackgroundResource(R.drawable.rectangular_shape_rounded_corner_red_broder)
+        } else
+            Toast.makeText(activity as MainActivity, "Select site", Toast.LENGTH_LONG).show()
     }
+
 
     private fun callApiforCheckadd() {
         var loginUserData= AppSheardPreference(activity as MainActivity).getUser(PreferenceConstant.userData)
@@ -188,10 +198,23 @@ class AddCheckFragment : Fragment(), AddCheckHandler {
             paramObject.put("company_id", loginUserData.company_id)
             paramObject.put("category_name",addcheckView!!.etChecklistname.text.toString())
             paramObject.put("site_ids",siteids.substring(1))
-            paramObject.put("category_note","")
-            paramObject.put("category_purpose","")
-            paramObject.put("check_date","")
-            paramObject.put("season_id","")
+            paramObject.put("category_note",addcheckView!!.etNote.text.toString())
+            paramObject.put("category_purpose","checks")
+            if (checkListSessionId==1)
+                paramObject.put("check_date","")
+            else if(checkListSessionId==2)
+                paramObject.put("check_date",selectedweekdays!!.joinToString(separator = ","))
+            else if(checkListSessionId==3)
+                paramObject.put("check_date",seletedmonthdDay!!.joinToString(separator = ","))
+            else if(checkListSessionId==4)
+                paramObject.put("check_date","")
+            else if(checkListSessionId==5)
+                paramObject.put("check_date","")
+            else if(checkListSessionId==6)
+                paramObject.put("check_date","")
+            else if(checkListSessionId==14)
+                paramObject.put("check_date","")
+            paramObject.put("season_id",checkListSessionId)
             paramObject.put("status_id",siteStatus)
             var obj: JSONObject = paramObject
             var jsonParser: JsonParser = JsonParser()

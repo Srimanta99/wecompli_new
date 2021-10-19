@@ -23,6 +23,15 @@ class CustomHalfYearlyDateSelectionDialog(
         setCanceledOnTouchOutside(false)
         customHalfYearlyDateSelectionLayoutBinding =CustomHalfYearlyDateSelectionLayoutBinding.inflate(LayoutInflater.from(mainActivity))
          setContentView(customHalfYearlyDateSelectionLayoutBinding!!.root)
+        customHalfYearlyDateSelectionLayoutBinding!!.tvSelectHalfyearly.typeface=CustomTypeface.getRajdhaniBold(mainActivity)
+        customHalfYearlyDateSelectionLayoutBinding!!.tvSave.typeface=CustomTypeface.getRajdhaniSemiBold(mainActivity)
+        customHalfYearlyDateSelectionLayoutBinding!!.tvClose.typeface=CustomTypeface.getRajdhaniSemiBold(mainActivity)
+        customHalfYearlyDateSelectionLayoutBinding!!.tvQuater1.typeface=CustomTypeface.getRajdhaniSemiBold(mainActivity)
+        customHalfYearlyDateSelectionLayoutBinding!!.tvQuater2.typeface=CustomTypeface.getRajdhaniSemiBold(mainActivity)
+
+        customHalfYearlyDateSelectionLayoutBinding!!.tvQuater1Date.typeface=CustomTypeface.getRajdhaniSemiBold(mainActivity)
+        customHalfYearlyDateSelectionLayoutBinding!!.tvQuater2Date.typeface=CustomTypeface.getRajdhaniSemiBold(mainActivity)
+
         customHalfYearlyDateSelectionLayoutBinding!!.tvClose.setOnClickListener {
             dismiss()
         }

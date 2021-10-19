@@ -40,11 +40,13 @@ class CustomCheckListTypeSelectionDialog(val mainActivity: MainActivity, val add
 
     override fun dailySelect() {
         addCheckFragment.addcheckView!!.tvselecttype.setText("DAILY")
+        addCheckFragment.checkListSessionId=1
         dismiss()
     }
 
     override fun weeklySelect() {
         addCheckFragment.addcheckView!!.tvselecttype.setText("WEEKLY")
+        addCheckFragment.checkListSessionId=2
         dismiss()
         val customweklySelectionDialog=CustomWeeklyDaySelectionDialog(mainActivity,addCheckFragment)
         customweklySelectionDialog.show()
@@ -53,6 +55,7 @@ class CustomCheckListTypeSelectionDialog(val mainActivity: MainActivity, val add
 
     override fun monthlySelect() {
         addCheckFragment.addcheckView!!.tvselecttype.setText("MONTHLY")
+        addCheckFragment.checkListSessionId=3
         dismiss()
         val customMonthlySelectionDialog=CustomMonthlyDaySelectionDialog(mainActivity,addCheckFragment)
         customMonthlySelectionDialog.show()
@@ -60,6 +63,7 @@ class CustomCheckListTypeSelectionDialog(val mainActivity: MainActivity, val add
 
     override fun quaterlySeelct() {
         addCheckFragment.addcheckView!!.tvselecttype.setText("QUATERLY")
+        addCheckFragment.checkListSessionId=4
         dismiss()
         val customquaterlySelectionDialog=CustomQuaterlyDateSelectionDialog(mainActivity,addCheckFragment)
         customquaterlySelectionDialog.show()
@@ -67,6 +71,7 @@ class CustomCheckListTypeSelectionDialog(val mainActivity: MainActivity, val add
 
     override fun halfyearlySelect() {
         addCheckFragment.addcheckView!!.tvselecttype.setText("HALF-YEARLY")
+        addCheckFragment.checkListSessionId=5
         dismiss()
         val customhalfyearlySelectionDialog=CustomHalfYearlyDateSelectionDialog(mainActivity,addCheckFragment)
         customhalfyearlySelectionDialog.show()
@@ -74,11 +79,13 @@ class CustomCheckListTypeSelectionDialog(val mainActivity: MainActivity, val add
 
     override fun interdaySelect() {
         addCheckFragment.addcheckView!!.tvselecttype.setText("INTER DAY")
+        addCheckFragment.checkListSessionId=14
         dismiss()
     }
 
     override fun yearlySelect() {
         addCheckFragment.addcheckView!!.tvselecttype.setText("YEARLY")
+        addCheckFragment.checkListSessionId=6
         dismiss()
         val customyearlySelectionDialog=CustomYearlyDateSelectionDialog(mainActivity,addCheckFragment)
         customyearlySelectionDialog.show()
