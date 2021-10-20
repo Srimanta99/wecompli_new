@@ -1,5 +1,6 @@
 package com.wecompli.utils.customdialog
 
+import android.app.DatePickerDialog
 import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import com.wecompli.databinding.CustomWeekSelectionLayoutBinding
 import com.wecompli.screens.MainActivity
 import com.wecompli.screens.fragment.AddCheckFragment
 import com.wecompli.utils.customfont.CustomTypeface
+import java.util.*
 
 
 class CustomHalfYearlyDateSelectionDialog(
@@ -31,6 +33,27 @@ class CustomHalfYearlyDateSelectionDialog(
 
         customHalfYearlyDateSelectionLayoutBinding!!.tvQuater1Date.typeface=CustomTypeface.getRajdhaniSemiBold(mainActivity)
         customHalfYearlyDateSelectionLayoutBinding!!.tvQuater2Date.typeface=CustomTypeface.getRajdhaniSemiBold(mainActivity)
+        val calendar: Calendar = Calendar.getInstance()
+        val year: Int = calendar.get(Calendar.YEAR)
+        val month: Int = calendar.get(Calendar.MONTH)
+        val dayOfMonth: Int = calendar.get(Calendar.DAY_OF_MONTH)
+        customHalfYearlyDateSelectionLayoutBinding!!.rlQuater1.setOnClickListener {
+            val datePickerDialog = DatePickerDialog(mainActivity,
+                { datePicker, year, month, day ->
+                    customHalfYearlyDateSelectionLayoutBinding!!.tvQuater1Date.setText(day.toString()+"/"+month.toString()+"/"+year.toString())
+                }, year, month, dayOfMonth
+            )
+            datePickerDialog.show();
+        }
+
+        customHalfYearlyDateSelectionLayoutBinding!!.rlQuater2.setOnClickListener {
+            val datePickerDialog = DatePickerDialog(mainActivity,
+                { datePicker, year, month, day ->
+                    customHalfYearlyDateSelectionLayoutBinding!!.tvQuater2Date.setText(day.toString()+"/"+month.toString()+"/"+year.toString())
+                }, year, month, dayOfMonth
+            )
+            datePickerDialog.show();
+        }
 
         customHalfYearlyDateSelectionLayoutBinding!!.tvClose.setOnClickListener {
             dismiss()
