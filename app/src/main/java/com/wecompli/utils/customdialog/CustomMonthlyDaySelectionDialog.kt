@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Window
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.wecompli.adapter.MonthlyDaySelectionAdapter
 import com.wecompli.databinding.CustomMonthDaySelectionLayoutBinding
@@ -37,7 +38,11 @@ class CustomMonthlyDaySelectionDialog(
             dismiss()
         }
         customMonthDaySelectionLayoutBinding!!.tvSave.setOnClickListener {
-               dismiss()
+            if ( addCheckFragment.seletedmonthdDay!!.size>0) {
+                addCheckFragment.addcheckView!!.tvselecttype.setText("MONTHLY")
+                dismiss()
+            }else
+                Toast.makeText(mainActivity,"Please select date", Toast.LENGTH_LONG).show()
         }
 
     }

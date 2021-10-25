@@ -31,7 +31,9 @@ class SiteSelectionListAdapterAddUser(
         itemView!!.tvSitename.typeface=CustomTypeface.getRajdhaniMedium(activity)
         if ( adduserfragment.siteListRow!!.get(position).isselect) {
             itemView!!.chkSelect.isChecked=true
-        }
+        }else
+            itemView!!.chkSelect.isChecked=false
+
         itemView!!.chkSelect.setOnCheckedChangeListener { compoundButton, b ->
             if (b){
                 adduserfragment.siteListRow!!.get(position).isselect=true
@@ -43,5 +45,13 @@ class SiteSelectionListAdapterAddUser(
 
     override fun getItemCount(): Int {
        return siteList.size
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
+
+    override fun getItemId(position: Int): Long {
+        return super.getItemId(position)
     }
 }

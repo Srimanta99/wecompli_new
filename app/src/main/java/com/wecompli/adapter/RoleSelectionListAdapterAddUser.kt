@@ -16,8 +16,7 @@ class RoleSelectionListAdapterAddUser(
     val adduserfragment: AddUserFragment,
     val customRoleSelectionDialogAddUser: CustomRoleSelectionDialogAddUser
 )
-    : RecyclerView.Adapter<RoleSelectionListAdapterAddUser.ViewHolder>(){
-       var itemView:ItemSelectRoleBinding?=null
+    : RecyclerView.Adapter<RoleSelectionListAdapterAddUser.ViewHolder>(){ var itemView:ItemSelectRoleBinding?=null
     class ViewHolder(val itemSite: ItemSelectRoleBinding):RecyclerView.ViewHolder(itemSite.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

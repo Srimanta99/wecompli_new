@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/_18sdp"
             android:layout_marginLeft="@dimen/_18sdp"
-            android:text="Email"
+            android:text="@string/email"
             android:textColor="@color/textcolor"
             android:layout_marginTop="@dimen/_10sdp"
             app:font="@{`rajDhaniSemiBold`}"
@@ -123,7 +123,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:text="Password"
+                android:text="@string/password"
                 android:textColor="@color/textcolor"
                 android:layout_marginTop="@dimen/_5sdp"
                 app:font="@{`rajDhaniSemiBold`}"

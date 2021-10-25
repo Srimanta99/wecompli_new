@@ -33,8 +33,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="ACCESS INFO"
-                        android:textSize="@dimen/_18sdp"
+                        android:text="@string/access_info"
+                        android:textSize="@dimen/_17sdp"
                         app:font="@{`rajDhaniBold`}"></TextView>
 
                     <TextView
@@ -58,7 +58,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Select Site"
+                        android:text="@string/selects_sites"
                         android:textSize="@dimen/_11sdp"
                         app:font="@{`rajDhaniSemiBold`}"></TextView>
                     <RelativeLayout
@@ -99,7 +99,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Select Role"
+                        android:text="@string/selects_role"
                         app:font="@{`rajDhaniSemiBold`}"
                         android:layout_marginTop="@dimen/_12sdp"></TextView>
                     <TextView
@@ -124,8 +124,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="PERSONAL INFO"
-                            android:textSize="@dimen/_18sdp"
+                            android:text="@string/personal_info"
+                            android:textSize="@dimen/_17sdp"
                             app:font="@{`rajDhaniBold`}"></TextView>
 
                         <TextView
@@ -140,7 +140,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Name"
+                        android:text="@string/name_user"
                         android:textSize="@dimen/_11sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         app:font="@{`rajDhaniSemiBold`}"></TextView>
@@ -160,7 +160,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Email"
+                        android:text="@string/email"
                         android:textSize="@dimen/_11sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         app:font="@{`rajDhaniSemiBold`}"></TextView>

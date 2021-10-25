@@ -38,6 +38,8 @@ class SiteSelectionListAdapterUserEdit(
         if ( userEditfragment.siteListRow!!.get(position).isselect) {
             itemView!!.chkSelect.isChecked=true
         }
+        else
+            itemView!!.chkSelect.isChecked=false
         itemView!!.chkSelect.setOnCheckedChangeListener { compoundButton, b ->
             if (b){
                 userEditfragment.siteListRow!!.get(position).isselect=true
@@ -49,5 +51,12 @@ class SiteSelectionListAdapterUserEdit(
 
     override fun getItemCount(): Int {
        return siteList.size
+    }
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
+
+    override fun getItemId(position: Int): Long {
+        return super.getItemId(position)
     }
 }

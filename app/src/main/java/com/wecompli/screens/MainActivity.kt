@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity(),MainHandler {
 
                 }
         activityMainBinding!!.drawerlayout!!.addDrawerListener(actionBarDrawerToggle)
-        openFragment(DashBoardFragment())
+        opendahBoardFragment(DashBoardFragment())
          val userdata=AppSheardPreference(this).getUser(PreferenceConstant.userData)
         activityMainBinding!!.tvUsername.setText(userdata.full_name)
         activityMainBinding!!.tvCompanyname.setText(userdata.company_name)
@@ -108,6 +108,14 @@ class MainActivity : AppCompatActivity(),MainHandler {
         Glide.with(this)
             .load(NetworkUtility.EMAIL)
             .into(activityMainBinding!!.imgEmail)
+
+    }
+
+    public fun opendahBoardFragment(fragment: Fragment) {
+        activityMainBinding!!.drawerlayout!!.closeDrawer(Gravity.LEFT)
+        val transaction =supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.content_frame, fragment)
+        transaction.commit()
 
     }
 

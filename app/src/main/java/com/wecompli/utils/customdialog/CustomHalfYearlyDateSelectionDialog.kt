@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Window
+import android.widget.Toast
 import com.wecompli.databinding.CustomHalfYearlyDateSelectionLayoutBinding
 import com.wecompli.databinding.CustomMonthDaySelectionLayoutBinding
 import com.wecompli.databinding.CustomWeekSelectionLayoutBinding
@@ -41,6 +42,7 @@ class CustomHalfYearlyDateSelectionDialog(
             val datePickerDialog = DatePickerDialog(mainActivity,
                 { datePicker, year, month, day ->
                     customHalfYearlyDateSelectionLayoutBinding!!.tvQuater1Date.setText(day.toString()+"/"+month.toString()+"/"+year.toString())
+                    addCheckFragment!!.selectedhalfYearlyyDay!!.add(day.toString()+"-"+month.toString())
                 }, year, month, dayOfMonth
             )
             datePickerDialog.show();
@@ -50,6 +52,7 @@ class CustomHalfYearlyDateSelectionDialog(
             val datePickerDialog = DatePickerDialog(mainActivity,
                 { datePicker, year, month, day ->
                     customHalfYearlyDateSelectionLayoutBinding!!.tvQuater2Date.setText(day.toString()+"/"+month.toString()+"/"+year.toString())
+                    addCheckFragment!!.selectedhalfYearlyyDay!!.add(day.toString()+"-"+month.toString())
                 }, year, month, dayOfMonth
             )
             datePickerDialog.show();
@@ -59,7 +62,12 @@ class CustomHalfYearlyDateSelectionDialog(
             dismiss()
         }
         customHalfYearlyDateSelectionLayoutBinding!!.tvSave.setOnClickListener {
-               dismiss()
+            if(!customHalfYearlyDateSelectionLayoutBinding!!.tvQuater1Date.text.toString().equals("") || !customHalfYearlyDateSelectionLayoutBinding!!.tvQuater2Date.text.toString().equals("")){
+                addCheckFragment.addcheckView!!.tvselecttype.setText("HALF-YEARLY")
+                dismiss()
+            }else
+                Toast.makeText(mainActivity,"Please select date", Toast.LENGTH_LONG).show()
+
         }
 
     }

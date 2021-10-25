@@ -11,15 +11,16 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@drawable/rectangular_shape_white_round_corner_lightgrey_broder">
+
     <TextView
         android:id="@+id/tv_select_type"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/_270sdp"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="               SELECT TYPE              "
-        android:textSize="@dimen/_18sdp"
         android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center"
+        android:text="@string/select_type"
         android:textColor="@color/textcolor"
+        android:textSize="@dimen/_18sdp"
         app:layout_constraintRight_toRightOf="parent"></TextView>
 
     <TextView
@@ -30,7 +31,7 @@
         android:paddingLeft="@dimen/_15sdp"
         android:textSize="@dimen/_14sdp"
         android:onClick="@{selectCheckList.dailySelect}"
-        android:text="DAILY"></TextView>
+        android:text="@string/daily"></TextView>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1sdp"
@@ -43,7 +44,7 @@
         android:paddingLeft="@dimen/_15sdp"
         android:textSize="@dimen/_14sdp"
         android:onClick="@{selectCheckList.interdaySelect}"
-        android:text="INTRADAY"></TextView>
+        android:text="@string/interday"></TextView>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1sdp"
@@ -56,7 +57,7 @@
         android:paddingLeft="@dimen/_15sdp"
         android:textSize="@dimen/_14sdp"
         android:onClick="@{selectCheckList.weeklySelect}"
-        android:text="WEEKLY"></TextView>
+        android:text="@string/weekly"></TextView>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1sdp"
@@ -69,7 +70,7 @@
         android:paddingLeft="@dimen/_15sdp"
         android:textSize="@dimen/_14sdp"
         android:onClick="@{selectCheckList.monthlySelect}"
-        android:text="MONTHLY"></TextView>
+        android:text="@string/monthly"></TextView>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1sdp"
@@ -82,7 +83,7 @@
         android:paddingLeft="@dimen/_15sdp"
         android:textSize="@dimen/_14sdp"
         android:onClick="@{selectCheckList.quaterlySeelct}"
-        android:text="QUATERLY"></TextView>
+        android:text="@string/quaterly"></TextView>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1sdp"
@@ -95,7 +96,7 @@
         android:paddingLeft="@dimen/_15sdp"
         android:textSize="@dimen/_14sdp"
         android:onClick="@{selectCheckList.halfyearlySelect}"
-        android:text="HALF-YEARLY"></TextView>
+        android:text="@string/half_yearly"></TextView>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1sdp"
@@ -108,7 +109,7 @@
         android:paddingLeft="@dimen/_15sdp"
         android:textSize="@dimen/_14sdp"
         android:onClick="@{selectCheckList.yearlySelect}"
-        android:text="YEARLY"></TextView>
+        android:text="@string/yearly"></TextView>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1sdp"

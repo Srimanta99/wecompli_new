@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Window
+import android.widget.Toast
 import com.wecompli.databinding.CustomMonthDaySelectionLayoutBinding
 import com.wecompli.databinding.CustomWeekSelectionLayoutBinding
 import com.wecompli.databinding.CustomYearlyDateSelectionLayoutBinding
@@ -40,6 +41,7 @@ class CustomYearlyDateSelectionDialog(
             val datePickerDialog = DatePickerDialog(mainActivity,
                 { datePicker, year, month, day ->
                     customyearlyDateSelectionLayoutBinding!!.tvQuater1Date.setText(day.toString()+"/"+month.toString()+"/"+year.toString())
+                    addCheckFragment!!.selectedyearlyDay!!.add(day.toString()+"-"+month.toString())
                 }, year, month, dayOfMonth
             )
             datePickerDialog.show();
@@ -48,7 +50,11 @@ class CustomYearlyDateSelectionDialog(
             dismiss()
         }
         customyearlyDateSelectionLayoutBinding!!.tvSave.setOnClickListener {
-               dismiss()
+            if (!customyearlyDateSelectionLayoutBinding!!.tvQuater1Date.text.toString().equals("")) {
+                addCheckFragment.addcheckView!!.tvselecttype.setText("YEARLY")
+                dismiss()
+            }else
+                Toast.makeText(mainActivity,"Please select date", Toast.LENGTH_LONG).show()
         }
 
     }

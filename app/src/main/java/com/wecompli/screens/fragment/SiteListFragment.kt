@@ -116,6 +116,8 @@ class SiteListFragment : Fragment() ,SiteListHandler{
     override fun onResume() {
         super.onResume()
         (activity as MainActivity).activityMainBinding!!.tvHeaderText.setText(resources.getString(R.string.menu_sites))
+            (activity as MainActivity).activityMainBinding!!.mainHeader.visibility=View.VISIBLE
+
     }
 
     override fun addSite() {

@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Window
+import android.widget.Toast
 import com.wecompli.databinding.CustomQuaterlyDateSelectionLayoutBinding
 import com.wecompli.screens.MainActivity
 import com.wecompli.screens.fragment.AddCheckFragment
@@ -47,6 +48,7 @@ class CustomQuaterlyDateSelectionDialog(
            val datePickerDialog = DatePickerDialog(mainActivity,
                 { datePicker, year, month, day ->
                     customQuaterlyDateSelectionLayoutBinding!!.tvQuater1Date.setText(day.toString()+"/"+month.toString()+"/"+year.toString())
+                    addCheckFragment!!.selectedquaterlyDay!!.add(day.toString()+"-"+month.toString())
                 }, year, month, dayOfMonth
             )
             datePickerDialog.show();
@@ -56,6 +58,7 @@ class CustomQuaterlyDateSelectionDialog(
             val datePickerDialog = DatePickerDialog(mainActivity,
                 { datePicker, year, month, day ->
                     customQuaterlyDateSelectionLayoutBinding!!.tvQuater2Date.setText(day.toString()+"/"+month.toString()+"/"+year.toString())
+                    addCheckFragment!!.selectedquaterlyDay!!.add(day.toString()+"-"+month.toString())
                 }, year, month, dayOfMonth
             )
             datePickerDialog.show();
@@ -65,6 +68,7 @@ class CustomQuaterlyDateSelectionDialog(
             val datePickerDialog = DatePickerDialog(mainActivity,
                 { datePicker, year, month, day ->
                     customQuaterlyDateSelectionLayoutBinding!!.tvQuater3Date.setText(day.toString()+"/"+month.toString()+"/"+year.toString())
+                    addCheckFragment!!.selectedquaterlyDay!!.add(day.toString()+"-"+month.toString())
                 }, year, month, dayOfMonth
             )
             datePickerDialog.show();
@@ -74,6 +78,7 @@ class CustomQuaterlyDateSelectionDialog(
             val datePickerDialog = DatePickerDialog(mainActivity,
                 { datePicker, year, month, day ->
                     customQuaterlyDateSelectionLayoutBinding!!.tvQuater4Date.setText(day.toString()+"/"+month.toString()+"/"+year.toString())
+                    addCheckFragment!!.selectedquaterlyDay!!.add(day.toString()+"-"+month.toString())
                 }, year, month, dayOfMonth
             )
             datePickerDialog.show();
@@ -83,7 +88,16 @@ class CustomQuaterlyDateSelectionDialog(
             dismiss()
         }
         customQuaterlyDateSelectionLayoutBinding!!.tvSave.setOnClickListener {
-               dismiss()
+            if (!customQuaterlyDateSelectionLayoutBinding!!.tvQuater1Date.text.toString().equals("")||!customQuaterlyDateSelectionLayoutBinding!!.tvQuater2Date.text.toString().equals("")
+                ||!customQuaterlyDateSelectionLayoutBinding!!.tvQuater3Date.text.toString().equals("")||!customQuaterlyDateSelectionLayoutBinding!!.tvQuater4Date.text.toString().equals(""))
+            {
+                addCheckFragment.addcheckView!!.tvselecttype.setText("QUATERLY")
+                dismiss()
+            }
+            else
+              Toast.makeText(mainActivity,"Please select date",Toast.LENGTH_LONG).show()
+
+
         }
 
     }

@@ -11,7 +11,7 @@
         android:id="@+id/tv_selectsite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SELECT SITE"
+        android:text="@string/select_site"
         android:textSize="@dimen/_16sdp"
         android:layout_margin="@dimen/_10sdp"
         android:gravity="center"></TextView>

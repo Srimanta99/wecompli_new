@@ -11,6 +11,7 @@
     <string name="send">SEND</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="select_language">SELECT LANGUAGE</string>
     <string name="english">English</string>
     <string name="douch">Dutch</string>
     <string name="french">French</string>
@@ -90,4 +91,74 @@
     <string name="documents_add_role">DOCUMENTS</string>
     <string name="help_add_role">HELP</string>
     <string name="settings_add_role">SETTINGS</string>
+
+    //user list
+    <string name="add_role">ADD ROLE</string>
+    <string name="list_role">LIST ROLE</string>
+    <string name="add_user">ADD USER</string>
+
+    //add checklist
+    <string name="chklist_name">CheckList Name (</string>
+    <string name="please_checklistname">* Please Enter checklist name</string>
+    <string name="add_notes">Add Note</string>
+    <string name="check_selecttype">Select Type(</string>
+    <string name="select_status">Select Status(</string>
+    <string name="check_selecttypes">Select Type</string>
+
+    //checklisttype
+    <string name="select_type">        SELECT TYPE        </string>
+    <string name="daily">DAILY</string>
+    <string name="interday">INTRADAY</string>
+    <string name="weekly">WEEKLY</string>
+    <string name="monthly">MONTHLY</string>
+    <string name="quaterly">QUATERLY</string>
+    <string name="half_yearly">HALF-YEARLY</string>
+    <string name="yearly">YEARLY</string>
+
+    // different selection
+    <string name="half_day_select">SELECT HALF-YEARLY DAY</string>
+    <string name="Friststquater">1st Quarter</string>
+    <string name="second_quater">2nd Quarter</string>
+    <string name="thired_quater">3rd Quarter</string>
+    <string name="fourth_quater">4th Quarter</string>
+    <string name="save_date">SAVE</string>
+    <string name="close_date">CLOSE</string>
+    <string name="monthly_day_select">SELECT MONTH DAY</string>
+    <string name="quater_day_select">SELECT QUARTERLY DAY</string>
+    <string name="yearly_day_select">SELECT YEARLY DAY</string>
+
+    //weekdays selection
+    <string name="week_selection">SELECT WEEK DAYS</string>
+    <string name="monday">MONDAY</string>
+    <string name="tuesday">TUESDAY</string>
+    <string name="wednesday">WEDNESDAY</string>
+    <string name="thursday">THURSDAY</string>
+    <string name="friday">FRIDAY</string>
+    <string name="saturday">SATURDAY</string>
+    <string name="sunday">SUNDAY</string>
+
+    //role
+    <string name="select_role">SELECT ROLE</string>
+
+    //site
+    <string name="select_site">SELECT SITE</string>
+
+    //add user
+    <string name="access_info">ACCESS INFO</string>
+    <string name="selects_sites">Select Site</string>
+    <string name="selects_role">Select Role</string>
+    <string name="personal_info">PERSONAL INFO</string>
+    <string name="name_user">Name</string>
+
+    //item_checklist
+    <string name="note_checklist">NOTES : </string>
+    <string name="site_checklist">SITES : </string>
+    <string name="checks_checklist">CHECKS : </string>
+    <string name="status_checklist">STATUS :</string>
+
+    //item userlist
+    <string name="head">HEAD</string>
+    <string name="info">INFO</string>
+    <string name="site_userlist">SITES</string>
+    <string name="status_userlist">STATUS</string>
 </resources>

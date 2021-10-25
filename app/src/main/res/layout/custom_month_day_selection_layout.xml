@@ -13,7 +13,7 @@
         android:background="@drawable/rectangular_shape_white_round_corner_lightgrey_broder"
         android:gravity="center"
         android:textSize="@dimen/_16sdp"
-        android:text="SELECT MONTH DAY"></TextView>
+        android:text="@string/monthly_day_select"></TextView>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -48,7 +48,7 @@
                     android:layout_width="@dimen/_70sdp"
                     android:layout_height="@dimen/_30sdp"
                     android:layout_alignParentBottom="true"
-                    android:text="SAVE"
+                    android:text="@string/save_date"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_12sdp"
@@ -67,7 +67,7 @@
                     android:layout_width="@dimen/_70sdp"
                     android:layout_height="@dimen/_30sdp"
                     android:layout_alignParentBottom="true"
-                    android:text="CLOSE"
+                    android:text="@string/close_date"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_12sdp"

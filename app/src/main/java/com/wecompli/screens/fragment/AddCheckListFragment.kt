@@ -22,9 +22,11 @@ import com.wecompli.R
 
 import com.wecompli.databinding.FragmentAddChecklistBinding
 import com.wecompli.handler.AddCheckHandler
+import com.wecompli.model.AddCheckListResponseModel
 import com.wecompli.model.SiteListResponseModel
 import com.wecompli.network.Retrofit
 import com.wecompli.screens.MainActivity
+import com.wecompli.utils.alert.CustomAlert
 import com.wecompli.utils.customdialog.*
 import com.wecompli.viewmodel.AddCheckViewModel
 import okhttp3.ResponseBody
@@ -49,6 +51,10 @@ class AddCheckFragment : Fragment(), AddCheckHandler {
     var siteids=""
     var selectedweekdays:ArrayList<String>?=ArrayList()
     var seletedmonthdDay:ArrayList<String>?=ArrayList()
+    var selectedquaterlyDay:ArrayList<String>?= ArrayList()
+    var selectedhalfYearlyyDay:ArrayList<String>?=ArrayList()
+    var selectedyearlyDay:ArrayList<String>?=ArrayList()
+
     var checkListSessionId=0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -173,8 +179,8 @@ class AddCheckFragment : Fragment(), AddCheckHandler {
                 if (!addcheckView!!.etNote.text.toString().equals("")) {
                     addcheckView!!.etNote.setBackgroundResource(R.drawable.rectangular_shape_rounded_corner_white)
                     if (checkListSessionId > 0) {
-                         var ss: String = seletedmonthdDay!!.joinToString(separator = ",")
-                       // callApiforCheckadd();
+                        // var ss: String = selectedquaterlyDay!!.joinToString(separator = ",")
+                        callApiforCheckadd();
                     } else
                         Toast.makeText(activity as MainActivity, "Select Check type", Toast.LENGTH_LONG).show()
 
@@ -207,11 +213,11 @@ class AddCheckFragment : Fragment(), AddCheckHandler {
             else if(checkListSessionId==3)
                 paramObject.put("check_date",seletedmonthdDay!!.joinToString(separator = ","))
             else if(checkListSessionId==4)
-                paramObject.put("check_date","")
+                paramObject.put("check_date",selectedquaterlyDay!!.joinToString(separator = ","))
             else if(checkListSessionId==5)
-                paramObject.put("check_date","")
+                paramObject.put("check_date",selectedhalfYearlyyDay!!.joinToString(separator = ","))
             else if(checkListSessionId==6)
-                paramObject.put("check_date","")
+                paramObject.put("check_date",selectedyearlyDay!!.joinToString(separator = ","))
             else if(checkListSessionId==14)
                 paramObject.put("check_date","")
             paramObject.put("season_id",checkListSessionId)
@@ -220,17 +226,35 @@ class AddCheckFragment : Fragment(), AddCheckHandler {
             var jsonParser: JsonParser = JsonParser()
             var gsonObject: JsonObject = jsonParser.parse(obj.toString()) as JsonObject;
             val sitelistapiCall = apiInterface.callCheckCreate("Bearer " + loginUserData.token, gsonObject)
-            sitelistapiCall.enqueue(object : Callback<ResponseBody> {
+            sitelistapiCall.enqueue(object : Callback<AddCheckListResponseModel> {
                 override fun onResponse(
-                    call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                    call: Call<AddCheckListResponseModel>, response: Response<AddCheckListResponseModel>) {
                     customProgress.hideProgress()
                     if (response.isSuccessful) {
+                        if(response.body()!!.process){
+                            CustomAlert.showalert(activity as MainActivity,response!!.body()!!.message)
+                        }else{
+                            if (response!!.body()!!.error.category_name.equals(""))
+                                CustomAlert.showalert(activity as MainActivity,response!!.body()!!.error.category_name)
+                            if (response!!.body()!!.error.category_purpose.equals(""))
+                                CustomAlert.showalert(activity as MainActivity,response!!.body()!!.error.category_purpose)
+                            if (response!!.body()!!.error.check_date.equals(""))
+                                CustomAlert.showalert(activity as MainActivity,response!!.body()!!.error.check_date)
+                            if (response!!.body()!!.error.company_id.equals(""))
+                                CustomAlert.showalert(activity as MainActivity,response!!.body()!!.error.company_id)
+                            if (response!!.body()!!.error.season_id.equals(""))
+                                CustomAlert.showalert(activity as MainActivity,response!!.body()!!.error.season_id)
+                            if (response!!.body()!!.error.site_ids.equals(""))
+                                CustomAlert.showalert(activity as MainActivity,response!!.body()!!.error.site_ids)
+                            if (response!!.body()!!.error.status_id.equals(""))
+                                CustomAlert.showalert(activity as MainActivity,response!!.body()!!.error.status_id)
 
+                        }
                     }
 
                 }
 
-                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                override fun onFailure(call: Call<AddCheckListResponseModel>, t: Throwable) {
                     customProgress.hideProgress()
                 }
             })

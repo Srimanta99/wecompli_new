@@ -11,7 +11,7 @@
         android:background="@drawable/rectangular_shape_white_round_corner_lightgrey_broder"
         android:gravity="center"
         android:textSize="@dimen/_16sdp"
-        android:text="SELECT QUARTERLY DAY"></TextView>
+        android:text="@string/quater_day_select"></TextView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
                    android:layout_height="wrap_content"
                    android:textSize="@dimen/_14sdp"
                    android:gravity="center"
-                   android:text="1st Quater"></TextView>
+                   android:text="@string/Friststquater"></TextView>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
@@ -79,7 +79,7 @@
                         android:textSize="@dimen/_14sdp"
                         android:gravity="center"
                         android:id="@+id/tv_quater2"
-                        android:text="2nd Quater"></TextView>
+                        android:text="@string/second_quater"></TextView>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_40sdp"
@@ -127,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/_14sdp"
                     android:gravity="center"
-                    android:text="3rd Quater"></TextView>
+                    android:text="@string/thired_quater"></TextView>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
@@ -172,7 +172,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_14sdp"
                         android:gravity="center"
-                        android:text="4th Quater"></TextView>
+                        android:text="@string/fourth_quater"></TextView>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_40sdp"
@@ -223,7 +223,7 @@
                 android:layout_width="@dimen/_70sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_alignParentBottom="true"
-                android:text="SAVE"
+                android:text="@string/save_date"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_12sdp"
@@ -242,7 +242,7 @@
                 android:layout_width="@dimen/_70sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_alignParentBottom="true"
-                android:text="CLOSE"
+                android:text="@string/close_date"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_12sdp"

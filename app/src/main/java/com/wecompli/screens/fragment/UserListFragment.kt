@@ -17,6 +17,7 @@ import com.wecompli.R
 import com.wecompli.adapter.SiteListAdapter
 import com.wecompli.adapter.UserListAdapter
 import com.wecompli.databinding.FragmentUserListBinding
+
 import com.wecompli.handler.UserListhandler
 import com.wecompli.model.SiteListResponseModel
 import com.wecompli.model.UserListResponseModel
@@ -38,7 +39,7 @@ class UserListFragment : Fragment(), UserListhandler {
     private var param1: String? = null
     private var param2: String? = null
 
-    var userlistView:FragmentUserListBinding?=null
+    var userlistView: FragmentUserListBinding?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {

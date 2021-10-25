@@ -11,7 +11,7 @@
         android:background="@drawable/rectangular_shape_white_round_corner_lightgrey_broder"
         android:gravity="center"
         android:textSize="@dimen/_16sdp"
-        android:text="SELECT WEEK DAYS"></TextView>
+        android:text="@string/week_selection"></TextView>
     <androidx.appcompat.widget.AppCompatCheckBox
         android:id="@+id/chk_mon"
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
         android:textSize="@dimen/_14sdp"
         android:layout_marginLeft="@dimen/_7sdp"
         android:button="@drawable/custom_checkbox_add_role"
-        android:text="MONDAY"></androidx.appcompat.widget.AppCompatCheckBox>
+        android:text="@string/monday"></androidx.appcompat.widget.AppCompatCheckBox>
     <androidx.appcompat.widget.AppCompatCheckBox
         android:id="@+id/chk_tues"
         android:layout_width="match_parent"
@@ -29,7 +29,7 @@
         android:textSize="@dimen/_14sdp"
         android:layout_marginLeft="@dimen/_7sdp"
         android:button="@drawable/custom_checkbox_add_role"
-        android:text="TUESDAY"></androidx.appcompat.widget.AppCompatCheckBox>
+        android:text="@string/tuesday"></androidx.appcompat.widget.AppCompatCheckBox>
     <androidx.appcompat.widget.AppCompatCheckBox
         android:id="@+id/chk_wed"
         android:layout_width="match_parent"
@@ -38,7 +38,7 @@
         android:textSize="@dimen/_14sdp"
         android:layout_marginLeft="@dimen/_7sdp"
         android:button="@drawable/custom_checkbox_add_role"
-        android:text="WEDNESDAY"></androidx.appcompat.widget.AppCompatCheckBox>
+        android:text="@string/wednesday"></androidx.appcompat.widget.AppCompatCheckBox>
     <androidx.appcompat.widget.AppCompatCheckBox
         android:id="@+id/chk_thurs"
         android:layout_width="match_parent"
@@ -47,7 +47,7 @@
         android:textSize="@dimen/_14sdp"
         android:layout_marginLeft="@dimen/_7sdp"
         android:button="@drawable/custom_checkbox_add_role"
-        android:text="THURSDAY"></androidx.appcompat.widget.AppCompatCheckBox>
+        android:text="@string/thursday"></androidx.appcompat.widget.AppCompatCheckBox>
     <androidx.appcompat.widget.AppCompatCheckBox
         android:id="@+id/chk_fri"
         android:layout_width="match_parent"
@@ -56,7 +56,7 @@
         android:textSize="@dimen/_14sdp"
         android:button="@drawable/custom_checkbox_add_role"
         android:layout_marginLeft="@dimen/_7sdp"
-        android:text="FRIDAY"></androidx.appcompat.widget.AppCompatCheckBox>
+        android:text="@string/friday"></androidx.appcompat.widget.AppCompatCheckBox>
     <androidx.appcompat.widget.AppCompatCheckBox
         android:id="@+id/chk_satur"
         android:layout_width="match_parent"
@@ -65,7 +65,7 @@
         android:textSize="@dimen/_14sdp"
         android:layout_marginLeft="@dimen/_7sdp"
         android:button="@drawable/custom_checkbox_add_role"
-        android:text="SATURDAY"></androidx.appcompat.widget.AppCompatCheckBox>
+        android:text="@string/saturday"></androidx.appcompat.widget.AppCompatCheckBox>
     <androidx.appcompat.widget.AppCompatCheckBox
         android:id="@+id/chk_sunday"
         android:layout_width="match_parent"
@@ -74,7 +74,7 @@
         android:textSize="@dimen/_14sdp"
         android:button="@drawable/custom_checkbox_add_role"
         android:layout_marginLeft="@dimen/_7sdp"
-        android:text="SUNDAY"></androidx.appcompat.widget.AppCompatCheckBox>
+        android:text="@string/sunday"></androidx.appcompat.widget.AppCompatCheckBox>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/_30sdp"
@@ -91,7 +91,7 @@
                 android:layout_width="@dimen/_70sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_alignParentBottom="true"
-                android:text="SAVE"
+                android:text="@string/save_date"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_12sdp"
@@ -110,7 +110,7 @@
                 android:layout_width="@dimen/_70sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_alignParentBottom="true"
-                android:text="CLOSE"
+                android:text="@string/close_date"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_12sdp"

@@ -33,6 +33,8 @@ class SiteSelectionListAdapterAddChecklist(
         if ( addchecksfragment.siteListRow!!.get(position).isselect) {
             itemView!!.chkSelect.isChecked=true
         }
+        else
+            itemView!!.chkSelect!!.isChecked=false
         itemView!!.chkSelect.setOnCheckedChangeListener { compoundButton, b ->
             if (b){
                 addchecksfragment.siteListRow!!.get(position).isselect=true
@@ -44,5 +46,12 @@ class SiteSelectionListAdapterAddChecklist(
 
     override fun getItemCount(): Int {
        return siteList.size
+    }
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
+
+    override fun getItemId(position: Int): Long {
+        return super.getItemId(position)
     }
 }

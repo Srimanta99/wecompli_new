@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Window
+import android.widget.Toast
 import com.wecompli.databinding.CustomWeekSelectionLayoutBinding
 import com.wecompli.screens.MainActivity
 import com.wecompli.screens.fragment.AddCheckFragment
@@ -38,6 +39,7 @@ class CustomWeeklyDaySelectionDialog(
         }
         customWeekSelectionLayoutBinding!!.tvSave.setOnClickListener {
            // addCheckFragment.
+
             if (customWeekSelectionLayoutBinding!!.chkMon.isChecked)
                 addCheckFragment.selectedweekdays!!.add("7")
             if (customWeekSelectionLayoutBinding!!.chkTues.isChecked)
@@ -52,7 +54,12 @@ class CustomWeeklyDaySelectionDialog(
                 addCheckFragment.selectedweekdays!!.add("12")
             if (customWeekSelectionLayoutBinding!!.chkSunday.isChecked)
                 addCheckFragment.selectedweekdays!!.add("13")
-               dismiss()
+            if (addCheckFragment.selectedweekdays!!.size>0){
+                addCheckFragment.addcheckView!!.tvselecttype.setText("WEEKLY")
+                dismiss()
+            }else
+                Toast.makeText(mainActivity,"Please select Day", Toast.LENGTH_LONG).show()
+
 
         }
 

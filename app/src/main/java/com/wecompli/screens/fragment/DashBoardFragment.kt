@@ -60,7 +60,7 @@ class DashBoardFragment : Fragment(),DashBoardHandler {
         viewDashBoard!!.dashViewModel=viewmodel
         viewmodel!!.dashBoardHandler=this
         if (CustomAlert.isNetworkAvailable(activity as MainActivity))
-        callApiForSiteList()
+            callApiForSiteList()
         else
             CustomAlert.showaInternetlert(activity as MainActivity," No Internet Connection")
         return  viewDashBoard!!.root

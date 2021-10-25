@@ -2,10 +2,13 @@ package com.wecompli.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.flexbox.FlexboxLayout
 import com.wecompli.R
 import com.wecompli.databinding.ItemChecklistBinding
 import com.wecompli.model.CheckListResponseModel
@@ -19,28 +22,50 @@ import java.util.*
 class CheckListAdapter(
     val activity: MainActivity,
     val checkList: ArrayList<CheckListResponseModel.RowDetails>,
-    val checksListFragment: ChecksListFragment
-):RecyclerView.Adapter<CheckListAdapter.ViewHolder>() {
-  var itemView:ItemChecklistBinding?=null
-    class ViewHolder(val itemChecklistBinding: ItemChecklistBinding):RecyclerView.ViewHolder(
-        itemChecklistBinding.root
-    )
+    val checksListFragment: ChecksListFragment):RecyclerView.Adapter<CheckListAdapter.ViewHolder>() {
+ // var itemView:ItemChecklistBinding?=null
+    class ViewHolder(val view: View):RecyclerView.ViewHolder(view){
+        val tvChecklistname:TextView=view.findViewById(R.id.tv_checklistname)
+        val tvCheckModule:TextView=view.findViewById(R.id.tv_check_module)
+        val tvNote:TextView=view.findViewById(R.id.tv_note)
+        val tvNoteText:TextView=view.findViewById(R.id.tv_note_text)
+        val tvSite:TextView=view.findViewById(R.id.tv_site)
+        val tvChecksType:TextView=view.findViewById(R.id.tv_checks_type)
+        val tvChecks:TextView=view.findViewById(R.id.tv_checks)
+        val tvView:TextView=view.findViewById(R.id.tv_view)
+        val tvCheckvalue:TextView=view.findViewById(R.id.tv_checkvalue)
+        val tvStatus:TextView=view.findViewById(R.id.tv_status)
+        val tvStatusVal:TextView=view.findViewById(R.id.tv_status_val)
+        val tvCheckscount:TextView=view.findViewById(R.id.tv_checkscount)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemChecklistBinding.inflate(inflater)
-        itemView=binding
-        return ViewHolder(binding)
+        val imgActive:ImageView=view.findViewById(R.id.img_active)
+        val flexSite:FlexboxLayout=view.findViewById(R.id.flex_site)
+        val llCheckDetails:LinearLayout=view.findViewById(R.id.ll_check_details)
+         val imgDownarrow:ImageView=view.findViewById(R.id.img_downarrow)
+
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view=LayoutInflater.from(activity).inflate(R.layout.item_checklist,parent,false)
+       /* val inflater = LayoutInflater.from(parent.context)
+        val binding = ItemChecklistBinding.inflate(inflater)
+        itemView=binding*/
+
+
+        return ViewHolder(view)
+    }
+
+    override fun getItemId(position: Int): Long {
+        return super.getItemId(position)
+    }
+    override fun onBindViewHolder(itemView: ViewHolder, position: Int) {
         var season:String?=""
         var checkdataMonthly:String?=""
         var checkDateQuaterly:String?=""
         var checkdateHalfYearly:String?=""
         var checkdateYearly:String?=""
 
-        itemView!!.tvChecklistname.typeface=CustomTypeface.getRajdhaniBold(activity)
+        itemView!!.tvChecklistname!!.typeface=CustomTypeface.getRajdhaniBold(activity)
         itemView!!.tvCheckModule.typeface=CustomTypeface.getRajdhaniBold(activity)
         itemView!!.tvNote.typeface=CustomTypeface.getRajdhaniBold(activity)
         itemView!!.tvNoteText.typeface=CustomTypeface.getRajdhaniMedium(activity)
@@ -225,12 +250,12 @@ class CheckListAdapter(
             itemView!!.flexSite!!.addView(linearLayout)
         }
 
-       /* itemView!!.imgDownarrow.setOnClickListener {
-            if(itemView!!.llCheckDetails.visibility==View.GONE)
+        itemView!!.imgDownarrow.setOnClickListener {
+            if(itemView!!.llCheckDetails.visibility== View.GONE)
                 itemView!!.llCheckDetails!!.visibility=View.VISIBLE
             else
                 itemView!!.llCheckDetails!!.visibility=View.GONE
-        }*/
+        }
     }
 
     private fun convertmonthDay(inputDateStr: String): String {

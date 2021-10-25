@@ -101,7 +101,7 @@
                <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:text="HEAD"
+                   android:text="@string/head"
                    android:id="@+id/tv_head"
                    android:textColor="@color/item_text_color"
                    android:textSize="@dimen/_11sdp"
@@ -124,7 +124,7 @@
                    android:layout_marginLeft="@dimen/_17sdp"
                    android:textColor="@color/item_text_color"
                    android:textSize="@dimen/_11sdp"
-                   android:text="INFO"></TextView>
+                   android:text="@string/info"></TextView>
            </RelativeLayout>
 
        </LinearLayout>
@@ -144,7 +144,7 @@
                         android:id="@+id/tv_site"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="SITES"
+                        android:text="@string/site_userlist"
                         android:textSize="@dimen/_11sdp"
                         android:textColor="@color/item_text_color"
                         android:layout_marginTop="@dimen/_30sdp"
@@ -188,7 +188,7 @@
                         android:id="@+id/tv_role"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="ROLE"
+                        android:text="@string/role"
                         android:textColor="@color/item_text_color"
                         android:textSize="@dimen/_11sdp"
 
@@ -231,7 +231,7 @@
                         android:id="@+id/tv_status"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="STATUS"
+                        android:text="@string/status_userlist"
                         android:textColor="@color/item_text_color"
                         android:textSize="@dimen/_11sdp"
                         android:layout_centerInParent="true"></TextView>

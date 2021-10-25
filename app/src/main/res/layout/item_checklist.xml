@@ -60,7 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_9sdp"
-            android:visibility="visible"
+            android:visibility="gone"
             android:layout_below="@+id/rr_headercheck"
             android:orientation="vertical">
       <LinearLayout
@@ -74,7 +74,7 @@
               android:layout_centerVertical="true"
               android:layout_marginRight="@dimen/_9sdp"
               android:background="@drawable/rectangular_shape_rounded_corner_grey"
-              android:text="NOTES : "
+              android:text="@string/note_checklist"
               android:paddingLeft="@dimen/_10sdp"
               android:paddingRight="@dimen/_10sdp"
               android:paddingTop="@dimen/_5sdp"
@@ -111,7 +111,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/_9sdp"
                     android:background="@drawable/rectangular_shape_rounded_corner_grey"
-                    android:text="SITES : "
+                    android:text="@string/site_checklist"
                     android:paddingLeft="@dimen/_10sdp"
                     android:paddingRight="@dimen/_10sdp"
                     android:paddingTop="@dimen/_5sdp"
@@ -180,7 +180,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/_9sdp"
                     android:background="@drawable/rectangular_shape_rounded_corner_grey"
-                    android:text="CHECKS : "
+                    android:text="@string/checks_checklist"
 
                     android:paddingLeft="@dimen/_10sdp"
                     android:paddingRight="@dimen/_10sdp"
@@ -251,7 +251,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/_9sdp"
                     android:background="@drawable/rectangular_shape_rounded_corner_grey"
-                    android:text="STATUS : "
+                    android:text="@string/status_checklist"
                     android:paddingLeft="@dimen/_10sdp"
                     android:paddingRight="@dimen/_10sdp"
                     android:paddingTop="@dimen/_5sdp"
@@ -278,7 +278,7 @@
                         android:layout_marginLeft="19dp"
                         android:layout_toRightOf="@id/img_active"
                         android:gravity="center_vertical"
-                        android:text="Active"
+                        android:text="@string/active"
                         android:textColor="@color/textcolor"
                         android:textSize="@dimen/_13sdp"></TextView>
                 </RelativeLayout>

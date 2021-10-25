@@ -97,7 +97,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="@dimen/_5sdp"
-                        android:text="CheckList Name ("
+                        android:text="@string/chklist_name"
                         android:textSize="@dimen/_10sdp"
                         app:font="@{`rajDhaniSemiBold`}"></TextView>
 
@@ -118,7 +118,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:paddingRight="@dimen/_5sdp"
-                    android:text=" * Please Enter checklist name"
+                    android:text="@string/please_checklistname"
                     android:textColor="@color/red_text_color"></TextView>
             </RelativeLayout>
 
@@ -135,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_12sdp"
                 android:paddingLeft="@dimen/_5sdp"
-                android:text="Add Note"
+                android:text="@string/add_notes"
                 android:textSize="@dimen/_10sdp"
                 app:font="@{`rajDhaniSemiBold`}"></TextView>
 
@@ -161,7 +161,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="@dimen/_5sdp"
-                    android:text="Select Type"
+                    android:text="@string/check_selecttype"
                     android:textSize="@dimen/_10sdp"
                     app:font="@{`rajDhaniSemiBold`}"></TextView>
 
@@ -184,7 +184,7 @@
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:background="@drawable/rectangular_shape_rounded_corner_login"
                 android:drawableRight="@drawable/down_arrow"
-                android:hint="Select Type"
+                android:hint="@string/check_selecttypes"
                 android:onClick="@{addCheck.selectType}"
                 android:paddingLeft="@dimen/_10sdp"
                 android:paddingTop="@dimen/_13sdp"
@@ -205,7 +205,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="@dimen/_5sdp"
-                    android:text="Select Status"
+                    android:text="@string/select_status"
                     android:textSize="@dimen/_10sdp"
                     app:font="@{`rajDhaniSemiBold`}"></TextView>
 

@@ -105,4 +105,11 @@ class SiteListAdapter(val activity: MainActivity,val siteList:ArrayList<SiteList
     override fun getItemCount(): Int {
        return siteList.size
     }
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
+
+    override fun getItemId(position: Int): Long {
+        return super.getItemId(position)
+    }
 }

@@ -11,7 +11,7 @@
         android:background="@drawable/rectangular_shape_white_round_corner_lightgrey_broder"
         android:gravity="center"
         android:textSize="@dimen/_16sdp"
-        android:text="SELECT YEARLY DAY"></TextView>
+        android:text="@string/yearly_day_select"></TextView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/_14sdp"
                     android:gravity="center"
-                    android:text="1st Quater"></TextView>
+                    android:text="@string/Friststquater"></TextView>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
@@ -46,6 +46,7 @@
                         android:id="@+id/tv_quater1_date"
                         android:gravity="center"
                         android:textSize="@dimen/_12sdp"
+
                         android:layout_weight="3.2"></TextView>
                     <RelativeLayout
                         android:layout_width="0dp"
@@ -83,7 +84,7 @@
                 android:layout_width="@dimen/_70sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_alignParentBottom="true"
-                android:text="SAVE"
+                android:text="@string/save_date"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_12sdp"
@@ -102,7 +103,7 @@
                 android:layout_width="@dimen/_70sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_alignParentBottom="true"
-                android:text="CLOSE"
+                android:text="@string/close_date"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_12sdp"
