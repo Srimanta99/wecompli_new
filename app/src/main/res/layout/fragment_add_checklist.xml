@@ -6,7 +6,7 @@
     <data>
         <variable
             name="addCheck"
-            type="com.wecompli.viewmodel.AddCheckViewModel" />
+            type="com.wecompli.viewmodel.AddCheckListViewModel" />
     </data>
 <LinearLayout
     android:layout_width="match_parent"
@@ -118,7 +118,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:paddingRight="@dimen/_5sdp"
-                    android:text="@string/please_checklistname"
+                    android:text="@string/please_enter_checksname"
                     android:textColor="@color/red_text_color"></TextView>
             </RelativeLayout>
 

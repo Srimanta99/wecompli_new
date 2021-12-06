@@ -6,160 +6,165 @@
     <string name="password">Passwort</string>
     <string name="remember_me">Behalte mich in Erinnerung</string>
     <string name="forgot_password">Passwort vergessen</string>
-    <string name="note">NOTES:</string>
-    <string name="ForgotpasswordNote">A new auto generated password emailed \n to your account</string>
-    <string name="send">SEND</string>
+    <string name="note">ANMERKUNGEN:</string>
+    <string name="ForgotpasswordNote">Ein neues automatisch generiertes Passwort wird \n per E-Mail an Ihr Konto gesendet</string>
+    <string name="send">SENDEN</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="select_language">SELECT LANGUAGE</string>
-    <string name="english">English</string>
-    <string name="douch">Dutch</string>
-    <string name="french">French</string>
-    <string name="germen">German</string>
-    <string name="cancel">Cancel</string>
-    <string name="start">START</string>
-    <string name="new_version_avalible">A New Update is Available</string>
-    <string name="update">Update</string>
+    <string name="hello_blank_fragment">Hallo leeres Fragment</string>
+    <string name="select_language">SPRACHE AUSWÄHLEN</string>
+    <string name="english">Englisch</string>
+    <string name="douch">Niederländisch</string>
+    <string name="french">Französisch</string>
+    <string name="germen">Deutsch</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="start">ANFANG</string>
+    <string name="new_version_avalible">Ein neues Update ist verfügbar</string>
+    <string name="update">Aktualisieren</string>
 
     //Sidemenu
-    <string name="dashboard">DASHBOARD</string>
-    <string name="subscribe">SUBSCRIBE</string>
-    <string name="menu_dashboard">DASHBOARD</string>
-    <string name="menu_sites">SITES</string>
-    <string name="menu_Users">USERS</string>
-    <string name="menu_checklist">CHECKLISTS</string>
-    <string name="menu_faults">FAULTS</string>
-    <string name="menu_incidents">INCIDENTS</string>
-    <string name="menu_documents">DOCUMENTS</string>
+    <string name="dashboard">ARMATURENBRETT</string>
+    <string name="subscribe">ABONNIEREN</string>
+    <string name="menu_dashboard">ARMATURENBRETT</string>
+    <string name="menu_sites">SEITEN</string>
+    <string name="menu_Users">BENUTZER</string>
+    <string name="menu_checklist">CHECKLISTEN</string>
+    <string name="menu_faults">FEHLER</string>
+    <string name="menu_incidents">VORFÄLLE</string>
+    <string name="menu_documents">UNTERLAGEN</string>
     <string name="menu_email">EMAIL</string>
-    <string name="leaderboard">LEADER BOARD</string>
-    <string name="role">ROLES</string>
+    <string name="leaderboard">BESTENLISTE</string>
+    <string name="role">ROLLEN</string>
 
     //dadhboard
-    <string name="selectsites">Select Sites</string>
-    <string name="download">DOWNLOAD</string>
-    <string name="adhoc">ADHOC FAULT"</string>
-    <string name="todaycheck">TODAYS CHECK</string>
-    <string name="startcheck">START CHECK</string>
-    <string name="faults">FAULTS</string>
-    <string name="active">(ACTIVE)</string>
+    <string name="selectsites">Sites auswählen</string>
+    <string name="download">HERUNTERLADEN</string>
+    <string name="adhoc">ADHOC-FEHLER</string>
+    <string name="todaycheck">HEUTE-CHECK</string>
+    <string name="startcheck">CHECK STARTEN</string>
+    <string name="faults">FEHLER</string>
+    <string name="active">(AKTIV)</string>
 
     //adhoc
-    <string name="adhoc_fault">ADHOC FAULT</string>
-    <string name="add_note">Add note</string>
-    <string name="feault_note">* please enter your complete fault details in the above section</string>
-    <string name="add_image">CLICK HERE  &lt;br /&gt; FOR ADD IMAGE</string>
-    <string name="notify_who">Notify Who</string>
-    <string name="submit">SUBMIT</string>
-    <string name="select_image_mode">Choose Image from </string>
-    <string name="from_gallery">Select photo from gallery</string>
-    <string name="from_camera">Capture photo from camera</string>
+    <string name="adhoc_fault">ADHOC-FEHLER</string>
+    <string name="add_note">Notiz hinzufügen</string>
+    <string name="feault_note">* Bitte geben Sie Ihre vollständigen Fehlerdetails in den obigen Abschnitt ein</string>
+    <string name="add_image">HIER KLICKEN \n
+        FÜR BILD HINZUFÜGEN</string>
+    <string name="notify_who">Wer benachrichtigen</string>
+    <string name="submit">EINREICHEN</string>
+    <string name="select_image_mode">Bild auswählen aus </string>
+    <string name="from_gallery">Foto aus Galerie auswählen</string>
+    <string name="from_camera">Foto von der Kamera aufnehmen</string>
 
     //alert
     <string name="ok">OK</string>
-    <string name="confirm">Confirm</string>
+    <string name="confirm">Bestätigen Sie</string>
 
     //adsite
-    <string name="add_site_name">Site Name (</string>
-    <string name="add_site_status">Select Status</string>
-    <string name="active_site">Active</string>
-    <string name="inactive_site">In-active</string>
+    <string name="add_site_name">Site-Name (</string>
+    <string name="add_site_status">Wählen Sie Status</string>
+    <string name="active_site">Aktiv</string>
+    <string name="inactive_site">Inaktiv</string>
 
     //search
-    <string name="Searchs">Search</string>
-    <string name="search_site_name">Site name</string>
-    <string name="search_submit">SEARCH</string>
+    <string name="Searchs">Suche</string>
+    <string name="search_site_name">Site-Name</string>
+    <string name="search_submit">SUCHE</string>
 
      //site item
-    <string name="usercount">USERS</string>
-    <string name="checklistcount">CHECKLIST</string>
-    <string name="checkcount">CHECK</string>
-    <string name="faultcount">FAULT</string>
-    <string name="DOCUMENTScount">DOCUMENTS</string>
-    <string name="incidentscount">INCIDENTS</string>
+    <string name="usercount">BENUTZER</string>
+    <string name="checklistcount">CHECKLISTE</string>
+    <string name="checkcount">PRÜFEN</string>
+    <string name="faultcount">FEHLER</string>
+    <string name="DOCUMENTScount">UNTERLAGEN</string>
+    <string name="incidentscount">VORFÄLLE</string>
 
     //add role
-    <string name="role_name">Role Name(</string>
-    <string name="please_role_name">* please enter role name</string>
-    <string name="dashboard_add_role">DASHBOARD</string>
-    <string name="sites_add_role">SITES</string>
-    <string name="users_add_role">USERS</string>
-    <string name="role_add_role">ROLES</string>
-    <string name="checks_add_role">CHECKS</string>
-    <string name="faults_add_role">FAULTS</string>
-    <string name="incidents_add_role">INCIDENTS</string>
-    <string name="documents_add_role">DOCUMENTS</string>
-    <string name="help_add_role">HELP</string>
-    <string name="settings_add_role">SETTINGS</string>
+    <string name="role_name">Rollenname(</string>
+    <string name="please_role_name">* bitte Rollennamen eingeben</string>
+    <string name="dashboard_add_role">ARMATURENBRETT</string>
+    <string name="sites_add_role">SEITEN</string>
+    <string name="users_add_role">BENUTZER</string>
+    <string name="role_add_role">ROLLEN</string>
+    <string name="checks_add_role">SCHECKS</string>
+    <string name="faults_add_role">FEHLER</string>
+    <string name="incidents_add_role">VORFÄLLE</string>
+    <string name="documents_add_role">UNTERLAGEN</string>
+    <string name="help_add_role">HILFE</string>
+    <string name="settings_add_role">DIE EINSTELLUNGEN</string>
 
     //user list
-    <string name="add_role">ADD ROLE</string>
-    <string name="list_role">LIST ROLE</string>
-    <string name="add_user">ADD USER</string>
+    <string name="add_role">ROLLE HINZUFÜGEN</string>
+    <string name="list_role">LISTE ROLLE</string>
+    <string name="add_user">NUTZER HINZUFÜGEN</string>
 
     //add checklist
-    <string name="chklist_name">CheckList Name (</string>
-    <string name="please_checklistname">* Please Enter checklist name</string>
-    <string name="add_notes">Add Note</string>
-    <string name="check_selecttype">Select Type(</string>
-    <string name="check_selecttypes">Select Type</string>
-    <string name="select_status">Select Status(</string>
+    <string name="chklist_name">Checklistenname (</string>
+    <string name="please_checklistname">* Bitte geben Sie den Namen der Checkliste ein</string>
+    <string name="add_notes">Notiz hinzufügen</string>
+    <string name="check_selecttype">Art auswählen(</string>
+    <string name="check_selecttypes">Art auswählen</string>
+    <string name="select_status">Wählen Sie Status (</string>
 
 
     //checklisttype
-    <string name="select_type">        SELECT TYPE        </string>
-    <string name="daily">DAILY</string>
+    <string name="select_type">        ART AUSWÄHLEN       </string>
+    <string name="daily">TÄGLICH</string>
     <string name="interday">INTRADAY</string>
-    <string name="weekly">WEEKLY</string>
-    <string name="monthly">MONTHLY</string>
-    <string name="quaterly">QUATERLY</string>
-    <string name="half_yearly">HALF-YEARLY</string>
-    <string name="yearly">YEARLY</string>
+    <string name="weekly">WÖCHENTLICH</string>
+    <string name="monthly">MONATLICH</string>
+    <string name="quaterly">VIERTELJÄHRIG</string>
+    <string name="half_yearly">HALBJÄHRLICH</string>
+    <string name="yearly">JÄHRLICH</string>
 
     // different selection
-    <string name="half_day_select">SELECT HALF-YEARLY DAY</string>
-    <string name="Friststquater">1st Quarter</string>
-    <string name="second_quater">2nd Quarter</string>
-    <string name="thired_quater">3rd Quarter</string>
-    <string name="fourth_quater">4th Quarter</string>
-    <string name="save_date">SAVE</string>
-    <string name="close_date">CLOSE</string>
-    <string name="monthly_day_select">SELECT MONTH DAY</string>
-    <string name="quater_day_select">SELECT QUARTERLY DAY</string>
-    <string name="yearly_day_select">SELECT YEARLY DAY</string>
+    <string name="half_day_select">HALBJÄHRLICHEN TAG WÄHLEN</string>
+    <string name="Friststquater">1. Quartal</string>
+    <string name="second_quater">2. Quartal</string>
+    <string name="thired_quater">3. Quartal</string>
+    <string name="fourth_quater">4. Quartal</string>
+    <string name="save_date">SPEICHERN</string>
+    <string name="close_date">NAH DRAN</string>
+    <string name="monthly_day_select">WÄHLEN SIE MONAT TAG</string>
+    <string name="quater_day_select">QUARTALSTAG AUSWÄHLEN</string>
+    <string name="yearly_day_select">JAHRESTAG AUSWÄHLEN</string>
 
     //weekdays selection
-    <string name="week_selection">SELECT WEEK DAYS</string>
-    <string name="monday">MONDAY</string>
-    <string name="tuesday">TUESDAY</string>
-    <string name="wednesday">WEDNESDAY</string>
-    <string name="thursday">THURSDAY</string>
-    <string name="friday">FRIDAY</string>
-    <string name="saturday">SATURDAY</string>
-    <string name="sunday">SUNDAY</string>
+    <string name="week_selection">WÄHLEN SIE WOCHENTAGE</string>
+    <string name="monday">MONTAG</string>
+    <string name="tuesday">DIENSTAG</string>
+    <string name="wednesday">MITTWOCH</string>
+    <string name="thursday">DONNERSTAG</string>
+    <string name="friday">FREITAG</string>
+    <string name="saturday">SAMSTAG</string>
+    <string name="sunday">SONNTAG</string>
 
     //role
-    <string name="select_role">SELECT ROLE</string>
+    <string name="select_role">ROLLE AUSWÄHLEN</string>
 
     //site
-    <string name="select_site">SELECT SITE</string>
+    <string name="select_site">SITE AUSWÄHLEN</string>
 
     //add user
-    <string name="access_info">ACCESS INFO</string>
-    <string name="selects_sites">Select Site</string>
-    <string name="selects_role">Select Role</string>
-    <string name="personal_info">PERSONAL INFO</string>
+    <string name="access_info">ZUGANGSINFORMATIONEN</string>
+    <string name="selects_sites">Site auswählen</string>
+    <string name="selects_role">Rolle auswählen</string>
+    <string name="personal_info">PERSÖNLICHE INFORMATIONEN</string>
     <string name="name_user">Name</string>
 
     //item_checklist
-    <string name="note_checklist">NOTES : </string>
-    <string name="site_checklist">SITES : </string>
-    <string name="checks_checklist">CHECKS : </string>
-    <string name="status_checklist">STATUS :</string>
+    <string name="note_checklist">ANMERKUNGEN : </string>
+    <string name="site_checklist">SEITEN: </string>
+    <string name="checks_checklist">ÜBERPRÜFUNGEN: </string>
+    <string name="status_checklist">ZUSTAND:</string>
 
     //item userlist
-    <string name="head">HEAD</string>
-    <string name="info">INFO</string>
-    <string name="site_userlist">SITES</string>
-    <string name="status_userlist">STATUS</string>
+    <string name="head">KOPF</string>
+    <string name="info">DIE INFO</string>
+    <string name="site_userlist">SEITEN</string>
+    <string name="status_userlist">SEITEN</string>
+
+    //Add checks
+    <string name="checksName">Checks Name(</string>
+    <string name="please_enter_checksname">Please enter checks name</string>
 </resources>

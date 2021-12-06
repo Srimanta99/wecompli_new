@@ -22,4 +22,6 @@
     <color name="item_text_color">#404D73</color>
     <color name="add_role_text_color">#4F667F</color>
     <color name="textcolor_check_list">#354D6D</color>
+    <color name="add_check_top_cell">#d7dce2</color>
+    <color name="add_check_type">#606972</color>
 </resources>

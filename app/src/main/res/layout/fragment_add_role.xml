@@ -116,10 +116,12 @@
                     </TextView>
 
                     <EditText
+                        android:id="@+id/et_rolename"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_40sdp"
                         android:layout_below="@id/tv_rolename"
                         android:layout_marginTop="@dimen/_10sdp"
+                        android:padding="@dimen/_7sdp"
                         android:background="@drawable/rectangular_shape_rounded_corner_white">
                     </EditText>
                 </RelativeLayout>
@@ -612,6 +614,7 @@
                         android:layout_marginTop="@dimen/_15sdp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginBottom="@dimen/_15sdp"
+                        android:onClick="@{addRole.submitclick}"
                         android:background="@drawable/botton_rounded_corner"
                         android:gravity="center">
 

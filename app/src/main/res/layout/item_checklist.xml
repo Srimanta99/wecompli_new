@@ -214,6 +214,7 @@
 
                     </RelativeLayout>
                     <LinearLayout
+                        android:id="@+id/llCheckView"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/_30sdp"
                         android:background="@drawable/rectangular_shape_white_round_corner_lightgrey_broder">

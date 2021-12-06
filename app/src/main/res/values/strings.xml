@@ -167,4 +167,9 @@
     <string name="status_userlist">STATUS</string>
 
 
+    //Add checks
+    <string name="checksName">Checks Name(</string>
+    <string name="please_enter_checksname">Please enter checks name</string>
+
+
 </resources>

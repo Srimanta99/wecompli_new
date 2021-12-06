@@ -12,4 +12,13 @@ class DashBoardViewModel:ViewModel() {
     fun openSearchList(view:View){
         dashBoardHandler!!.showSiteList()
     }
+    fun openStartCheck(view:View){
+        dashBoardHandler!!.startcheck()
+    }
+    fun openDownload(view:View){
+        dashBoardHandler!!.openDownload()
+    }
+    fun openadhocFault(view:View){
+        dashBoardHandler!!.openDownload()
+    }
 }

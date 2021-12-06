@@ -28,8 +28,7 @@ import com.wecompli.network.Retrofit
 import com.wecompli.screens.MainActivity
 import com.wecompli.utils.alert.CustomAlert
 import com.wecompli.utils.customdialog.*
-import com.wecompli.viewmodel.AddCheckViewModel
-import okhttp3.ResponseBody
+import com.wecompli.viewmodel.AddCheckListViewModel
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -45,9 +44,9 @@ class AddCheckFragment : Fragment(), AddCheckHandler {
     private var param1: String? = null
     private var param2: String? = null
     var addcheckView:FragmentAddChecklistBinding?=null
-    var viewModel:AddCheckViewModel?=null
+    var viewModel:AddCheckListViewModel?=null
     var siteListRow:ArrayList<SiteListResponseModel.SiteDetails>?=null
-     var siteStatus=""
+    var siteStatus="1"
     var siteids=""
     var selectedweekdays:ArrayList<String>?=ArrayList()
     var seletedmonthdDay:ArrayList<String>?=ArrayList()
@@ -66,7 +65,7 @@ class AddCheckFragment : Fragment(), AddCheckHandler {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
          addcheckView=DataBindingUtil.inflate(inflater,R.layout.fragment_add_checklist,container,false)
-         viewModel=ViewModelProviders.of(this).get(AddCheckViewModel::class.java)
+         viewModel=ViewModelProviders.of(this).get(AddCheckListViewModel::class.java)
          addcheckView!!.addCheck=viewModel
          viewModel!!.addCheckHandler=this
          callApiForSiteList()
@@ -206,21 +205,30 @@ class AddCheckFragment : Fragment(), AddCheckHandler {
             paramObject.put("site_ids",siteids.substring(1))
             paramObject.put("category_note",addcheckView!!.etNote.text.toString())
             paramObject.put("category_purpose","checks")
-            if (checkListSessionId==1)
+            if (checkListSessionId==1) {
+                paramObject.put("check_date", "")
+                paramObject.put("season_id", checkListSessionId)
+            }else if(checkListSessionId==2) {
+                paramObject.put("season_id", selectedweekdays!!.joinToString(separator = ","))
                 paramObject.put("check_date","")
-            else if(checkListSessionId==2)
-                paramObject.put("check_date",selectedweekdays!!.joinToString(separator = ","))
-            else if(checkListSessionId==3)
-                paramObject.put("check_date",seletedmonthdDay!!.joinToString(separator = ","))
-            else if(checkListSessionId==4)
-                paramObject.put("check_date",selectedquaterlyDay!!.joinToString(separator = ","))
-            else if(checkListSessionId==5)
-                paramObject.put("check_date",selectedhalfYearlyyDay!!.joinToString(separator = ","))
-            else if(checkListSessionId==6)
-                paramObject.put("check_date",selectedyearlyDay!!.joinToString(separator = ","))
-            else if(checkListSessionId==14)
-                paramObject.put("check_date","")
-            paramObject.put("season_id",checkListSessionId)
+            }
+            else if(checkListSessionId==3) {
+                paramObject.put("check_date", seletedmonthdDay!!.joinToString(separator = ","))
+                paramObject.put("season_id", checkListSessionId)
+            }else if(checkListSessionId==4) {
+                paramObject.put("check_date", selectedquaterlyDay!!.joinToString(separator = ","))
+                paramObject.put("season_id", checkListSessionId)
+            }else if(checkListSessionId==5) {
+                paramObject.put("check_date", selectedhalfYearlyyDay!!.joinToString(separator = ","))
+                paramObject.put("season_id", checkListSessionId)
+            }else if(checkListSessionId==6) {
+                paramObject.put("check_date", selectedyearlyDay!!.joinToString(separator = ","))
+                paramObject.put("season_id", checkListSessionId)
+            }
+            else if(checkListSessionId==14) {
+                paramObject.put("check_date", "")
+                paramObject.put("season_id", checkListSessionId)
+            }
             paramObject.put("status_id",siteStatus)
             var obj: JSONObject = paramObject
             var jsonParser: JsonParser = JsonParser()
@@ -234,19 +242,19 @@ class AddCheckFragment : Fragment(), AddCheckHandler {
                         if(response.body()!!.process){
                             CustomAlert.showalert(activity as MainActivity,response!!.body()!!.message)
                         }else{
-                            if (response!!.body()!!.error.category_name.equals(""))
+                            if (!response!!.body()!!.error.category_name.equals(""))
                                 CustomAlert.showalert(activity as MainActivity,response!!.body()!!.error.category_name)
-                            if (response!!.body()!!.error.category_purpose.equals(""))
+                            if (!response!!.body()!!.error.category_purpose.equals(""))
                                 CustomAlert.showalert(activity as MainActivity,response!!.body()!!.error.category_purpose)
-                            if (response!!.body()!!.error.check_date.equals(""))
+                            if (!response!!.body()!!.error.check_date.equals(""))
                                 CustomAlert.showalert(activity as MainActivity,response!!.body()!!.error.check_date)
-                            if (response!!.body()!!.error.company_id.equals(""))
+                            if (!response!!.body()!!.error.company_id.equals(""))
                                 CustomAlert.showalert(activity as MainActivity,response!!.body()!!.error.company_id)
-                            if (response!!.body()!!.error.season_id.equals(""))
+                            if (!response!!.body()!!.error.season_id.equals(""))
                                 CustomAlert.showalert(activity as MainActivity,response!!.body()!!.error.season_id)
-                            if (response!!.body()!!.error.site_ids.equals(""))
+                            if (!response!!.body()!!.error.site_ids.equals(""))
                                 CustomAlert.showalert(activity as MainActivity,response!!.body()!!.error.site_ids)
-                            if (response!!.body()!!.error.status_id.equals(""))
+                            if (!response!!.body()!!.error.status_id.equals(""))
                                 CustomAlert.showalert(activity as MainActivity,response!!.body()!!.error.status_id)
 
                         }

@@ -16,12 +16,15 @@ class NetworkUtility {
         const val  EMAIL="http://3.10.210.41/storage/app/public/function_icon/email.png"
          const val LOG_IN="login"
         const val  SITE_LIST="site/list"
+        const val  SITE_LIST_CATEGORY_WISE="checklist/site/list"
         const val  SITE_CREATE="site/create"
         const val ROLESLIST="role/list"
         const val  USERLIST="user/list"
         const val  UserCREATE="user/create"
         const val  CHECKLIST="checklist/list"
         const val  CHECKLISTCREATE="checklist/create"
+      const val  ADDROLE="role/create"
+      const val  CHECKSADD="checks/create"
 
     }
 }

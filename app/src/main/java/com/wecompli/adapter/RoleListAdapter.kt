@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.android.flexbox.FlexboxLayout
 import com.wecompli.R
 import com.wecompli.databinding.ItemRoleListBinding
 import com.wecompli.model.RoleListResponseModel
@@ -21,17 +23,23 @@ import kotlinx.android.synthetic.main.item_role_list.view.*
 
 class RoleListAdapter(val activity: MainActivity, val rolelist:ArrayList<RoleListResponseModel.RoleDetails>, val siteListFragment: RolesListFragment)
     : RecyclerView.Adapter<RoleListAdapter.ViewHolder>(){
-       var  itemView:ItemRoleListBinding?=null
-    class ViewHolder(val itemSite: ItemRoleListBinding):RecyclerView.ViewHolder(itemSite!!.root)
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemRoleListBinding.inflate(inflater)
-        itemView=binding
-        return ViewHolder(binding)
+     //  var  itemView:ItemRoleListBinding?=null
+    class ViewHolder(val itemSite: View):RecyclerView.ViewHolder(itemSite){
+        val tvSitename=itemSite.findViewById<TextView>(R.id.tv_rolename);
+         val rlExpand:RelativeLayout=itemSite.findViewById(R.id.rl_expand);
+         val llRoles:LinearLayout=itemSite.findViewById(R.id.ll_roles)
+         val flexboxlayoutRole:FlexboxLayout=itemSite.findViewById(R.id.flexboxlayout_role)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+       /* val inflater = LayoutInflater.from(parent.context)
+        val binding = ItemRoleListBinding.inflate(inflater)
+        itemView=binding*/
+        val view=LayoutInflater.from(activity).inflate(R.layout.item_role_list,parent,false)
+        return ViewHolder(view)
+    }
+
+    override fun onBindViewHolder(itemView: ViewHolder, position: Int) {
 
           itemView!!.tvSitename.setText(rolelist.get(position).role_name)
            itemView!!.tvSitename.typeface=CustomTypeface.getRajdhaniBold(activity);
@@ -56,7 +64,7 @@ class RoleListAdapter(val activity: MainActivity, val rolelist:ArrayList<RoleLis
              val img: ImageView = linearLayout.findViewById(R.id.crossview)
              tvname.setText(rolelist.get(position).role_list.get(i).function_display_name)
              Glide.with(activity)
-                 .load(rolelist.get(position).role_list.get(i).function_icon)
+                 .load(rolelist.get(position).role_list.get(i).function_icon_1st)
                  .into(img)
              itemView!!.flexboxlayoutRole!!.addView(linearLayout)
          }

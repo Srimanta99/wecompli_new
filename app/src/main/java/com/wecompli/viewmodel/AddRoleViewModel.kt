@@ -47,4 +47,8 @@ class AddRoleViewModel:ViewModel() {
         addRoleHandler!!.settingChecksClick()
     }
 
+    fun submitclick(view:View){
+       addRoleHandler!!.addroleSubmit()
+    }
+
 }

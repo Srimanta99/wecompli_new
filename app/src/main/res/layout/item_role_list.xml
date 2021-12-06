@@ -14,7 +14,7 @@
         android:layout_marginLeft="@dimen/_10sdp">
 
         <TextView
-            android:id="@+id/tv_sitename"
+            android:id="@+id/tv_rolename"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/_15sdp"
@@ -43,7 +43,7 @@
         android:id="@+id/ll_roles"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="gone"
         android:orientation="vertical">
         <LinearLayout
 
@@ -109,9 +109,9 @@
 
         </LinearLayout>
     </LinearLayout>
-    <TextView
+   <!-- <TextView
         android:layout_width="match_parent"
         android:layout_height="@dimen/_12sdp"
-        android:background="@color/bg_color"></TextView>
+        android:background="@color/bg_color"></TextView>-->
 
 </LinearLayout>

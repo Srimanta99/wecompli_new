@@ -17,6 +17,7 @@ import com.wecompli.R
 import com.wecompli.adapter.CheckListAdapter
 import com.wecompli.adapter.UserListAdapter
 import com.wecompli.databinding.FragmentChecksListBinding
+
 import com.wecompli.handler.CheckListHandler
 
 
@@ -24,6 +25,7 @@ import com.wecompli.model.CheckListResponseModel
 import com.wecompli.model.UserListResponseModel
 import com.wecompli.network.Retrofit
 import com.wecompli.screens.MainActivity
+import com.wecompli.utils.alert.CustomAlert
 import com.wecompli.viewmodel.ChecksListViewModel
 import okhttp3.ResponseBody
 import org.json.JSONObject
@@ -67,7 +69,7 @@ class ChecksListFragment : Fragment(), CheckListHandler {
         val apiInterface= Retrofit.retrofitInstance?.create(ApiInterface::class.java)
         try {
             val paramObject = JSONObject()
-            paramObject.put("company_id","9")
+            paramObject.put("company_id",loginUserData.company_id)
 
             var obj: JSONObject = paramObject
             var jsonParser: JsonParser = JsonParser()
@@ -82,6 +84,8 @@ class ChecksListFragment : Fragment(), CheckListHandler {
                            val checkListAdapter=CheckListAdapter(activity as MainActivity,checklist,this@ChecksListFragment)
                            checklistView!!.recChecklist!!.adapter=checkListAdapter
                        }
+                        else
+                           CustomAlert.showalert(activity as MainActivity,"No CheckList Found.")
                     }
 
                 }

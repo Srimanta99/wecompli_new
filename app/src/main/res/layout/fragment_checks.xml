@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".screens.fragment.AddCheckFragment">
     <data>
         <variable
-            name="checkList"
-            type="com.wecompli.viewmodel.ChecksListViewModel" />
+            name="checks"
+            type="com.wecompli.viewmodel.ChecksViewModel" />
+        <variable
+            name="handler"
+            type="com.wecompli.handler.ChecksHandler" />
     </data>
+
     <androidx.drawerlayout.widget.DrawerLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -36,7 +41,7 @@
                     android:id="@+id/tv_header_text"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="CHECKLIST"
+                    android:text="CHECKS"
                     android:textSize="@dimen/_16sdp"
                     android:textColor="@color/white"
                     android:gravity="center"
@@ -64,7 +69,41 @@
                 android:layout_below="@+id/rlheader"
                 android:background="@drawable/top_two_rounded_corner_white">
 
-
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="@drawable/rectangular_shape_rounded_corner_mediumgrey"
+                    >
+                    <TextView
+                        android:id="@+id/tv_categoryname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_toLeftOf="@+id/tv_categorytype"
+                        android:text="Daily Kit Check rgegre gery sgg    safdgdgd gdgdsdds"></TextView>
+                    <TextView
+                        android:id="@+id/tv_categorytype"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_alignParentRight="true"
+                        android:text="Daily dsVDSds"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_5sdp"
+                        android:layout_centerVertical="true"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/rectangular_shape_rounded_corner_deepgrey"
+                        android:gravity="center"></TextView>
+                </RelativeLayout>
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rec_checklist"
                     android:layout_width="match_parent"
@@ -77,9 +116,21 @@
                     android:paddingBottom="@dimen/_100sdp">
 
                 </androidx.recyclerview.widget.RecyclerView>
+
+                <ImageView
+                    android:id="@+id/img_download"
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_35sdp"
+                    android:background="@drawable/reddownload"
+                    android:visibility="visible"></ImageView>
             </RelativeLayout>
             <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-                 android:id="@+id/add_new_check"
+                android:id="@+id/addcheck"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -90,11 +141,10 @@
                 app:icon="@drawable/add"
                 app:iconTint="@color/white"
                 android:textSize="@dimen/_12sdp"
+                android:onClick="@{checks.openaddCheck}"
                 app:font="@{`rajDhaniBold`}"
-                android:onClick="@{checkList.addnew}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
                 app:rippleColor="@color/white"></com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
@@ -134,7 +184,6 @@
                         <ImageView
                             android:layout_width="@dimen/_45sdp"
                             android:layout_height="@dimen/_45sdp"
-
                             android:background="@drawable/circle_shape_search"></ImageView>
 
                         <TextView

@@ -20,6 +20,7 @@ import com.wecompli.handler.SiteListHandler
 import com.wecompli.model.SiteListResponseModel
 import com.wecompli.network.Retrofit
 import com.wecompli.screens.MainActivity
+import com.wecompli.utils.alert.CustomAlert
 import com.wecompli.viewmodel.SiteListViewModel
 import okhttp3.ResponseBody
 import org.json.JSONObject
@@ -47,11 +48,7 @@ class SiteListFragment : Fragment() ,SiteListHandler{
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
        // return inflater.inflate(R.layout.fragment_site_list, container, false)
         siteviews=DataBindingUtil.inflate(inflater, R.layout.fragment_site_list, container, false)
         sitelistViewModel=ViewModelProviders.of(this).get(SiteListViewModel::class.java)
@@ -88,7 +85,8 @@ class SiteListFragment : Fragment() ,SiteListHandler{
                             val sitelistadapter = SiteListAdapter(activity as MainActivity, siteListRow!!, this@SiteListFragment)
                             siteviews!!.recSitelist.adapter = sitelistadapter
                             // sitelistadapter!!.notifyDataSetChanged()
-                        }
+                        }else
+                            CustomAlert.showalert(activity as MainActivity,"No SiteList Found.")
                     }
 
                 }

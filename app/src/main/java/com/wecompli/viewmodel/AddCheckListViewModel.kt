@@ -4,7 +4,7 @@ import android.view.View
 import androidx.lifecycle.ViewModel
 import com.wecompli.handler.AddCheckHandler
 
-class AddCheckViewModel:ViewModel() {
+class AddCheckListViewModel:ViewModel() {
     var addCheckHandler:AddCheckHandler?=null
     fun openiteSelection(view:View){
       addCheckHandler!!.openSite()

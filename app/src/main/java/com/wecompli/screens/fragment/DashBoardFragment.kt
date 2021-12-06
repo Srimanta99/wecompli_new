@@ -129,7 +129,7 @@ class DashBoardFragment : Fragment(),DashBoardHandler {
     }
 
     override fun startcheck() {
-        TODO("Not yet implemented")
+        (activity as MainActivity).openFragment(StartCheckFragment())
     }
 
     override fun onResume() {

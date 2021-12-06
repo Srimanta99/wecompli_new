@@ -4,8 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
-            name="checkList"
-            type="com.wecompli.viewmodel.ChecksListViewModel" />
+            name="startCheck"
+            type="com.wecompli.viewmodel.StartChechViewModel" />
     </data>
     <androidx.drawerlayout.widget.DrawerLayout
         android:layout_width="match_parent"
@@ -36,7 +36,7 @@
                     android:id="@+id/tv_header_text"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="CHECKLIST"
+                    android:text="START CHECK"
                     android:textSize="@dimen/_16sdp"
                     android:textColor="@color/white"
                     android:gravity="center"
@@ -73,31 +73,11 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     android:layout_margin="@dimen/_10sdp"
                     android:clipToPadding="false"
-                    tools:listitem="@layout/item_checklist"
+
                     android:paddingBottom="@dimen/_100sdp">
 
                 </androidx.recyclerview.widget.RecyclerView>
             </RelativeLayout>
-            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-                 android:id="@+id/add_new_check"
-                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_20sdp"
-                android:text="ADD NEW"
-                android:textColor="@color/white"
-                app:backgroundTint="@color/button_color"
-                app:icon="@drawable/add"
-                app:iconTint="@color/white"
-                android:textSize="@dimen/_12sdp"
-                app:font="@{`rajDhaniBold`}"
-                android:onClick="@{checkList.addnew}"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                app:rippleColor="@color/white"></com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
 
         </RelativeLayout>
         <LinearLayout
@@ -163,34 +143,88 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_20sdp"
-                        android:text="@string/search_site_name"
+                        android:text="Select Site"
                         android:textColor="#1E3F6C"
                         app:font="@{`rajDhanisemiBold`}"
                         android:textSize="@dimen/_14sdp">
 
                     </TextView>
-
-                    <EditText
-                        android:id="@+id/etsherch_name"
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_40sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_7sdp"
                         android:background="@drawable/rectangular_shape_rounded_corner_grey"
-                        android:inputType="text"
-                        android:paddingLeft="@dimen/_9sdp"
-                        android:paddingTop="@dimen/_10sdp"
-                        android:paddingRight="@dimen/_9sdp"
-                        android:paddingBottom="@dimen/_10sdp"
-                        android:textSize="@dimen/_12sdp"
-                        android:textStyle="normal"
-
                         >
 
-                    </EditText>
+                        <ImageView
+                            android:id="@+id/imgdropdown"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginRight="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_17sdp"
+                            android:background="@drawable/down_arrow"></ImageView>
 
+                        <com.google.android.flexbox.FlexboxLayout
+                            android:id="@+id/flexboxlayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginRight="@dimen/_15sdp"
+                            app:flexDirection="row"
 
+                            app:flexWrap="wrap"
+                            app:justifyContent="flex_start"></com.google.android.flexbox.FlexboxLayout>
+                    </RelativeLayout>
+                    <TextView
+                        android:id="@+id/tv_selectdate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:text="Select Date"
+                        android:textColor="#1E3F6C"
+                        app:font="@{`rajDhanisemiBold`}"
+                        android:textSize="@dimen/_14sdp">
 
+                    </TextView>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_7sdp"
+                        android:background="@drawable/rectangular_shape_rounded_corner_grey"
+                        >
+
+                        <ImageView
+                            android:id="@+id/imgcalender"
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginRight="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_7sdp"
+                            android:background="@drawable/calendar"></ImageView>
+
+                        <TextView
+                            android:id="@+id/select_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_marginLeft="@dimen/_5sdp"
+
+                            android:layout_marginRight="@dimen/_15sdp"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/_5sdp"
+                            android:text="Select Date"
+                             ></TextView>
+                    </RelativeLayout>
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

@@ -1,6 +1,8 @@
 package com.wecompli.adapter
 
 import android.content.Context
+import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,8 +15,11 @@ import com.wecompli.R
 import com.wecompli.databinding.ItemChecklistBinding
 import com.wecompli.model.CheckListResponseModel
 import com.wecompli.screens.MainActivity
+import com.wecompli.screens.fragment.AddChecksFragment
+import com.wecompli.screens.fragment.ChecksFragment
 import com.wecompli.screens.fragment.ChecksListFragment
 import com.wecompli.utils.customfont.CustomTypeface
+import kotlinx.android.synthetic.main.activity_main.*
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -42,6 +47,7 @@ class CheckListAdapter(
         val flexSite:FlexboxLayout=view.findViewById(R.id.flex_site)
         val llCheckDetails:LinearLayout=view.findViewById(R.id.ll_check_details)
          val imgDownarrow:ImageView=view.findViewById(R.id.img_downarrow)
+     val llCheckView:LinearLayout=view.findViewById(R.id.llCheckView)
 
     }
 
@@ -255,6 +261,21 @@ class CheckListAdapter(
                 itemView!!.llCheckDetails!!.visibility=View.VISIBLE
             else
                 itemView!!.llCheckDetails!!.visibility=View.GONE
+        }
+
+        itemView!!.llCheckView.setOnClickListener {
+            activity.drawerlayout!!.closeDrawer(Gravity.LEFT)
+            val transaction = activity.supportFragmentManager.beginTransaction()
+            var checksFragment=ChecksFragment()
+            val bundle= Bundle()
+            bundle.putString("category_Id",checkList!!.get(position).id.toString())
+            bundle.putString("category_purpose",itemView!!.tvCheckModule.text.toString())
+            bundle.putString("category_name",checkList!!.get(position).category_name)
+            checksFragment.arguments=bundle
+            transaction.replace(R.id.content_frame, checksFragment)
+            transaction.addToBackStack("")
+            transaction.commit()
+         //   activity.openFragment(ChecksFragment())
         }
     }
 

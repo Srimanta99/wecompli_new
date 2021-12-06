@@ -1,164 +1,168 @@
 <resources>
     <string name="app_name">Wecompli</string>
-    <string name="login">LOGIN</string>
-    <string name="language">Language</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
-    <string name="remember_me">Remember me</string>
-    <string name="forgot_password">Forgot password</string>
-    <string name="note">NOTES:</string>
-    <string name="ForgotpasswordNote">A new auto generated password emailed \n to your account</string>
-    <string name="send">SEND</string>
+    <string name="login">LOG IN</string>
+    <string name="language">Taal</string>
+    <string name="email">E-mail</string>
+    <string name="password">Wachtwoord</string>
+    <string name="remember_me">Onthoud me</string>
+    <string name="forgot_password">Wachtwoord vergeten</string>
+    <string name="note">OPMERKINGEN:</string>
+    <string name="ForgotpasswordNote">Een nieuw automatisch gegenereerd wachtwoord gemaild \n naar uw account</string>
+    <string name="send">VERSTUREN</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="select_language">SELECT LANGUAGE</string>
-    <string name="english">English</string>
+    <string name="hello_blank_fragment">Hallo leeg fragment</string>
+    <string name="select_language">KIES TAAL</string>
+    <string name="english">Engels</string>
     <string name="douch">Dutch</string>
-    <string name="french">French</string>
-    <string name="germen">German</string>
-    <string name="cancel">Cancel</string>
-    <string name="start">START</string>
-    <string name="new_version_avalible">A New Update is Available</string>
+    <string name="french">Frans</string>
+    <string name="germen">Duitse</string>
+    <string name="cancel">Annuleren</string>
+    <string name="start">BEGIN</string>
+    <string name="new_version_avalible">Er is een nieuwe update beschikbaar</string>
     <string name="update">Update</string>
     //Sidemenu
     <string name="dashboard">DASHBOARD</string>
-    <string name="subscribe">SUBSCRIBE</string>
+    <string name="subscribe">ABONNEREN</string>
     <string name="menu_dashboard">DASHBOARD</string>
     <string name="menu_sites">SITES</string>
-    <string name="menu_Users">USERS</string>
-    <string name="menu_checklist">CHECKLISTS</string>
-    <string name="menu_faults">FAULTS</string>
-    <string name="menu_incidents">INCIDENTS</string>
-    <string name="menu_documents">DOCUMENTS</string>
-    <string name="menu_email">EMAIL</string>
-    <string name="leaderboard">LEADER BOARD</string>
-    <string name="role">ROLES</string>
+    <string name="menu_Users">GEBRUIKERS</string>
+    <string name="menu_checklist">CONTROLE LIJSTEN</string>
+    <string name="menu_faults">FOUTEN</string>
+    <string name="menu_incidents">INCIDENTEN</string>
+    <string name="menu_documents">DOCUMENTEN</string>
+    <string name="menu_email">E-MAIL</string>
+    <string name="leaderboard">SCOREBORD</string>
+    <string name="role">ROLLEN</string>
 
     //dadhboard
-    <string name="selectsites">Select Sites</string>
+    <string name="selectsites">Sites selecteren</string>
     <string name="download">DOWNLOAD</string>
-    <string name="adhoc">ADHOC FAULT"</string>
-    <string name="todaycheck">TODAYS CHECK</string>
-    <string name="startcheck">START CHECK</string>
-    <string name="faults">FAULTS</string>
-    <string name="active">(ACTIVE)</string>
+    <string name="adhoc">ADHOC FOUT"</string>
+    <string name="todaycheck">CONTROLE VAN VANDAAG</string>
+    <string name="startcheck">START CONTROLE</string>
+    <string name="faults">FOUTEN</string>
+    <string name="active">(ACTIEF)</string>
 
 
     //adhoc
-    <string name="add_note">Add note</string>
-    <string name="feault_note">* please enter your complete fault details in the above section</string>
-    <string name="add_image">CLICK HERE  &lt;br /&gt; FOR ADD IMAGE</string>
-    <string name="notify_who">Notify Who</string>
-    <string name="submit">SUBMIT</string>
-    <string name="adhoc_fault">ADHOC FAULT</string>
-    <string name="select_image_mode">Choose Image from </string>
-    <string name="from_gallery">Select photo from gallery</string>
-    <string name="from_camera">Capture photo from camera</string>
+    <string name="add_note">Notitie toevoegen</string>
+    <string name="feault_note">* Voer uw volledige foutdetails in het bovenstaande gedeelte in</string>
+    <string name="add_image">KLIK HIER  &lt;br /&gt; VOOR AFBEELDING TOEVOEGEN:</string>
+    <string name="notify_who">Waarschuw wie</string>
+    <string name="submit">INDIENEN</string>
+    <string name="adhoc_fault">ADHOC FOUT</string>
+    <string name="select_image_mode">Kies Afbeelding uit </string>
+    <string name="from_gallery">Selecteer foto uit galerij</string>
+    <string name="from_camera">Foto vastleggen vanaf camera</string>
 
     //alert
-    <string name="ok">OK</string>
-    <string name="confirm">Confirm</string>
+    <string name="ok">Oke</string>
+    <string name="confirm">Bevestigen</string>
 
     //adsite
-    <string name="add_site_name">Site Name (</string>
-    <string name="add_site_status">Select Status</string>
-    <string name="active_site">Active</string>
-    <string name="inactive_site">In-active</string>
+    <string name="add_site_name">Site naam (</string>
+    <string name="add_site_status">Selecteer Status</string>
+    <string name="active_site">Actief</string>
+    <string name="inactive_site">Inactief</string>
 
     //search
-    <string name="Searchs">Search</string>
-    <string name="search_site_name">Site name</string>
-    <string name="search_submit">SEARCH</string>
+    <string name="Searchs">Zoeken</string>
+    <string name="search_site_name">Site naam</string>
+    <string name="search_submit">ZOEKEN</string>
 
     //site item
-    <string name="usercount">USERS</string>
+    <string name="usercount">GEBRUIKERS</string>
     <string name="checklistcount">CHECKLIST</string>
-    <string name="checkcount">CHECK</string>
-    <string name="faultcount">FAULT</string>
-    <string name="DOCUMENTScount">DOCUMENTS</string>
-    <string name="incidentscount">INCIDENTS</string>
+    <string name="checkcount">REKENING</string>
+    <string name="faultcount">SCHULD</string>
+    <string name="DOCUMENTScount">DOCUMENTEN</string>
+    <string name="incidentscount">INCIDENTEN</string>
 
     //add role
-    <string name="role_name">Role Name(</string>
-    <string name="please_role_name">* please enter role name</string>
+    <string name="role_name">Rol naam(</string>
+    <string name="please_role_name">* vul de naam van de rol in</string>
     <string name="dashboard_add_role">DASHBOARD</string>
     <string name="sites_add_role">SITES</string>
-    <string name="users_add_role">USERS</string>
-    <string name="role_add_role">ROLES</string>
-    <string name="checks_add_role">CHECKS</string>
-    <string name="faults_add_role">FAULTS</string>
-    <string name="incidents_add_role">INCIDENTS</string>
-    <string name="documents_add_role">DOCUMENTS</string>
-    <string name="help_add_role">HELP</string>
-    <string name="settings_add_role">SETTINGS</string>
+    <string name="users_add_role">GEBRUIKERS</string>
+    <string name="role_add_role">ROLLEN</string>
+    <string name="checks_add_role">CONTROLES</string>
+    <string name="faults_add_role">FOUTEN</string>
+    <string name="incidents_add_role">INCIDENTEN</string>
+    <string name="documents_add_role">DOCUMENTEN</string>
+    <string name="help_add_role">HELPEN</string>
+    <string name="settings_add_role">INSTELLINGEN</string>
 
     //user list
-    <string name="add_role">ADD ROLE</string>
-    <string name="list_role">LIST ROLE</string>
-    <string name="add_user">ADD USER</string>
+    <string name="add_role">ROL TOEVOEGEN</string>
+    <string name="list_role">LIJST ROL</string>
+    <string name="add_user">VOEG GEBRUIKER TOE</string>
 
     //add checklist
-    <string name="chklist_name">CheckList Name (</string>
-    <string name="please_checklistname">* Please Enter checklist name</string>
-    <string name="add_notes">Add Note</string>
-    <string name="check_selecttype">Select Type(</string>
-    <string name="select_status">Select Status(</string>
-    <string name="check_selecttypes">Select Type</string>
+    <string name="chklist_name">Naam controlelijst (</string>
+    <string name="please_checklistname">* Voer de naam van de checklist in</string>
+    <string name="add_notes">Opmerking toevoegen</string>
+    <string name="check_selecttype">Selecteer type(</string>
+    <string name="select_status">Selecteer Status(</string>
+    <string name="check_selecttypes">Selecteer type</string>
 
     //checklisttype
-    <string name="select_type">        SELECT TYPE        </string>
-    <string name="daily">DAILY</string>
-    <string name="interday">INTRADAY</string>
-    <string name="weekly">WEEKLY</string>
-    <string name="monthly">MONTHLY</string>
-    <string name="quaterly">QUATERLY</string>
-    <string name="half_yearly">HALF-YEARLY</string>
-    <string name="yearly">YEARLY</string>
+    <string name="select_type">        SELECTEER TYPE       </string>
+    <string name="daily">DAGELIJKS</string>
+    <string name="interday">INTRADAG</string>
+    <string name="weekly">WEKELIJKS</string>
+    <string name="monthly">MAANDELIJKS</string>
+    <string name="quaterly">KWARTAAL</string>
+    <string name="half_yearly">HALFJAARLIJKS</string>
+    <string name="yearly">JAARLIJKS</string>
 
     // different selection
-    <string name="half_day_select">SELECT HALF-YEARLY DAY</string>
-    <string name="Friststquater">1st Quarter</string>
-    <string name="second_quater">2nd Quarter</string>
-    <string name="thired_quater">3rd Quarter</string>
-    <string name="fourth_quater">4th Quarter</string>
-    <string name="save_date">SAVE</string>
-    <string name="close_date">CLOSE</string>
-    <string name="monthly_day_select">SELECT MONTH DAY</string>
-    <string name="quater_day_select">SELECT QUARTERLY DAY</string>
-    <string name="yearly_day_select">SELECT YEARLY DAY</string>
+    <string name="half_day_select">SELECTEER HALFJAARLIJKE DAG</string>
+    <string name="Friststquater">1e kwartaal</string>
+    <string name="second_quater">2e kwartaal</string>
+    <string name="thired_quater">3e kwartaal</string>
+    <string name="fourth_quater">4e kwartaal</string>
+    <string name="save_date">OPSLAAN</string>
+    <string name="close_date">DICHTBIJ</string>
+    <string name="monthly_day_select">SELECTEER MAAND DAG</string>
+    <string name="quater_day_select">SELECTEER KWARTAALDAG</string>
+    <string name="yearly_day_select">SELECTEER JAARLIJKE DAG</string>
 
     //weekdays selection
-    <string name="week_selection">SELECT WEEK DAYS</string>
-    <string name="monday">MONDAY</string>
-    <string name="tuesday">TUESDAY</string>
-    <string name="wednesday">WEDNESDAY</string>
-    <string name="thursday">THURSDAY</string>
-    <string name="friday">FRIDAY</string>
-    <string name="saturday">SATURDAY</string>
-    <string name="sunday">SUNDAY</string>
+    <string name="week_selection">SELECTEER WEEKDAGEN</string>
+    <string name="monday">MAANDAG</string>
+    <string name="tuesday">DINSDAG</string>
+    <string name="wednesday">WOENSDAG</string>
+    <string name="thursday">DONDERDAG</string>
+    <string name="friday">VRIJDAG</string>
+    <string name="saturday">ZATERDAG</string>
+    <string name="sunday">ZONDAG</string>
 
     //role
-    <string name="select_role">SELECT ROLE</string>
+    <string name="select_role">KIES ROL</string>
 
     //site
-    <string name="select_site">SELECT SITE</string>
+    <string name="select_site">KIES SITE</string>
 
     //add user
-    <string name="access_info">ACCESS INFO</string>
-    <string name="selects_sites">Select Site</string>
-    <string name="selects_role">Select Role</string>
-    <string name="personal_info">PERSONAL INFO</string>
-    <string name="name_user">Name</string>
+    <string name="access_info">TOEGANG INFO</string>
+    <string name="selects_sites">Selecteer site</string>
+    <string name="selects_role">Selecteer rol</string>
+    <string name="personal_info">PERSOONLIJKE INFORMATIE</string>
+    <string name="name_user">Naam</string>
 
     //item_checklist
-    <string name="note_checklist">NOTES : </string>
-    <string name="site_checklist">SITES : </string>
-    <string name="checks_checklist">CHECKS : </string>
-    <string name="status_checklist">STATUS :</string>
+    <string name="note_checklist">OPMERKINGEN: </string>
+    <string name="site_checklist">SITES: </string>
+    <string name="checks_checklist">CONTROLES : </string>
+    <string name="status_checklist">TOESTAND :</string>
 
     //item userlist
-    <string name="head">HEAD</string>
+    <string name="head">HOOFD</string>
     <string name="info">INFO</string>
     <string name="site_userlist">SITES</string>
-    <string name="status_userlist">STATUS</string>
+    <string name="status_userlist">TOESTAND</string>
+
+    //Add checks
+    <string name="checksName">Checks Name(</string>
+    <string name="please_enter_checksname">Please enter checks name</string>
 </resources>

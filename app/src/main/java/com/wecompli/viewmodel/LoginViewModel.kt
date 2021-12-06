@@ -15,6 +15,7 @@ import com.wecompli.model.LoginResponseModel
 import com.wecompli.network.Retrofit
 import com.wecompli.screens.LoginActivity
 import com.wecompli.screens.MainActivity
+import com.wecompli.utils.alert.CustomAlert
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -62,8 +63,7 @@ class LoginViewModel:ViewModel() {
           loginApiCall.enqueue(object : Callback<LoginResponseModel> {
               override fun onResponse(
                   call: Call<LoginResponseModel>,
-                  response: Response<LoginResponseModel>
-              ) {
+                  response: Response<LoginResponseModel>) {
                   customProgress.hideProgress()
                   if (response.isSuccessful) {
                       if (response.body()!!.process) {
@@ -71,7 +71,8 @@ class LoginViewModel:ViewModel() {
                           AppSheardPreference(loginActivity).setvalueforUser(PreferenceConstant.userData,response!!.body()!!)
                           loginActivity.startActivity(Intent(loginActivity, MainActivity::class.java))
                           loginActivity.finish()
-                      }
+                      }else
+                          CustomAlert.showalert(loginActivity,response!!.body()!!.message)
                   }
               }
 
