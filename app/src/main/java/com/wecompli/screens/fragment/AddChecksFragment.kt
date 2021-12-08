@@ -96,8 +96,8 @@ class AddChecksFragment : Fragment(), AddChecksHandler {
         val apiInterface= Retrofit.retrofitInstance?.create(ApiInterface::class.java)
         try {
             val paramObject = JSONObject()
-            paramObject.put("company_id", loginUserData.company_id)
-            paramObject.put("category_id",catid)
+            paramObject.put("company_id", "9")
+            paramObject.put("category_id","19")
             var obj: JSONObject = paramObject
             var jsonParser: JsonParser = JsonParser()
             var gsonObject: JsonObject = jsonParser.parse(obj.toString()) as JsonObject;
@@ -170,8 +170,8 @@ class AddChecksFragment : Fragment(), AddChecksHandler {
             val paramObject = JSONObject()
             paramObject.put("check_name", addchecksView!!.etChecklistname.text.toString())
             paramObject.put("check_note", addchecksView!!.etNote.text.toString())
-            paramObject.put("category_id", "19")
-            paramObject.put("site_id", siteids.substring(1))
+            paramObject.put("category_id", "601")
+            paramObject.put("site_id", "147")
             paramObject.put("check_type_id", "1")
             paramObject.put("has_qrcode",QRCODE)
             paramObject.put("status_id",siteStatus)

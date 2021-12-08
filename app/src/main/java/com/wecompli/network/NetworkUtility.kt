@@ -23,8 +23,9 @@ class NetworkUtility {
         const val  UserCREATE="user/create"
         const val  CHECKLIST="checklist/list"
         const val  CHECKLISTCREATE="checklist/create"
-      const val  ADDROLE="role/create"
-      const val  CHECKSADD="checks/create"
+       const val  ADDROLE="role/create"
+       const val  CHECKSADD="checks/create"
+       const val  STARTCHECK="start/check"
 
     }
 }

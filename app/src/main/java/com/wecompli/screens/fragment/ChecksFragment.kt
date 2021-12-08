@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.wecompli.R
+import com.wecompli.adapter.CheckSummeryListAdapter
 import com.wecompli.databinding.FragmentChecksBinding
 import com.wecompli.handler.ChecksHandler
 

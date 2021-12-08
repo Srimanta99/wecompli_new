@@ -40,6 +40,8 @@ interface ApiInterface {
     @POST(NetworkUtility.CHECKSADD)
     fun callforChecksCreate(@Header("Authorization") token:String,@Body body: JsonObject) : Call<AddChecksModel>
 
+    @POST(NetworkUtility.STARTCHECK)
+    fun callforStartCheck(@Header("Authorization") token:String,@Body body: JsonObject) : Call<StartCheckResponseModel>
 
     /*  @POST(NetworkUtility.LOGIN)
       fun callLogInApi(@Body body: JsonObject): Call<LoginResponseModel>
