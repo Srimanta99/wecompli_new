@@ -63,6 +63,9 @@ class DashBoardFragment : Fragment(),DashBoardHandler {
             callApiForSiteList()
         else
             CustomAlert.showaInternetlert(activity as MainActivity," No Internet Connection")
+         viewDashBoard!!.circular.setOnTouchListener { view, motionEvent ->
+            true
+         }
         return  viewDashBoard!!.root
     }
 

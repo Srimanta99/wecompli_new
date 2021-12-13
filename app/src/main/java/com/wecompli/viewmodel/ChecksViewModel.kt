@@ -10,4 +10,12 @@ class ChecksViewModel:ViewModel() {
         checksHandler!!.openAddCheck()
     }
 
+    fun openSiteDropDown(view:View){
+        checksHandler!!.opensiteSelection()
+    }
+
+    fun searchCheck(view:View){
+        checksHandler!!.searchCheck()
+    }
+
 }

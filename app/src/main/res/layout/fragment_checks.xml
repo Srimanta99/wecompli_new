@@ -112,7 +112,7 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     android:layout_margin="@dimen/_10sdp"
                     android:clipToPadding="false"
-                    tools:listitem="@layout/item_checklist"
+                    tools:listitem="@layout/item_checks"
                     android:paddingBottom="@dimen/_100sdp">
 
                 </androidx.recyclerview.widget.RecyclerView>
@@ -219,24 +219,27 @@
 
                     </TextView>
 
-                    <EditText
-                        android:id="@+id/etsherch_name"
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_40sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_7sdp"
                         android:background="@drawable/rectangular_shape_rounded_corner_grey"
-                        android:inputType="text"
-                        android:paddingLeft="@dimen/_9sdp"
-                        android:paddingTop="@dimen/_10sdp"
-                        android:paddingRight="@dimen/_9sdp"
-                        android:paddingBottom="@dimen/_10sdp"
-                        android:textSize="@dimen/_12sdp"
-                        android:textStyle="normal"
-
                         >
 
-                    </EditText>
+                        <TextView
+                            android:id="@+id/selectedsite"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:onClick="@{checks.openSiteDropDown}"
+                            android:paddingLeft="@dimen/_10sdp"
+                            android:hint="@string/select_site"
+                            android:textSize="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_7sdp"
+                            android:drawableRight="@drawable/down_arrow"></TextView>
+
+                    </RelativeLayout>
 
 
 
@@ -252,12 +255,13 @@
                         <TextView
                             android:id="@+id/Searchsite"
                             android:layout_width="@dimen/_170sdp"
-                            android:layout_height="@dimen/_44sdp"
+                            android:layout_height="@dimen/_41sdp"
                             android:layout_centerHorizontal="true"
                             android:layout_gravity="center"
                             android:background="@drawable/gradient_login_button"
                             android:gravity="center"
                             android:text="@string/search_submit"
+                            android:onClick="@{checks.searchCheck}"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_12sdp"
                             app:font="@{`rajDhaniBold`}"

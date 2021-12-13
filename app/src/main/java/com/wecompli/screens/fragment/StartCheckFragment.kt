@@ -73,12 +73,7 @@ class StartCheckFragment : Fragment(),StartCheckHandler {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewStartCheck=DataBindingUtil.inflate(
-            inflater,
-            R.layout.fragment_start_check,
-            container,
-            false
-        )
+        viewStartCheck=DataBindingUtil.inflate(inflater, R.layout.fragment_start_check, container, false)
         startCheckViewModel=ViewModelProviders.of(this).get(StartChechViewModel::class.java)
         viewStartCheck!!.startCheck=startCheckViewModel
         startCheckViewModel!!.startCheckHandler=this

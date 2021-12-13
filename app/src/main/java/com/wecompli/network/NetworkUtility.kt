@@ -26,6 +26,7 @@ class NetworkUtility {
        const val  ADDROLE="role/create"
        const val  CHECKSADD="checks/create"
        const val  STARTCHECK="start/check"
+        const val  CHECKS="checks/list"
 
     }
 }

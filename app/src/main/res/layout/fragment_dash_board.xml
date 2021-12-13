@@ -133,9 +133,10 @@
                         app:csb_progress="750"
                         app:csb_progressColor="#524aeb"
                         app:csb_progressWidth="@dimen/_17sdp"
-                        app:csb_step="5"
+                        app:csb_step="1"
                         app:csb_thumbDrawable="@drawable/eclipies"
                         app:csb_thumbSize="36dp"
+                        android:clickable="false"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tv_todaycheck" />
