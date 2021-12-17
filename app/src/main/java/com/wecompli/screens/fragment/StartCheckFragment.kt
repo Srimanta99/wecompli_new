@@ -42,11 +42,7 @@ import kotlin.collections.ArrayList
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [StartCheckFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class StartCheckFragment : Fragment(),StartCheckHandler {
     var siteListRow:ArrayList<SiteListResponseModel.SiteDetails>?=null
     var checksList:ArrayList<StartCheckResponseModel.Row>?=null
@@ -54,6 +50,7 @@ class StartCheckFragment : Fragment(),StartCheckHandler {
     private var param2: String? = null
     var viewStartCheck:FragmentStartCheckBinding?=null
     var startCheckViewModel:StartChechViewModel?=null
+    var selecteddate=""
     var selectedSideId=""
     var selectedSidname=""
     var mYear=0
@@ -173,6 +170,7 @@ class StartCheckFragment : Fragment(),StartCheckHandler {
         customProgress.showProgress(activity as MainActivity, "Please Wait..", false)
         val apiInterface= Retrofit.retrofitInstance?.create(ApiInterface::class.java)
         try {
+            selecteddate=viewStartCheck!!.selectDate.text.toString()
             val paramObject = JSONObject()
             paramObject.put("company_id","9")
             paramObject.put("check_date", "06/09/2020")
@@ -208,5 +206,7 @@ class StartCheckFragment : Fragment(),StartCheckHandler {
 
         }
     }
+
+
 
 }

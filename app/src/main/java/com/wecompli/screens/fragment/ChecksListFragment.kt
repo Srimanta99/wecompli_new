@@ -18,6 +18,7 @@ import com.wecompli.adapter.CheckListAdapter
 import com.wecompli.adapter.UserListAdapter
 import com.wecompli.databinding.FragmentChecksListBinding
 
+
 import com.wecompli.handler.CheckListHandler
 
 
