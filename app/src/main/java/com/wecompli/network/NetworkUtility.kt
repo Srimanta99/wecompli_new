@@ -28,6 +28,7 @@ class NetworkUtility {
        const val  STARTCHECK="start/check"
         const val  CHECKS="checks/list"
          const val  CHECKDETAILS="start/check/list"
+        const val LOGCREATE="processlog/create"
 
     }
 }

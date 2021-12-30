@@ -41,7 +41,7 @@ class CheckDetailsFragment : Fragment() {
     private var param2: String? = null
     var adapter:ChecksDetailsAdapter?=null
     var chkDetailsView:FragmentCheckDetailsBinding?=null
-  var list:ArrayList<CheckListDetailsResponse.Row>?=null
+     var list:ArrayList<CheckListDetailsResponse.Row>?=null
     var catid=""
     var date=""
     var siteid=""

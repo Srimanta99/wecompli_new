@@ -89,7 +89,7 @@ class ChecksFragment : Fragment(), ChecksHandler{
             transaction.commit()
         }*/
         callApiForSiteList()
-        checksView!!.drawerLayout.openDrawer(Gravity.RIGHT)
+                   checksView!!.drawerLayout.openDrawer(Gravity.RIGHT)
         return checksView!!.root
     }
 
@@ -125,11 +125,11 @@ class ChecksFragment : Fragment(), ChecksHandler{
     }
 
     override fun searchCheck() {
-        if (!selectedSideId.equals(""))
+     /*   if (!selectedSideId.equals(""))
             callApiforChecks();
         else
             CustomAlert.showalert((activity as MainActivity),"Select Site")
-
+*/
     }
 
     override fun openAddCheck() {
