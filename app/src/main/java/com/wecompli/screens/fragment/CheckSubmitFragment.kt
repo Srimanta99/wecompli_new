@@ -30,6 +30,7 @@ import com.wecompli.model.ProcessLogCreateResponseModel
 import com.wecompli.network.NetworkUtility
 import com.wecompli.screens.MainActivity
 import com.wecompli.utils.alert.CustomAlert
+import com.wecompli.utils.alert.TapToSignDialogForLogSubmit
 import com.wecompli.viewmodel.CheckSubmitViewModel
 import okhttp3.*
 import org.json.JSONObject
@@ -62,6 +63,7 @@ class CheckSubmitFragment : Fragment(), CheckSubmitHandler {
     internal var Imagesellposition: Int = 0
     internal var imagearraylist = ArrayList<File>()
     internal var imagearraylistpath = ArrayList<String>()
+    var imagesignAvaliable=false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,17 +73,8 @@ class CheckSubmitFragment : Fragment(), CheckSubmitHandler {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        fragmentCheckSubmitBinding=DataBindingUtil.inflate(
-            inflater,
-            R.layout.fragment_check_submit,
-            container,
-            false
-        )
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        fragmentCheckSubmitBinding=DataBindingUtil.inflate(inflater, R.layout.fragment_check_submit, container, false)
         checkSubmitViewModel=ViewModelProviders.of(this).get(CheckSubmitViewModel::class.java)
         fragmentCheckSubmitBinding!!.checksubmit=checkSubmitViewModel
         checkSubmitViewModel!!.checkSubmitHandler=this
@@ -370,6 +363,7 @@ class CheckSubmitFragment : Fragment(), CheckSubmitHandler {
         customProgress.showProgress(activity as MainActivity, "Please Wait..", false)
         try {
             val builder = MultipartBody.Builder().setType(MultipartBody.FORM)
+            builder.addFormDataPart("process_remark",fragmentCheckSubmitBinding!!.etnotsubmit.text.toString())
             builder.addFormDataPart("company_id", "9")
             builder.addFormDataPart("site_id", "12")
             builder.addFormDataPart("check_id", "417")
@@ -454,5 +448,22 @@ class CheckSubmitFragment : Fragment(), CheckSubmitHandler {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+    }
+
+    override fun taptosign() {
+        if(fragmentCheckSubmitBinding!!.chktaptosign.isChecked){
+            TapToSignDialogForLogSubmit(activity as MainActivity,this).show()
+        }/*else{
+            fragmentCheckSubmitBinding!!.ettemp.isEnabled=false
+        }*/
+
+    }
+
+    override fun settemp() {
+      if(fragmentCheckSubmitBinding!!.chktemparuture.isChecked){
+          fragmentCheckSubmitBinding!!.ettemp.isEnabled=true
+      }else{
+          fragmentCheckSubmitBinding!!.ettemp.isEnabled=false
+      }
     }
 }

@@ -57,11 +57,13 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:paddingRight="@dimen/_5sdp"
+                app:font="@{`rajDhaniSemiBold`}"
                 android:text="* Please enter your complete fault details"
                 android:textColor="@color/red_text_color"></TextView>
         </RelativeLayout>
 
         <EditText
+            android:id="@+id/etnotsubmit"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_120sdp"
             android:layout_marginLeft="@dimen/_10sdp"
@@ -232,12 +234,14 @@
             android:background="@drawable/rectangular_shape_four_rounded_corner_white"
             android:layout_gravity="center_horizontal">
 
-            <RadioButton
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/chktemparuture"
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/_12sdp"
-                android:button="@drawable/custom_checkbox_selector"></RadioButton>
+                android:onClick="@{checksubmit.settemparature}"
+                android:button="@drawable/custom_checkbox_selector"></androidx.appcompat.widget.AppCompatCheckBox>
             <ImageView
                 android:layout_width="@dimen/_18sdp"
                 android:layout_height="@dimen/_27sdp"
@@ -249,11 +253,13 @@
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:textSize="@dimen/_12sdp"
+                app:font="@{`rajDhaniSemiBold`}"
                 android:text="Set Temperature"></TextView>
 
 
         </LinearLayout>
         <EditText
+            android:id="@+id/ettemp"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:layout_marginLeft="@dimen/_10sdp"
@@ -261,6 +267,7 @@
             android:layout_marginTop="@dimen/_12sdp"
             android:padding="@dimen/_6sdp"
             android:gravity="top"
+            android:enabled="false"
             android:background="@drawable/rectangular_shape_four_rounded_corner_white"
             >
 
@@ -275,6 +282,7 @@
             app:font="@{`rajDhaniSemiBold`}"></TextView>
 
         <EditText
+            android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:layout_marginLeft="@dimen/_10sdp"
@@ -290,34 +298,48 @@
             android:layout_height="@dimen/_45sdp"
             android:layout_margin="@dimen/_10sdp"
 
-            android:background="@drawable/rectangular_shape_rounded_corner_deepgrey"
+            android:background="@drawable/rectangular_shape_rounded_corner_lightgrey"
             android:layout_gravity="center_horizontal">
 
-      <RelativeLayout
-          android:layout_width="@dimen/_25sdp"
-          android:layout_height="@dimen/_25sdp"
+     <!-- <RelativeLayout
+          android:layout_width="@dimen/_35sdp"
+          android:layout_height="@dimen/_35sdp"
           android:layout_centerVertical="true"
-          android:layout_margin="@dimen/_10sdp"
-          android:background="@drawable/rectangular_shape_rounded_corner_deepgrey">
-          <ImageView
-              android:layout_width="@dimen/_18sdp"
-              android:layout_height="@dimen/_18sdp"
-              android:layout_centerInParent="true"
+         android:layout_marginLeft="@dimen/_10sdp"
+          android:background="@drawable/circle_shape_deepgrey">
 
+          <ImageView
+              android:id="@+id/img"
+              android:layout_width="@dimen/_15sdp"
+              android:layout_height="@dimen/_15sdp"
+               android:layout_centerInParent="true"
               android:background="@drawable/white_tick"></ImageView>
-      </RelativeLayout>
-      <TextView
+     </RelativeLayout>-->
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/chktaptosign"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_centerVertical="true"
+            android:button="@drawable/custom_checkbox_add_role"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:onClick="@{checksubmit.taptosign}"
+            android:layout_height="@dimen/_35sdp"></androidx.appcompat.widget.AppCompatCheckBox>
+
+        <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_centerInParent="true"
           android:textSize="@dimen/_13sdp"
           android:textColor="@color/white"
+          app:font="@{`rajDhaniBold`}"
           android:text="TAP TO SIGN"></TextView>
   </RelativeLayout>
-        <RelativeLayout
+        <ImageView
+            android:id="@+id/imgtaptosign"
             android:layout_width="@dimen/_130sdp"
             android:layout_height="@dimen/_130sdp"
-            android:layout_gravity="center_horizontal"></RelativeLayout>
+            android:layout_gravity="center_horizontal">
+
+        </ImageView>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -338,6 +360,7 @@
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="@dimen/_15sdp"
+                app:font="@{`rajDhaniBold`}"
                 android:background="@drawable/botton_rounded_corner"
                 android:gravity="center">
 

@@ -6,5 +6,7 @@ interface CheckSubmitHandler {
     fun  selectImg3()
     fun  selectImg4()
     fun checkSubmit()
+    fun taptosign()
+    fun settemp()
 
 }

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rectangular_grey_rounded_shape_black_broder">
+    <LinearLayout
+        android:id="@+id/ll_header_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:background="@drawable/rectangular_white_shape_top_rounded_corner"
+        android:layout_margin="@dimen/_3sdp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_done"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="DONE"
+            android:gravity="center"
+            android:textSize="@dimen/_14sdp"
+            android:textColor="@color/grey"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/tv_signhere"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="SIGN HERE"
+            android:gravity="center"
+            android:textSize="@dimen/_14sdp"
+            android:textColor="@color/black"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="CANCEL"
+            android:gravity="center"
+            android:textSize="@dimen/_14sdp"
+            android:textColor="#99c9fa"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/tv_claer"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="CLEAR"
+            android:gravity="center"
+            android:textSize="@dimen/_14sdp"
+            android:textColor="#99c9fa"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_below="@+id/ll_header_button">
+        <com.wecompli.utils.alert.DrawingView
+            android:id="@+id/sign"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.wecompli.utils.alert.DrawingView>
+
+    </RelativeLayout>
+
+</RelativeLayout>

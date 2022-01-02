@@ -22,4 +22,12 @@ class CheckSubmitViewModel:ViewModel(){
     fun submit(view: View){
         checkSubmitHandler!!.checkSubmit()
     }
+
+    fun taptosign(view: View){
+        checkSubmitHandler!!.taptosign()
+    }
+
+    fun settemparature(view: View){
+        checkSubmitHandler!!.settemp()
+    }
 }
