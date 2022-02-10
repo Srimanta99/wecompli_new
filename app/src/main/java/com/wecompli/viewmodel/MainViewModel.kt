@@ -26,4 +26,11 @@ class MainViewModel:ViewModel() {
     fun opencheckList(view: View){
         mainHandler!!.openCheckLists()
     }
+
+    fun subcription(view:View){
+        mainHandler!!.subcription()
+    }
+    fun faultList(view:View){
+        mainHandler!!.openFaults()
+    }
 }

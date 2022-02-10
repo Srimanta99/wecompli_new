@@ -1,8 +1,10 @@
 package com.wecompli.utils.alert
 
+import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.Environment
 import android.view.View
 import android.view.Window
 import android.widget.TextView
@@ -13,6 +15,7 @@ import com.wecompli.screens.MainActivity
 import com.wecompli.screens.fragment.CheckSubmitFragment
 import com.wecompli.utils.customfont.CustomTypeface
 import kotlinx.android.synthetic.main.fragment_check_submit.*
+import java.io.*
 
 import kotlin.math.roundToInt
 
@@ -33,16 +36,68 @@ class TapToSignDialogForLogSubmit(val mainActivity: MainActivity,val checkSubmit
                   // checkTapToSignActivity.tapToSignViewBind!!.img_sign!!.setImageBitmap(bitmap)
                     //  if (bitmap!=null || !bitmap.equals("")) {
 
+                try {
+                    /*checkSubmitFragment.signimgfile = File(Environment.getExternalStorageDirectory().toString() + File.separator + "sign.jpg")
+                    checkSubmitFragment!!.signimgfile!!.createNewFile()
+
+                    //Convert bitmap to byte array
+                    val bos = ByteArrayOutputStream()
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 0, bos) // YOU can also save it in JPEG
+                    val bitmapdata = bos.toByteArray()
+
+                    //write the bytes in file
+                    val fos = FileOutputStream(checkSubmitFragment!!.signimgfile!!)
+                    fos.write(bitmapdata)
+                    fos.flush()
+                    fos.close()*/
+
+                    val root = Environment.getExternalStorageDirectory().toString()
+                    val myDir = File("$root/wecompli/checksubmit")
+                    myDir.mkdirs()
+                    /* val generator = Random()
+                      var n = 100
+                      n = generator.nextInt(n)*/
+                    val fname ="sign"+"checksubmitsign.jpg"
+                    checkSubmitFragment.signimgfile = File(myDir, fname)
+                    val fo: FileOutputStream
+                    if (checkSubmitFragment!!.signimgfile!!.exists())
+                        checkSubmitFragment!!.signimgfile!!.delete()
+                    try {
+                        /* destination.createNewFile()
+                         fo = FileOutputStream(destination)
+                         fo.write(bytes.toByteArray())
+                         fo.close()*/
+                        val out = FileOutputStream(checkSubmitFragment.signimgfile)
+                        bitmap!!.compress(Bitmap.CompressFormat.JPEG, 100, out)
+                        out.flush()
+                        out.close()
+
+
+                    } catch (e: FileNotFoundException) {
+                        e.printStackTrace()
+                    } catch (e: IOException) {
+                        e.printStackTrace()
+                    }
+
+                }catch (e: Exception)
+                {
+                    e.printStackTrace()
+                }
+
                 dismiss()
             }
             R.id.tv_signhere -> {
+
             }
             R.id.tv_cancel -> {
                 dismiss()
-                checkSubmitFragment.imagesignAvaliable=true
+
                 //checkTapToSignActivity.imagesignAvaliable = true
             }
-            R.id.tv_claer -> signDrawView!!.clear()
+            R.id.tv_claer ->{
+                signDrawView!!.clear()
+                checkSubmitFragment.signimgfile=null
+            }
         }//  Bitmap bmp=signDrawView.getBitmap();
         //  Bitmap bmp=signDrawView.getBitmap();
     }

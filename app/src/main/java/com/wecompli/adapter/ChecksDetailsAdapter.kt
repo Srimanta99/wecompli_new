@@ -72,6 +72,7 @@ class ChecksDetailsAdapter(val activity: MainActivity, val checklistDetailsrespo
             bundle.putString("selecteddate",checkdetailsfragment.date)
             bundle.putString("siteid",checkdetailsfragment.siteid)
             bundle.putString("checkname",checklistDetailsresponselist.get(position).check_name)
+            bundle.putString("check_type","3")
             checkSubmitFragment.arguments=bundle
             transaction.add(R.id.content_frame, checkSubmitFragment)
             transaction.addToBackStack("")
@@ -86,6 +87,7 @@ class ChecksDetailsAdapter(val activity: MainActivity, val checklistDetailsrespo
             bundle.putString("selecteddate",checkdetailsfragment.date)
             bundle.putString("siteid",checkdetailsfragment.siteid)
             bundle.putString("checkname",checklistDetailsresponselist.get(position).check_name)
+            bundle.putString("check_type","1")
             checkSubmitFragment.arguments=bundle
             transaction.add(R.id.content_frame, checkSubmitFragment)
             transaction.addToBackStack("")
@@ -99,10 +101,15 @@ class ChecksDetailsAdapter(val activity: MainActivity, val checklistDetailsrespo
             bundle.putString("selecteddate",checkdetailsfragment.date)
             bundle.putString("siteid",checkdetailsfragment.siteid)
             bundle.putString("checkname",checklistDetailsresponselist.get(position).check_name)
+            bundle.putString("check_type","2")
             checkSubmitFragment.arguments=bundle
             transaction.add(R.id.content_frame, checkSubmitFragment)
             transaction.addToBackStack("")
             transaction.commit()
+        }
+
+        itemView.tvpass.setOnClickListener {
+
         }
 
 

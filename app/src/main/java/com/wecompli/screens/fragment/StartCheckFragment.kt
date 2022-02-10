@@ -27,6 +27,7 @@ import com.wecompli.model.StartCheckResponseModel
 import com.wecompli.model.UserListResponseModel
 import com.wecompli.network.Retrofit
 import com.wecompli.screens.MainActivity
+import com.wecompli.utils.alert.CustomAlert
 import com.wecompli.utils.customdialog.CustomSiteSelectionDialogStartCheck
 import com.wecompli.viewmodel.StartChechViewModel
 import org.json.JSONObject
@@ -123,7 +124,10 @@ class StartCheckFragment : Fragment(),StartCheckHandler {
     }
 
     override fun search() {
-        callApiforChecks()
+        if (!selectedSideId.equals(""))
+           callApiforChecks()
+        else
+            CustomAlert.showalert(activity as MainActivity,"Please Select site")
     }
 
     public  fun setselection() {
@@ -172,9 +176,9 @@ class StartCheckFragment : Fragment(),StartCheckHandler {
         try {
             selecteddate=viewStartCheck!!.selectDate.text.toString()
             val paramObject = JSONObject()
-            paramObject.put("company_id","9")
-            paramObject.put("check_date", "06/09/2020")
-            paramObject.put("site_id","12")
+            paramObject.put("company_id",loginUserData.company_id)
+            paramObject.put("check_date", viewStartCheck!!.selectDate.text.toString())
+            paramObject.put("site_id",selectedSideId)
             var obj: JSONObject = paramObject
             var jsonParser: JsonParser = JsonParser()
             var gsonObject: JsonObject = jsonParser.parse(obj.toString()) as JsonObject;

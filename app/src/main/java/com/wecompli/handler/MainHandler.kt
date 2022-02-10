@@ -11,4 +11,5 @@ interface MainHandler {
   fun incidents()
   fun documents()
   fun email()
+  fun subcription()
 }

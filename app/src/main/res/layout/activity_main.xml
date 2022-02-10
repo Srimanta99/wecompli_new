@@ -148,6 +148,7 @@
                             android:layout_marginBottom="@dimen/_10sdp"
                             android:background="@drawable/botton_rounded_corner"
                             android:layout_below="@+id/imgedit"
+                            android:onClick="@{mainmodel.subcription}"
                             android:layout_alignParentBottom="true">
 
                             <ImageView
@@ -303,6 +304,7 @@
                         android:id="@+id/ll_fault"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_40sdp"
+                        android:onClick="@{mainmodel.faultList}"
                         android:orientation="horizontal">
 
                         <ImageView

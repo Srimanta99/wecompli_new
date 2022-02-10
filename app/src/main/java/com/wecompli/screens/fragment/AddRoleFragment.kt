@@ -85,10 +85,7 @@ class AddRoleFragment : Fragment(),AddRoleHandler {
                     val paramObject = JSONObject()
                     paramObject.put("company_id", "9")
                     paramObject.put("role_name", viewaddRoleBinding!!.etRolename.text.toString())
-                    paramObject.put(
-                        "module_function_id",
-                        roleaccess!!.joinToString(separator = ",")
-                    )
+                    paramObject.put("module_function_id", roleaccess!!.joinToString(separator = ","))
                     paramObject.put("status_id", "1")
 
                     var obj: JSONObject = paramObject

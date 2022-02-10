@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".screens.fragment.FaultDetailsFragment">
+
+    <data>
+
+        <variable
+            name="FaultDetailsViewModel"
+            type="com.wecompli.viewmodel.FaultDetailsViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/top_two_rounded_corner_white"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="@dimen/_7sdp"
+                android:layout_marginRight="@dimen/_7sdp"
+                android:padding="@dimen/_10sdp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rectangular_shape_rounded_corner_lightbeep_grey"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/_7sdp"
+                    android:text="Site Name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp"></TextView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_210sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+
+                    android:background="@drawable/rectangular_shape_rounded_corner_white"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_50sdp"
+                        android:padding="@dimen/_7sdp">
+
+                        <TextView
+                            android:id="@+id/tv_remarks"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@drawable/rectangular_shape_rounded_corner_grey"
+                            android:padding="@dimen/_7sdp"
+                            android:text="REMARK:"
+                            android:textColor="@color/black"></TextView>
+
+                        <TextView
+                            android:id="@+id/tv_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:text="Date : 12/2/2022"></TextView>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_remarkvalue"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_marginTop="@dimen/_2sdp"></TextView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_60sdp">
+
+                        <ImageView
+                            android:id="@+id/img_fault1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:layout_marginRight="@dimen/_5sdp"
+                            android:layout_weight="1"></ImageView>
+
+                        <ImageView
+                            android:id="@+id/img_fault2"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:layout_marginRight="@dimen/_5sdp"
+                            android:layout_weight="1"></ImageView>
+
+                        <ImageView
+                            android:id="@+id/img_fault3"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:layout_marginRight="@dimen/_5sdp"
+                            android:layout_weight="1"></ImageView>
+
+                        <ImageView
+                            android:id="@+id/img_fault4"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:layout_marginRight="@dimen/_5sdp"
+                            android:layout_weight="1"></ImageView>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvselectstatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Status(*)"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:font="@{`rajDhanisemiBold`}"
+
+                    ></TextView>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+
+                    android:background="@drawable/rectangular_shape_rounded_corner_white">
+
+                    <ImageView
+                        android:id="@+id/imgdropdown"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginRight="@dimen/_12sdp"
+                        android:layout_marginBottom="@dimen/_17sdp"
+
+
+                        android:background="@drawable/down_arrow"></ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:padding="@dimen/_7sdp"></TextView>
+
+                    </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvsaddnote"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" Add Note"
+
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:font="@{`rajDhanisemiBold`}"
+
+                    ></TextView>
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_70sdp"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:background="@drawable/rectangular_shape_rounded_corner_white"></TextView>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_marginTop="@dimen/_15sdp">
+                    <TextView
+                        android:id="@+id/tv_update"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:text="UPDATE"
+                        android:textColor="#fff"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_gravity="center"
+                        android:layout_alignParentRight="true"
+
+                        android:background="@drawable/rectangular_shape_rounded_corner_blue"
+                        android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/tv_notifywho"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:text="NOTIFY WHO"
+                        android:textColor="#fff"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_gravity="center"
+                        android:layout_toLeftOf="@+id/tv_update"
+                        android:layout_marginRight="@dimen/_15sdp"
+                        android:background="@drawable/botton_rounded_corner"
+                        android:gravity="center"/>
+
+
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/faultlog"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:layout_marginBottom="@dimen/_50sdp">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout
+            android:id="@+id/ll_b"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_alignParentBottom="true"
+
+            android:layout_marginBottom="@dimen/_20sdp">
+            <LinearLayout
+                android:id="@+id/ll_closefault"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:layout_marginRight="@dimen/_7sdp"
+
+                android:background="@drawable/rectangular_shape_rounded_corner_red">
+                <ImageView
+                    android:id="@+id/img_checks_add_role"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:background="@drawable/close"></ImageView>
+                <TextView
+                    android:id="@+id/tv_checks_add_role"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/img_user"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:text="CLOSE FAULT"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13sdp"
+                    app:font="@{`rajDhaniBold`}"
+                    android:gravity="center_vertical"></TextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_fixfault"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+
+                android:background="@drawable/rectangular_shape_rounded_corner_blue">
+                <ImageView
+                    android:id="@+id/img_fixfault"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:background="@drawable/fix"></ImageView>
+                <TextView
+                    android:id="@+id/tv_fixfault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/img_user"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:text="FIX FAULT"
+                    android:textSize="@dimen/_13sdp"
+                    app:font="@{`rajDhaniBold`}"
+                    android:textColor="@color/white"
+                    android:gravity="center_vertical"></TextView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

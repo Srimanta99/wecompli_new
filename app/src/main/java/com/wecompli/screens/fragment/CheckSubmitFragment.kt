@@ -25,6 +25,7 @@ import com.gsscanner.utils.PreferenceConstant
 import com.sculptee.utils.customprogress.CustomProgressDialog
 import com.wecompli.R
 import com.wecompli.databinding.FragmentCheckSubmitBinding
+
 import com.wecompli.handler.CheckSubmitHandler
 import com.wecompli.model.ProcessLogCreateResponseModel
 import com.wecompli.network.NetworkUtility
@@ -32,6 +33,7 @@ import com.wecompli.screens.MainActivity
 import com.wecompli.utils.alert.CustomAlert
 import com.wecompli.utils.alert.TapToSignDialogForLogSubmit
 import com.wecompli.viewmodel.CheckSubmitViewModel
+import kotlinx.android.synthetic.main.fragment_check_submit.*
 import okhttp3.*
 import org.json.JSONObject
 import java.io.File
@@ -53,6 +55,7 @@ class CheckSubmitFragment : Fragment(), CheckSubmitHandler {
    var date=""
     var siteid=""
     var checkname="";
+    var checktype=""
     var fragmentCheckSubmitBinding:FragmentCheckSubmitBinding?=null
     var checkSubmitViewModel:CheckSubmitViewModel?=null
     var REQUEST_CAMERA = 111
@@ -64,7 +67,8 @@ class CheckSubmitFragment : Fragment(), CheckSubmitHandler {
     internal var imagearraylist = ArrayList<File>()
     internal var imagearraylistpath = ArrayList<String>()
     var imagesignAvaliable=false
-
+    var istempatureselect=false
+    var signimgfile: File? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -83,7 +87,16 @@ class CheckSubmitFragment : Fragment(), CheckSubmitHandler {
         date=bundle!!.getString("selecteddate")!!
         siteid=bundle.getString("siteid")!!
         checkname=bundle!!.getString("checkname")!!
+        checktype= bundle!!.getString("check_type")!!
         return fragmentCheckSubmitBinding!!.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        if (checktype.equals("1")){
+            ll_log_submit.visibility=View.VISIBLE
+        }
+
     }
 
     companion object {
@@ -136,8 +149,7 @@ class CheckSubmitFragment : Fragment(), CheckSubmitHandler {
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<String>,
-        grantResults: IntArray
-    ) {
+        grantResults: IntArray) {
         if (requestCode == 0) {
             if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
                 && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
@@ -174,12 +186,12 @@ class CheckSubmitFragment : Fragment(), CheckSubmitHandler {
                 // val destination = File(Environment.getExternalStorageDirectory(), System.currentTimeMillis().toString() + ".jpg")
 
                 val root = Environment.getExternalStorageDirectory().toString()
-                val myDir = File("$root/wecompli/adhocfault")
+                val myDir = File("$root/wecompli/checksubmit")
                 myDir.mkdirs()
                 /* val generator = Random()
                   var n = 100
                   n = generator.nextInt(n)*/
-                val fname =Imagesellposition.toString()+"adhoc_image.jpg"
+                val fname =Imagesellposition.toString()+"check_submit.jpg"
                 val file = File(myDir, fname)
                 val fo: FileOutputStream
                 if (file.exists())
@@ -246,12 +258,12 @@ class CheckSubmitFragment : Fragment(), CheckSubmitHandler {
             // val destination = File(Environment.getExternalStorageDirectory(), System.currentTimeMillis().toString() + ".jpg")
 
             val root = Environment.getExternalStorageDirectory().toString()
-            val myDir = File("$root/wecompli/adhocfault")
+            val myDir = File("$root/wecompli/checksubmit")
             myDir.mkdirs()
             /* val generator = Random()
               var n = 100
               n = generator.nextInt(n)*/
-            val fname =Imagesellposition.toString()+"adhocfault_image.jpg"
+            val fname =Imagesellposition.toString()+"checksubmit.jpg"
             val file = File(myDir, fname)
             val fo: FileOutputStream
             if (file.exists())
@@ -373,11 +385,23 @@ class CheckSubmitFragment : Fragment(), CheckSubmitHandler {
             builder.addFormDataPart("check_type_values_id", "1")
             builder.addFormDataPart("process_status", "y")
             builder.addFormDataPart("checks_process_log_entry_date", datetime)
+            if (istempatureselect) {
+                builder.addFormDataPart("isTemperature", "1")
+                builder.addFormDataPart("temperature", fragmentCheckSubmitBinding!!.ettemp.text.toString())
+            }else{
+                builder.addFormDataPart("isTemperature", "0")
+                builder.addFormDataPart("temperature", "0")
+            }
+
+            if (signimgfile!=null){
+                builder.addFormDataPart("signaturename",fragmentCheckSubmitBinding!!.etName.text.toString())
+                builder.addFormDataPart("signaturefiles", "signimage", okhttp3.RequestBody.create(
+                        MediaType.parse("image/jpeg"),signimgfile))
+            }
             if (imagearraylist.size>0){
                 for (i in imagearraylist.indices) {
                     builder.addFormDataPart(
-                        "processfiles[]", imagearraylist.get(i).name, okhttp3.RequestBody.create(
-                            MediaType.parse("image/jpeg"), imagearraylist.get(i)
+                        "processfiles[]", imagearraylist.get(i).name, okhttp3.RequestBody.create(MediaType.parse("image/jpeg"), imagearraylist.get(i)
                         )
                     )
                 }
@@ -452,6 +476,7 @@ class CheckSubmitFragment : Fragment(), CheckSubmitHandler {
 
     override fun taptosign() {
         if(fragmentCheckSubmitBinding!!.chktaptosign.isChecked){
+            imagesignAvaliable=true
             TapToSignDialogForLogSubmit(activity as MainActivity,this).show()
         }/*else{
             fragmentCheckSubmitBinding!!.ettemp.isEnabled=false
@@ -462,8 +487,15 @@ class CheckSubmitFragment : Fragment(), CheckSubmitHandler {
     override fun settemp() {
       if(fragmentCheckSubmitBinding!!.chktemparuture.isChecked){
           fragmentCheckSubmitBinding!!.ettemp.isEnabled=true
+          istempatureselect=true
       }else{
           fragmentCheckSubmitBinding!!.ettemp.isEnabled=false
+          istempatureselect=false
       }
     }
 }
+
+
+
+
+

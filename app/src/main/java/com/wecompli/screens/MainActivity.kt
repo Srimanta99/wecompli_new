@@ -155,7 +155,7 @@ class MainActivity : AppCompatActivity(),MainHandler {
     }
 
     override fun openFaults() {
-        TODO("Not yet implemented")
+        openFragment(FaultListFragment())
     }
 
     override fun incidents() {
@@ -168,6 +168,10 @@ class MainActivity : AppCompatActivity(),MainHandler {
 
     override fun email() {
         TODO("Not yet implemented")
+    }
+
+    override fun subcription() {
+        openFragment(MySubcriptionFragment())
     }
 
     private fun getCurrentVersion() {
