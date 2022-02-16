@@ -167,4 +167,37 @@
     //Add checks
     <string name="checksName">Checks Name(</string>
     <string name="please_enter_checksname">Please enter checks name</string>
+
+    //incidents
+    <string name="detailsoforganization">DETAILS DER ORGANISATION</string>
+    <string name="nameoforganization"> Name of Organization</string>
+    <string name="addressoforganization">Address of Organization</string>
+    <string name="postcode"> Post Code</string>
+    <string name="telephone">Telephone</string>
+    <string name="detailsofpersoninjured">DETAILS DER PERSON VERLETZT</string>
+    <string name="fullnamepersoninjured">Vollständiger Name der verletzten Person</string>
+    <string name="personhomeaddress">Privatadresse der Person</string>
+    <string name="dateofbirth"> Geburtsdatum</string>
+    <string name="detailsofemployeecompleteform">DETAILS DES MITARBEITERS, DER DAS FORMULAR AUSFÜLLT</string>
+    <string name="tickappropritebox">Zutreffendes ankreuzen</string>
+    <string name="detailsofother"> Details von anderen</string>
+    <string name="descriprionofaccident"> BESCHREIBUNG DES UNFALLS</string>
+    <string name="selectaccidentlocation">Unfallort auswählen</string>
+    <string name="dateofoccurence">Datum des Auftretens</string>
+    <string name="timeofoccurence">Zeitpunkt des Auftretens</string>
+    <string name="takephatoorvideo">NIMM PHATO </string>
+    <string name="employmentdetails">BESCHÄFTIGUNG-DETAILS</string>
+    <string name="signofbehalf">Unterzeichnet (im Namen des Eigentümers / Unternehmens)</string>
+    <string name="patientname">Patientenname</string>
+    <string name="postion">Position</string>
+    <string name="statementdetails">Angaben zum Kontoauszug</string>
+    <string name="signbywitness">Vom Zeugen signiert</string>
+    <string name="addressofwitness">Adresse des Zeugen</string>
+    <string name="pairntnamecompletedby">Druckname (Formular ausgefüllt von)</string>
+    <string name="signinjuredperson">Zeichen (verletzte Person)</string>
+    <string name="prientinjuredperson">Name drucken (verletzte Person)</string>
+    <string name="employee">  Employee</string>
+    <string name="customer"> Kunde</string>
+    <string name="visitor">  Besucher</string>
+    <string name="others">Andere (Bitte geben Sie unten Details an)</string>
 </resources>

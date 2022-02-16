@@ -165,4 +165,38 @@
     //Add checks
     <string name="checksName">Checks Name(</string>
     <string name="please_enter_checksname">Please enter checks name</string>
+
+    //details of incidents
+
+    <string name="detailsoforganization">DETAILS VAN ORGANISATIE</string>
+    <string name="nameoforganization"> Naam van de Organisatie</string>
+    <string name="addressoforganization">Adres van de organisatie</string>
+    <string name="postcode"> Postcode</string>
+    <string name="telephone">Telefoon</string>
+    <string name="detailsofpersoninjured">DETAILS VAN GEWONNEN PERSOON</string>
+    <string name="fullnamepersoninjured">Volledige naam van de gewonde persoon</string>
+    <string name="personhomeaddress">Persoon thuisadres</string>
+    <string name="dateofbirth">Geboortedatum</string>
+    <string name="detailsofemployeecompleteform">DETAILS VAN WERKNEMER DIE HET FORMULIER AANVULLEN</string>
+    <string name="tickappropritebox">Vink het juiste vakje aan</string>
+    <string name="detailsofother"> Details van anderen</string>
+    <string name="descriprionofaccident"> BESCHRIJVING VAN ONGEVAL</string>
+    <string name="selectaccidentlocation">Selecteer ongevallocatie</string>
+    <string name="dateofoccurence">Datum van optreden</string>
+    <string name="timeofoccurence">Tijd van optreden</string>
+    <string name="takephatoorvideo">NEEM FATO </string>
+    <string name="employmentdetails">WERKGEGEVENS</string>
+    <string name="signofbehalf">Ondertekend (namens eigenaar / bedrijf)</string>
+    <string name="patientname">Naam patiënt</string>
+    <string name="postion">Positie</string>
+    <string name="statementdetails">verklaring details</string>
+    <string name="signbywitness">Adres van Getuige</string>
+    <string name="addressofwitness">Adresse des Zeugen</string>
+    <string name="pairntnamecompletedby">Afdruknaam (formulier ingevuld door)</string>
+    <string name="signinjuredperson">Zeichen (verletzte Person)</string>
+    <string name="prientinjuredperson">Afdruknaam (gewonde persoon)</string>
+    <string name="employee">  werknemer</string>
+    <string name="customer"> Klant</string>
+    <string name="visitor">  Bezoeker</string>
+    <string name="others">Anderen (geef hieronder details)</string>
 </resources>

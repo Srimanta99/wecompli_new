@@ -27,4 +27,11 @@
     <color name="light_green">#5eda70</color>
     <color name="yellow">#F99928</color>
     <color name="grey">#585755</color>
+    <color name="text_color_newtask">#7a7a7a</color>
+    <color name="text_color">#c6c6c6</color>
+    <color name="text_hint_color">#9A9A9A</color>
+    <color name="signingrey">#555555</color>
+    <color name="tabtext_color">#2d66bd</color>
+    <color name="lightgrey">#ebeaeb</color>
+    <color name="blue_button_color">#062373</color>
 </resources>

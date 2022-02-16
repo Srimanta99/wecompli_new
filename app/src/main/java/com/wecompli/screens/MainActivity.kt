@@ -159,15 +159,16 @@ class MainActivity : AppCompatActivity(),MainHandler {
     }
 
     override fun incidents() {
-        TODO("Not yet implemented")
+        openFragment(IncidentsFragment())
     }
 
     override fun documents() {
-        TODO("Not yet implemented")
+        openFragment(DocumentAddFragment())
     }
 
     override fun email() {
-        TODO("Not yet implemented")
+        openFragment(EmailListFragment())
+
     }
 
     override fun subcription() {

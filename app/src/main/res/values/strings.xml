@@ -172,4 +172,37 @@
     <string name="please_enter_checksname">Please enter checks name</string>
 
 
+    // incidents
+    <string name="detailsoforganization">DETAILS OF ORGANIZATION</string>
+    <string name="nameoforganization"> Name of Organization</string>
+    <string name="addressoforganization">Address of Organization</string>
+    <string name="postcode"> Post Code</string>
+    <string name="telephone">Telephone</string>
+    <string name="detailsofpersoninjured">DETAILS OF PERSON INJURED</string>
+    <string name="fullnamepersoninjured">Full name of person injured</string>
+    <string name="personhomeaddress">Person home address</string>
+    <string name="dateofbirth"> Date of Birth</string>
+    <string name="detailsofemployeecompleteform">DETAILS OF EMPLOYEE COMPLETING THE FORM</string>
+    <string name="tickappropritebox">Tick approprite box</string>
+    <string name="detailsofother"> Details Of Others</string>
+    <string name="descriprionofaccident"> DESCRIPTION OF ACCIDENT</string>
+    <string name="selectaccidentlocation">Select accident location</string>
+    <string name="dateofoccurence">Date of occurence</string>
+    <string name="timeofoccurence">Time of occurence</string>
+    <string name="takephatoorvideo">TAKE PHATO </string>
+    <string name="employmentdetails">EMPLOYMENT DETAILS</string>
+    <string name="signofbehalf">Signed (on behalf of Owner/Company)</string>
+    <string name="patientname">Patient Name</string>
+    <string name="postion">Position</string>
+    <string name="statementdetails">statement details</string>
+    <string name="signbywitness">Signed by witness</string>
+    <string name="addressofwitness">Address of Witeness</string>
+    <string name="pairntnamecompletedby">Print name(Form completed by)</string>
+    <string name="signinjuredperson">Sign(Injured person)</string>
+    <string name="prientinjuredperson">Print name( injured person)</string>
+    <string name="employee">  Employee</string>
+    <string name="customer">Customer</string>
+    <string name="visitor">  Visitor</string>
+    <string name="others">Others  (Please give details below)</string>
+
 </resources>

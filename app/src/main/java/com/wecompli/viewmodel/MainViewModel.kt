@@ -33,4 +33,14 @@ class MainViewModel:ViewModel() {
     fun faultList(view:View){
         mainHandler!!.openFaults()
     }
+    fun openDocument(view:View){
+        mainHandler!!.documents()
+    }
+    fun openincidents(view:View){
+        mainHandler!!.incidents()
+    }
+
+    fun openemailList(view: View){
+        mainHandler!!.email()
+    }
 }

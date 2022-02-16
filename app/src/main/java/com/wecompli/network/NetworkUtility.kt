@@ -30,6 +30,7 @@ class NetworkUtility {
          const val  CHECKDETAILS="start/check/list"
         const val LOGCREATE="processlog/create"
         const val FAULTLIST="fault/list"
+        const val  FAULTDETAILS="fault/details"
 
     }
 }

@@ -52,6 +52,9 @@ interface ApiInterface {
     @POST(NetworkUtility.FAULTLIST)
     fun callforfaultList(@Header("Authorization") token:String,@Body body: JsonObject) : Call<FaultListResponseModel>
 
+    @POST(NetworkUtility.FAULTDETAILS)
+    fun callforfaultDetails(@Header("Authorization") token:String,@Body body: JsonObject) : Call<FaultDetailsResponse>
+
 
     /*  @POST(NetworkUtility.LOGIN)
       fun callLogInApi(@Body body: JsonObject): Call<LoginResponseModel>

@@ -332,6 +332,7 @@
                         android:id="@+id/ll_incidents"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_40sdp"
+                        android:onClick="@{mainmodel.openincidents}"
                         android:orientation="horizontal">
 
                         <ImageView
@@ -365,6 +366,7 @@
                         android:id="@+id/ll_documents"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_40sdp"
+                        android:onClick="@{mainmodel.openDocument}"
                         android:orientation="horizontal">
 
                         <ImageView
@@ -394,6 +396,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_40sdp"
                         android:layout_marginBottom="@dimen/_20sdp"
+                        android:onClick="@{mainmodel.openemailList}"
                         android:orientation="horizontal">
 
                         <ImageView
