@@ -200,6 +200,7 @@
     <string name="customer">Customer</string>
     <string name="visitor">  Visitor</string>
     <string name="others">Others  (Please give details below)</string>
+    <string name="addsite">AJOUTER UN SITE</string>
 
 
 </resources>

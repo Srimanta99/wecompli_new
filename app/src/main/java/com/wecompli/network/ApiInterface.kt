@@ -46,6 +46,9 @@ interface ApiInterface {
     @POST(NetworkUtility.CHECKS)
     fun callforChecks(@Header("Authorization") token:String,@Body body: JsonObject) : Call<ChecksListModel>
 
+    @POST(NetworkUtility.STARTCHECKS)
+    fun callforStartChecks(@Header("Authorization") token:String,@Body body: JsonObject) : Call<ChecksListModel>
+
     @POST(NetworkUtility.CHECKDETAILS)
     fun callforChecksDetails(@Header("Authorization") token:String,@Body body: JsonObject) : Call<CheckListDetailsResponse>
 
@@ -54,6 +57,9 @@ interface ApiInterface {
 
     @POST(NetworkUtility.FAULTDETAILS)
     fun callforfaultDetails(@Header("Authorization") token:String,@Body body: JsonObject) : Call<FaultDetailsResponse>
+
+    @POST(NetworkUtility.DASHBOARDPERCENTAGE)
+    fun callfordashboardpercentage(@Header("Authorization") token:String,@Body body: JsonObject) : Call<DashBoardPercentageResponse>
 
 
     /*  @POST(NetworkUtility.LOGIN)

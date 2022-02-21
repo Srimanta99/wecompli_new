@@ -86,6 +86,7 @@
 
                         android:layout_marginLeft="@dimen/_3sdp"
                         android:layout_weight="1"
+                        android:onClick="@{DashViewModel.showpercentage}"
                         android:background="@drawable/rectangular_shape_rounded_corner_blue">
 
                         <ImageView
@@ -130,7 +131,7 @@
                         app:csb_arcWidth="6dp"
                         app:csb_max="1000"
                         app:csb_min="10"
-                        app:csb_progress="750"
+                        app:csb_progress="00"
                         app:csb_progressColor="#524aeb"
                         app:csb_progressWidth="@dimen/_17sdp"
                         app:csb_step="1"
@@ -151,10 +152,11 @@
                         app:layout_constraintTop_toBottomOf="@id/tv_todaycheck"></ImageView>
 
                     <TextView
+                        android:id="@+id/tv_percentagevalue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_74sdp"
-                        android:text="75%"
+                        android:text="00%"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_20sdp"
                         app:font="@{`rajDhaniBold`}"
@@ -236,10 +238,11 @@
                             android:background="@drawable/rounded_shape_blue">
 
                             <TextView
+                                android:id="@+id/tvfaultcount"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
-                                android:text="20"
+                                android:text="00"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/_11sdp"
                                 app:font="@{`rajDhaniBold`}"></TextView>

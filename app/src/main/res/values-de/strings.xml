@@ -200,4 +200,5 @@
     <string name="customer"> Kunde</string>
     <string name="visitor">  Besucher</string>
     <string name="others">Andere (Bitte geben Sie unten Details an)</string>
+    <string name="addsite">WEBSITE HINZUFÜGEN</string>
 </resources>

@@ -21,4 +21,7 @@ class DashBoardViewModel:ViewModel() {
     fun openadhocFault(view:View){
         dashBoardHandler!!.openDownload()
     }
+    fun showpercentage(view:View){
+        dashBoardHandler!!.showSearch()
+    }
 }

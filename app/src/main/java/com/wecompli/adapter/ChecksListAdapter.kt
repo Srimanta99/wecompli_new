@@ -1,6 +1,7 @@
 package com.wecompli.adapter
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,13 +18,14 @@ import com.wecompli.model.ChecksListModel
 import com.wecompli.model.RoleListResponseModel
 import com.wecompli.model.SiteListResponseModel
 import com.wecompli.screens.MainActivity
+import com.wecompli.screens.fragment.CheckSubmitFragment
 import com.wecompli.screens.fragment.ChecksFragment
 import com.wecompli.screens.fragment.RolesListFragment
 import com.wecompli.screens.fragment.SiteListFragment
 import com.wecompli.utils.customfont.CustomTypeface
 import kotlinx.android.synthetic.main.item_role_list.view.*
 
-class ChecksListAdapter(val activity: MainActivity, val rolelist:ArrayList<ChecksListModel.Row>, val checksFragment: ChecksFragment)
+class ChecksListAdapter(val activity: MainActivity, val checklist:ArrayList<ChecksListModel.Row>, val checksFragment: ChecksFragment)
     : RecyclerView.Adapter<ChecksListAdapter.ViewHolder>(){
      //  var  itemView:ItemRoleListBinding?=null
     class ViewHolder(val itemSite: View):RecyclerView.ViewHolder(itemSite){
@@ -49,7 +51,7 @@ class ChecksListAdapter(val activity: MainActivity, val rolelist:ArrayList<Check
     override fun onBindViewHolder(itemView: ViewHolder, position: Int) {
 
 
-           itemView!!.checksname.typeface=CustomTypeface.getRajdhaniBold(activity);
+        itemView!!.checksname.typeface=CustomTypeface.getRajdhaniBold(activity);
         itemView!!.tvfail.typeface=CustomTypeface.getRajdhaniBold(activity);
         itemView!!.tvpass.typeface=CustomTypeface.getRajdhaniBold(activity);
         itemView!!.tvminorfail.typeface=CustomTypeface.getRajdhaniBold(activity);
@@ -57,8 +59,8 @@ class ChecksListAdapter(val activity: MainActivity, val rolelist:ArrayList<Check
         itemView!!.notes.typeface=CustomTypeface.getRajdhaniBold(activity);
         itemView!!.notetext.typeface=CustomTypeface.getRajdhaniMedium(activity)
 
-        itemView!!.checksname.setText(rolelist.get(position).check_name)
-        itemView!!.notetext.setText(rolelist.get(position).check_note)
+        itemView!!.checksname.setText(checklist.get(position).check_name)
+        itemView!!.notetext.setText(checklist.get(position).check_note)
 
            itemView!!.rlExpand.setOnClickListener {
             if(itemView!!.checks.visibility==View.GONE)
@@ -69,9 +71,56 @@ class ChecksListAdapter(val activity: MainActivity, val rolelist:ArrayList<Check
 
 
        // itemView!!.llRoles.visibility=View.GONE
+
+        itemView.tvminorfail.setOnClickListener {
+            val transaction = activity.supportFragmentManager.beginTransaction()
+            var checkSubmitFragment= CheckSubmitFragment()
+            val bundle= Bundle()
+            // bundle.putString("category_Id",checkslist.get(position).id.toString())
+            bundle.putString("selecteddate",checksFragment.currentDate)
+            bundle.putString("siteid",checkSubmitFragment.siteid)
+            bundle.putString("checkname",checklist.get(position).check_name)
+            bundle.putString("check_type",checklist.get(position).check_type_id.toString())
+
+            checkSubmitFragment.arguments=bundle
+            transaction.add(R.id.content_frame, checkSubmitFragment)
+            transaction.addToBackStack("")
+            transaction.commit()
+        }
+
+        itemView.tvpass.setOnClickListener {
+            val transaction = activity.supportFragmentManager.beginTransaction()
+            var checkSubmitFragment= CheckSubmitFragment()
+            val bundle= Bundle()
+            // bundle.putString("category_Id",checkslist.get(position).id.toString())
+            bundle.putString("selecteddate",checksFragment.currentDate)
+            bundle.putString("siteid",checkSubmitFragment.siteid)
+            bundle.putString("checkname",checklist.get(position).check_name)
+            bundle.putString("check_type",checklist.get(position).check_type_id.toString())
+
+            checkSubmitFragment.arguments=bundle
+            transaction.add(R.id.content_frame, checkSubmitFragment)
+            transaction.addToBackStack("")
+            transaction.commit()
+        }
+        itemView.tvfail.setOnClickListener {
+            val transaction = activity.supportFragmentManager.beginTransaction()
+            var checkSubmitFragment= CheckSubmitFragment()
+            val bundle= Bundle()
+            // bundle.putString("category_Id",checkslist.get(position).id.toString())
+            bundle.putString("selecteddate",checksFragment.currentDate)
+            bundle.putString("siteid",checkSubmitFragment.siteid)
+            bundle.putString("checkname",checklist.get(position).check_name)
+            bundle.putString("check_type",checklist.get(position).check_type_id.toString())
+
+            checkSubmitFragment.arguments=bundle
+            transaction.add(R.id.content_frame, checkSubmitFragment)
+            transaction.addToBackStack("")
+            transaction.commit()
+        }
     }
 
     override fun getItemCount(): Int {
-       return rolelist.size
+       return checklist.size
     }
 }

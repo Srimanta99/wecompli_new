@@ -199,4 +199,5 @@
     <string name="customer"> Klant</string>
     <string name="visitor">  Bezoeker</string>
     <string name="others">Anderen (geef hieronder details)</string>
+    <string name="addsite">SITE TOEVOEGEN</string>
 </resources>

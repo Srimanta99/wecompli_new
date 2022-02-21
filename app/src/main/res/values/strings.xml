@@ -204,5 +204,6 @@
     <string name="customer">Customer</string>
     <string name="visitor">  Visitor</string>
     <string name="others">Others  (Please give details below)</string>
+    <string name="addsite">ADD SITE</string>
 
 </resources>

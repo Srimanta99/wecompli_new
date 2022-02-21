@@ -35,6 +35,9 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -54,7 +57,7 @@ class ChecksFragment : Fragment(), ChecksHandler{
     var catPurpose:String?=""
     var catname:String?=""
     var ChecksListAdapter:ChecksListAdapter?=null
-
+    var currentDate=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -125,11 +128,11 @@ class ChecksFragment : Fragment(), ChecksHandler{
     }
 
     override fun searchCheck() {
-     /*   if (!selectedSideId.equals(""))
+        if (!selectedSideId.equals(""))
             callApiforChecks();
         else
             CustomAlert.showalert((activity as MainActivity),"Select Site")
-*/
+
     }
 
     override fun openAddCheck() {
@@ -190,19 +193,22 @@ class ChecksFragment : Fragment(), ChecksHandler{
     }
 
     private fun callApiforChecks() {
+        val sdf = SimpleDateFormat("dd/MM/yyyy ")
+         currentDate = sdf.format(Date())
         var loginUserData= AppSheardPreference(activity as MainActivity).getUser(PreferenceConstant.userData)
         val  customProgress: CustomProgressDialog = CustomProgressDialog().getInstance()
         customProgress.showProgress(activity as MainActivity, "Please Wait..", false)
         val apiInterface= Retrofit.retrofitInstance?.create(ApiInterface::class.java)
         try {
             val paramObject = JSONObject()
-            paramObject.put("company_id","9")
-            paramObject.put("category_id", "238")
-            paramObject.put("site_id","12")
+            paramObject.put("company_id",loginUserData.company_id)
+            paramObject.put("category_id", catid)
+            paramObject.put("site_id",selectedSideId)
+            paramObject.put("check_date",currentDate)
             var obj: JSONObject = paramObject
             var jsonParser: JsonParser = JsonParser()
             var gsonObject: JsonObject = jsonParser.parse(obj.toString()) as JsonObject;
-            val sitelistapiCall = apiInterface.callforChecks("Bearer "+loginUserData.token,gsonObject )
+            val sitelistapiCall = apiInterface.callforStartChecks("Bearer "+loginUserData.token,gsonObject )
             sitelistapiCall.enqueue(object : Callback<ChecksListModel> {
                 override fun onResponse(call: Call<ChecksListModel>, response: Response<ChecksListModel>) {
                     customProgress.hideProgress()

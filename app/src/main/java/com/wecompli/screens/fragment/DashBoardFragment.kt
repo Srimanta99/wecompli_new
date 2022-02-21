@@ -20,6 +20,7 @@ import com.sculptee.utils.customprogress.CustomProgressDialog
 import com.wecompli.R
 import com.wecompli.databinding.FragmentDashBoardBinding
 import com.wecompli.handler.DashBoardHandler
+import com.wecompli.model.DashBoardPercentageResponse
 import com.wecompli.model.SiteListResponseModel
 import com.wecompli.network.Retrofit
 import com.wecompli.screens.MainActivity
@@ -30,6 +31,9 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -43,6 +47,7 @@ class DashBoardFragment : Fragment(),DashBoardHandler {
     var viewmodel:DashBoardViewModel?=null
     var siteListRow:ArrayList<SiteListResponseModel.SiteDetails>?=null
     var viewDashBoard: FragmentDashBoardBinding?=null
+    val  seleteSiteList:ArrayList<String>?= ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -62,7 +67,7 @@ class DashBoardFragment : Fragment(),DashBoardHandler {
         if (CustomAlert.isNetworkAvailable(activity as MainActivity))
             callApiForSiteList()
         else
-            CustomAlert.showaInternetlert(activity as MainActivity," No Internet Connection")
+            CustomAlert.showaInternetlert(activity as MainActivity," No Internet Connection.")
          viewDashBoard!!.circular.setOnTouchListener { view, motionEvent ->
             true
          }
@@ -124,11 +129,11 @@ class DashBoardFragment : Fragment(),DashBoardHandler {
     }
 
     override fun showSearch() {
-        TODO("Not yet implemented")
+      callApiFordashboardpercentage()
     }
 
     override fun openDownload() {
-        TODO("Not yet implemented")
+
     }
 
     override fun startcheck() {
@@ -157,13 +162,60 @@ class DashBoardFragment : Fragment(),DashBoardHandler {
                 linearLayout.layoutParams=LayoutParams
                 val tvname: TextView = linearLayout.findViewById(R.id.tvname)
                 val cross: ImageView = linearLayout.findViewById(R.id.crossview)
+                seleteSiteList!!.add(siteListRow!!.get(i).id.toString())
                 tvname.setText(siteListRow!!.get(i).site_name)
                 cross.setOnClickListener {
                     viewDashBoard!!.flexboxlayout.removeView(linearLayout)
                     siteListRow!!.get(i).isselect=false
+                    seleteSiteList!!.remove(siteListRow!!.get(i).id.toString())
                 }
                 viewDashBoard!!.flexboxlayout!!.addView(linearLayout)
             }
+        }
+    }
+
+    private fun callApiFordashboardpercentage() {
+        val sdf = SimpleDateFormat("dd/MM/yyyy ")
+        val currentDate = sdf.format(Date())
+        var loginUserData= AppSheardPreference(activity as MainActivity).getUser(PreferenceConstant.userData)
+        val  customProgress: CustomProgressDialog = CustomProgressDialog().getInstance()
+        customProgress.showProgress(activity as MainActivity, "Please Wait..", false)
+        val apiInterface= Retrofit.retrofitInstance?.create(ApiInterface::class.java)
+        try {
+            val paramObject = JSONObject()
+            paramObject.put("company_id", loginUserData.company_id)
+            paramObject.put("site_id",seleteSiteList!!.joinToString(separator = ","))
+            paramObject.put("check_date",currentDate)
+            var obj: JSONObject = paramObject
+            var jsonParser: JsonParser = JsonParser()
+            var gsonObject: JsonObject = jsonParser.parse(obj.toString()) as JsonObject;
+            val sitelistapiCall = apiInterface.callfordashboardpercentage("Bearer " + loginUserData.token, gsonObject)
+            sitelistapiCall.enqueue(object : Callback<DashBoardPercentageResponse> {
+                override fun onResponse(
+                    call: Call<DashBoardPercentageResponse>,
+                    response: Response<DashBoardPercentageResponse>) {
+                    customProgress.hideProgress()
+                    if (response.isSuccessful) {
+                        if (response.body()!!.process) {
+                            if(response!!.body()!!.totalCheckedChecks>0) {
+                                val percentageResponse = ((response!!.body()!!.totalCheckedChecks / response!!.body()!!.totalChecks) * 100).toInt()
+                                viewDashBoard!!.circular.setProgressDisplayAndInvalidate(percentageResponse)
+                                viewDashBoard!!.tvPercentagevalue.setText(percentageResponse)
+
+                            }
+                            viewDashBoard!!.tvfaultcount.setText(response!!.body()!!.todaysFaultCount)
+
+                        }
+                    }
+
+                }
+
+                override fun onFailure(call: Call<DashBoardPercentageResponse>, t: Throwable) {
+                    customProgress.hideProgress()
+                }
+            })
+        }catch (e: Exception){
+
         }
     }
 

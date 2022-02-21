@@ -60,6 +60,8 @@ class MainActivity : AppCompatActivity(),MainHandler {
 
                 }
         activityMainBinding!!.drawerlayout!!.addDrawerListener(actionBarDrawerToggle)
+      //  opendahBoardFragment(FristTimeDashBoardFragment())
+
         opendahBoardFragment(DashBoardFragment())
          val userdata=AppSheardPreference(this).getUser(PreferenceConstant.userData)
         activityMainBinding!!.tvUsername.setText(userdata.full_name)

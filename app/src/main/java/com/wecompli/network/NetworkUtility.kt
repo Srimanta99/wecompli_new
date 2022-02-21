@@ -27,10 +27,12 @@ class NetworkUtility {
        const val  CHECKSADD="checks/create"
        const val  STARTCHECK="start/check"
         const val  CHECKS="checks/list"
+        const val  STARTCHECKS="start/check/list"
          const val  CHECKDETAILS="start/check/list"
         const val LOGCREATE="processlog/create"
         const val FAULTLIST="fault/list"
         const val  FAULTDETAILS="fault/details"
+        const val DASHBOARDPERCENTAGE="dashboard/getprogress"
 
     }
 }
