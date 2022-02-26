@@ -3,6 +3,7 @@ package com.wecompli.screens.fragment
 import ApiInterface
 import android.content.Context
 import android.os.Bundle
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -26,6 +27,7 @@ import com.wecompli.model.FaultListResponseModel
 import com.wecompli.model.SiteListResponseModel
 import com.wecompli.network.Retrofit
 import com.wecompli.screens.MainActivity
+import com.wecompli.utils.alert.CustomAlert
 import com.wecompli.utils.customdialog.CustomSiteSelectionDialog
 import com.wecompli.utils.customdialog.CustomSiteSelectionDialogFautList
 import com.wecompli.viewmodel.FaultListViewModel
@@ -47,7 +49,7 @@ class FaultListFragment : Fragment(),FaultListHandler {
     var siteListRow:ArrayList<SiteListResponseModel.SiteDetails>?=null
     var selectedSitelistId:ArrayList<String>?= ArrayList()
 
-    val faultList:ArrayList<FaultListResponseModel.Row>?=ArrayList()
+    var faultList:ArrayList<FaultListResponseModel.Row>?=ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -62,8 +64,6 @@ class FaultListFragment : Fragment(),FaultListHandler {
         fragmentFaultListBinding!!.faultlist=viewModel
         viewModel!!.faultListHandler=this
         callApiForSiteList()
-       var faultListAdapter= FaultListAdapter(activity as MainActivity,faultList!!,this )
-        fragmentFaultListBinding!!.recFaults.adapter=faultListAdapter
         return fragmentFaultListBinding!!.root
     }
 
@@ -85,8 +85,15 @@ class FaultListFragment : Fragment(),FaultListHandler {
                     customProgress.hideProgress()
                     if (response.isSuccessful) {
                         if (response.body()!!.process) {
-
-                        }
+                            faultList=response!!.body()!!.rows
+                            if (faultList!!.get(0).fault_list.size>0) {
+                                var faultListAdapter = FaultListAdapter(activity as MainActivity, faultList!!, this@FaultListFragment)
+                                fragmentFaultListBinding!!.recFaults.adapter = faultListAdapter
+                                fragmentFaultListBinding!!.tvfaultcounts.text =
+                                    response!!.body()!!.fault_count.toString()
+                            }
+                        }else
+                            CustomAlert.showalert((activity as MainActivity),"No fault found")
                     }
 
                 }
@@ -162,6 +169,14 @@ class FaultListFragment : Fragment(),FaultListHandler {
 
     override fun openleftsidedrawer() {
         TODO("Not yet implemented")
+    }
+
+    override fun opendrawer() {
+        ( activity as MainActivity).activityMainBinding!!.drawerlayout.openDrawer(Gravity.LEFT)
+    }
+
+    override fun opensearchdrawer() {
+        fragmentFaultListBinding!!.drawerLayout.openDrawer(Gravity.RIGHT)
     }
 
     public fun setselection(){

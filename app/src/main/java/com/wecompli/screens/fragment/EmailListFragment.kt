@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.wecompli.R
 import com.wecompli.databinding.FragmentEmailListBinding
 import com.wecompli.handler.EmailListHandler
+import com.wecompli.screens.MainActivity
 import com.wecompli.viewmodel.EmailViewModel
 
 private const val ARG_PARAM1 = "param1"
@@ -53,6 +54,11 @@ class EmailListFragment : Fragment(),EmailListHandler {
             }
     }
 
+    override fun onResume() {
+        super.onResume()
+        (activity as MainActivity).activityMainBinding!!.tvHeaderText.text="EMAIL"
+        (activity as MainActivity).activityMainBinding!!.mainHeader.visibility=View.VISIBLE
+    }
     override fun addEmail() {
 
     }

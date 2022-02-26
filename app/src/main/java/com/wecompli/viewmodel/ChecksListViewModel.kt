@@ -9,4 +9,10 @@ class ChecksListViewModel:ViewModel() {
     fun addnew(view: View){
         checklisthander!!.addnewCheck()
     }
+    fun openSearchDrawer(view:View){
+        checklisthander!!.opensearchDrawer()
+    }
+    fun openmenu(view:View){
+        checklisthander!!.openmenu()
+    }
 }

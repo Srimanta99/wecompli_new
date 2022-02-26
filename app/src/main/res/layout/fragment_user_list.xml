@@ -33,6 +33,7 @@
                 android:layout_height="@dimen/_17sdp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/_10sdp"
+                android:onClick="@{UserListModel.openmenu}"
                 android:background="@drawable/menu"/>
             <TextView
                 android:id="@+id/tv_header_text"
@@ -58,6 +59,7 @@
                 android:layout_marginRight="@dimen/_5sdp"
                 android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@drawable/searchwithbg"
+                android:onClick="@{UserListModel.openSearch}"
                 android:visibility="visible"></ImageView>
         </RelativeLayout>
         <RelativeLayout

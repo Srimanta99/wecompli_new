@@ -31,6 +31,7 @@
                     android:layout_height="@dimen/_17sdp"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/_10sdp"
+                    android:onClick="@{checkList.openmenu}"
                     android:background="@drawable/menu"/>
                 <TextView
                     android:id="@+id/tv_header_text"
@@ -55,6 +56,7 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginRight="@dimen/_5sdp"
                     android:layout_marginBottom="@dimen/_5sdp"
+                    android:onClick="@{checkList.openSearchDrawer}"
                     android:background="@drawable/searchwithbg"
                     android:visibility="visible"></ImageView>
             </RelativeLayout>
@@ -64,7 +66,38 @@
                 android:layout_below="@+id/rlheader"
                 android:background="@drawable/top_two_rounded_corner_white">
 
-
+                <LinearLayout
+                    android:id="@+id/ll_nocheckfound"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="@dimen/_60sdp"
+                        android:background="@drawable/empty"
+                        android:layout_gravity="center_horizontal">
+                        
+                    </ImageView>
+                    
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="No checklist found"
+                        android:gravity="center"
+                        app:font="@{`rajDhaniBold`}"
+                        android:layout_margin="@dimen/_10sdp"
+                         android:textSize="@dimen/_16sdp"></TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Note : Please add your checklist \n by checking the Add NEW button"
+                        android:gravity="center"
+                        app:font="@{`rajDhaniSemiBold`}"
+                        android:textSize="@dimen/_13sdp"></TextView>
+                    
+                </LinearLayout>
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rec_checklist"
                     android:layout_width="match_parent"

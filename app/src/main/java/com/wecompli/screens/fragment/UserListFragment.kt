@@ -2,6 +2,7 @@ package com.wecompli.screens.fragment
 
 import ApiInterface
 import android.os.Bundle
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -118,5 +119,13 @@ class UserListFragment : Fragment(), UserListhandler {
 
     override fun adduser() {
         (activity as MainActivity).openFragment(AddUserFragment())
+    }
+
+    override fun openmenu() {
+        (activity as MainActivity).activityMainBinding!!.drawerlayout.openDrawer(Gravity.LEFT)
+    }
+
+    override fun opensearch() {
+        userlistView!!.drawerLayout.openDrawer(Gravity.RIGHT)
     }
 }

@@ -215,8 +215,10 @@ class ChecksFragment : Fragment(), ChecksHandler{
                     if (response.isSuccessful) {
                         if (response.body()!!.process) {
                             checklist=response!!.body()!!.rows
-                            ChecksListAdapter= ChecksListAdapter(activity as MainActivity,checklist!!,this@ChecksFragment)
-                           checksView!!.recChecklist.adapter=ChecksListAdapter
+                            if(checklist!!.size>0) {
+                                ChecksListAdapter = ChecksListAdapter(activity as MainActivity, checklist!!, this@ChecksFragment)
+                                checksView!!.recChecklist.adapter = ChecksListAdapter
+                            }
                             checksView!!.drawerLayout.closeDrawer(Gravity.RIGHT)
                         }
                     }

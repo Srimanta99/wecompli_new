@@ -48,6 +48,7 @@ class AddChecksFragment : Fragment(), AddChecksHandler {
     var addChecksViewModel:AddChecksViewModel?=null
     var  addchecksView: FragmentAddChecksBinding?=null
     var siteListRow:ArrayList<CategorySiteListResponse.Row>?=null
+    var selectedsite:ArrayList<String>?= ArrayList()
     var catid:String?=""
     var catPurpose:String?=""
     var catname:String?=""
@@ -96,8 +97,8 @@ class AddChecksFragment : Fragment(), AddChecksHandler {
         val apiInterface= Retrofit.retrofitInstance?.create(ApiInterface::class.java)
         try {
             val paramObject = JSONObject()
-            paramObject.put("company_id", "9")
-            paramObject.put("category_id","19")
+            paramObject.put("company_id", loginUserData.company_id)
+            paramObject.put("category_id",catid)
             var obj: JSONObject = paramObject
             var jsonParser: JsonParser = JsonParser()
             var gsonObject: JsonObject = jsonParser.parse(obj.toString()) as JsonObject;
@@ -144,7 +145,7 @@ class AddChecksFragment : Fragment(), AddChecksHandler {
     override fun submitCheck() {
         if (!addchecksView!!.etChecklistname.text.toString().equals("")){
             if(!addchecksView!!.etNote.text.toString().equals("")){
-                if(siteids!!.length>0){
+                if(selectedsite!!.size>0){
                     callApiForChecksAdd()
                 }else
                     CustomAlert.showalert(activity as MainActivity,"Select Site")
@@ -170,8 +171,8 @@ class AddChecksFragment : Fragment(), AddChecksHandler {
             val paramObject = JSONObject()
             paramObject.put("check_name", addchecksView!!.etChecklistname.text.toString())
             paramObject.put("check_note", addchecksView!!.etNote.text.toString())
-            paramObject.put("category_id", "601")
-            paramObject.put("site_id", "147")
+            paramObject.put("category_id", catid)
+            paramObject.put("site_id", selectedsite!!.joinToString(separator = ","))
             paramObject.put("check_type_id", "1")
             paramObject.put("has_qrcode",QRCODE)
             paramObject.put("status_id",siteStatus)
@@ -238,9 +239,11 @@ class AddChecksFragment : Fragment(), AddChecksHandler {
     public fun setselection(){
         addchecksView!!.flexboxlayout.removeAllViews()
         siteids="";
+        selectedsite!!.clear()
         for (i in 0 until siteListRow!!.size){
             if (siteListRow!!.get(i).isselect) {
                 siteids=siteids+","+siteListRow!!.get(i).id.toString()
+                selectedsite!!.add(siteListRow!!.get(i).id.toString())
                 val inflater: LayoutInflater =(activity!! as MainActivity).getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
                 var linearLayout = inflater.inflate(R.layout.flex_selected_site_item, null)
                 val LayoutParams: LinearLayout.LayoutParams =

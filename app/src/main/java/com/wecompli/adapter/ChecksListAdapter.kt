@@ -32,9 +32,10 @@ class ChecksListAdapter(val activity: MainActivity, val checklist:ArrayList<Chec
         val checksname=itemSite.findViewById<TextView>(R.id.tv_checksname);
          val rlExpand:RelativeLayout=itemSite.findViewById(R.id.rlExpand);
       //   val llRoles:LinearLayout=itemSite.findViewById(R.id.ll_roles)
-         val tvpass:TextView=itemSite.findViewById(R.id.tvpass)
+        /* val tvpass:TextView=itemSite.findViewById(R.id.tvpass)
         val tvfail:TextView=itemSite.findViewById(R.id.tv_fail)
-         val tvminorfail:TextView=itemSite.findViewById(R.id.tv_mainorfail)
+         val tvminorfail:TextView=itemSite.findViewById(R.id.tv_mainorfail)*/
+         val tvdownload:TextView=itemSite.findViewById(R.id.tvdownload)
          val notes:TextView=itemSite.findViewById(R.id.tv_note)
          val notetext:TextView=itemSite.findViewById(R.id.tv_note_text)
          val checks:LinearLayout=itemSite.findViewById(R.id.checks)
@@ -52,9 +53,10 @@ class ChecksListAdapter(val activity: MainActivity, val checklist:ArrayList<Chec
 
 
         itemView!!.checksname.typeface=CustomTypeface.getRajdhaniBold(activity);
-        itemView!!.tvfail.typeface=CustomTypeface.getRajdhaniBold(activity);
+      /*  itemView!!.tvfail.typeface=CustomTypeface.getRajdhaniBold(activity);
         itemView!!.tvpass.typeface=CustomTypeface.getRajdhaniBold(activity);
-        itemView!!.tvminorfail.typeface=CustomTypeface.getRajdhaniBold(activity);
+        itemView!!.tvminorfail.typeface=CustomTypeface.getRajdhaniBold(activity);*/
+        itemView.tvdownload.typeface=CustomTypeface.getRajdhaniBold(activity);
         itemView!!.checksname.typeface=CustomTypeface.getRajdhaniBold(activity);
         itemView!!.notes.typeface=CustomTypeface.getRajdhaniBold(activity);
         itemView!!.notetext.typeface=CustomTypeface.getRajdhaniMedium(activity)
@@ -69,10 +71,14 @@ class ChecksListAdapter(val activity: MainActivity, val checklist:ArrayList<Chec
                 itemView!!.checks.visibility=View.GONE
              }
 
+        itemView.tvdownload.setOnClickListener {
+
+        }
+
 
        // itemView!!.llRoles.visibility=View.GONE
 
-        itemView.tvminorfail.setOnClickListener {
+       /* itemView.tvminorfail.setOnClickListener {
             val transaction = activity.supportFragmentManager.beginTransaction()
             var checkSubmitFragment= CheckSubmitFragment()
             val bundle= Bundle()
@@ -117,7 +123,7 @@ class ChecksListAdapter(val activity: MainActivity, val checklist:ArrayList<Chec
             transaction.add(R.id.content_frame, checkSubmitFragment)
             transaction.addToBackStack("")
             transaction.commit()
-        }
+        }*/
     }
 
     override fun getItemCount(): Int {

@@ -18,6 +18,7 @@ import com.wecompli.R
 import com.wecompli.adapter.CheckListAdapter
 import com.wecompli.adapter.ChecksDetailsAdapter
 import com.wecompli.databinding.FragmentCheckDetailsBinding
+
 import com.wecompli.model.CheckListDetailsResponse
 import com.wecompli.model.CheckListResponseModel
 import com.wecompli.model.ChecksListModel
@@ -88,10 +89,10 @@ class CheckDetailsFragment : Fragment() {
         val apiInterface= Retrofit.retrofitInstance?.create(ApiInterface::class.java)
         try {
             val paramObject = JSONObject()
-            paramObject.put("company_id","9")
-            paramObject.put("check_date","6/9/2021")
-            paramObject.put("site_id","12")
-            paramObject.put("category_id","203")
+            paramObject.put("company_id",loginUserData.company_id)
+            paramObject.put("check_date",date)
+            paramObject.put("site_id",siteid)
+            paramObject.put("category_id",catid)
             var obj: JSONObject = paramObject
             var jsonParser: JsonParser = JsonParser()
             var gsonObject: JsonObject = jsonParser.parse(obj.toString()) as JsonObject;
@@ -124,6 +125,11 @@ class CheckDetailsFragment : Fragment() {
         super.onResume()
         (activity as MainActivity).activityMainBinding!!.mainHeader.visibility=View.VISIBLE
         (activity as MainActivity).activityMainBinding!!.tvHeaderText.text=categoryname
+    }
+
+    override fun onPause() {
+        super.onPause()
+        (activity as MainActivity).activityMainBinding!!.mainHeader.visibility=View.GONE
     }
 
 }

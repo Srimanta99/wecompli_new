@@ -87,9 +87,6 @@ class CheckSummeryListAdapter(
         }
 
 
-
-
-
        /* if ( adduserfragment.roleList!!.get(position).isselect) {
             itemView!!.chkSelect.isChecked=true
         }
@@ -99,8 +96,12 @@ class CheckSummeryListAdapter(
             }else
                 adduserfragment.siteListRow!!.get(position).isselect=false
         }*/
+
+
         holder!!.tvTitle.text=item.category_name
         holder!!.checkNoteText.text=item.category_note
+
+
           holder.startcheck.setOnClickListener {
               val transaction = activity.supportFragmentManager.beginTransaction()
               var checksFragment= CheckDetailsFragment()

@@ -42,6 +42,7 @@
                         android:layout_marginRight="@dimen/_5sdp"
                         android:paddingLeft="@dimen/_10sdp"
                         android:textSize="@dimen/_12sdp"
+                        app:font="@{`rajDhaniBold`}"
                         android:layout_toLeftOf="@+id/tv_categorytype"
                         android:text="Daily Kit Check rgegre gery sgg    safdgdgd gdgdsdds"></TextView>
                     <TextView
@@ -58,6 +59,7 @@
                         android:layout_centerVertical="true"
                         android:textSize="@dimen/_12sdp"
                         android:textColor="@color/white"
+                        app:font="@{`rajDhaniBold`}"
                         android:background="@drawable/rectangular_shape_rounded_corner_deepgrey"
                         android:gravity="center"></TextView>
                 </RelativeLayout>

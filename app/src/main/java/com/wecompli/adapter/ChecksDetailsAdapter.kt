@@ -33,7 +33,7 @@ class ChecksDetailsAdapter(val activity: MainActivity, val checklistDetailsrespo
          val tvpass:TextView=itemSite.findViewById(R.id.tvpass)
          val tvfail:TextView=itemSite.findViewById(R.id.tv_fail)
          val editpass:ImageView=itemSite.findViewById(R.id.img_editpass)
-         val tvminorfail:TextView=itemSite.findViewById(R.id.tv_minorfail)
+       //  val tvminorfail:TextView=itemSite.findViewById(R.id.tv_minorfail)
          val notes:TextView=itemSite.findViewById(R.id.tv_note)
          val notetext:TextView=itemSite.findViewById(R.id.tv_note_text)
          val llChecknotesnotes:LinearLayout=itemSite.findViewById(R.id.llChecknotesnotes)
@@ -51,7 +51,7 @@ class ChecksDetailsAdapter(val activity: MainActivity, val checklistDetailsrespo
         itemView!!.checksname.typeface=CustomTypeface.getRajdhaniBold(activity);
         itemView!!.tvfail.typeface=CustomTypeface.getRajdhaniBold(activity);
         itemView!!.tvpass.typeface=CustomTypeface.getRajdhaniBold(activity);
-        itemView!!.tvminorfail.typeface=CustomTypeface.getRajdhaniBold(activity);
+       // itemView!!.tvminorfail.typeface=CustomTypeface.getRajdhaniBold(activity);
         itemView!!.checksname.typeface=CustomTypeface.getRajdhaniBold(activity);
         itemView!!.notes.typeface=CustomTypeface.getRajdhaniBold(activity);
         itemView!!.notetext.typeface=CustomTypeface.getRajdhaniMedium(activity)
@@ -64,7 +64,7 @@ class ChecksDetailsAdapter(val activity: MainActivity, val checklistDetailsrespo
                 itemView!!.llChecknotesnotes.visibility=View.GONE
              }
 
-        itemView.tvminorfail.setOnClickListener {
+      /*  itemView.tvminorfail.setOnClickListener {
             val transaction = activity.supportFragmentManager.beginTransaction()
             var checkSubmitFragment= CheckSubmitFragment()
             val bundle= Bundle()
@@ -77,7 +77,7 @@ class ChecksDetailsAdapter(val activity: MainActivity, val checklistDetailsrespo
             transaction.add(R.id.content_frame, checkSubmitFragment)
             transaction.addToBackStack("")
             transaction.commit()
-        }
+        }*/
 
         itemView.editpass.setOnClickListener {
             val transaction = activity.supportFragmentManager.beginTransaction()
@@ -95,7 +95,7 @@ class ChecksDetailsAdapter(val activity: MainActivity, val checklistDetailsrespo
         }
         itemView.tvfail.setOnClickListener {
             val transaction = activity.supportFragmentManager.beginTransaction()
-            var checkSubmitFragment= CheckSubmitFragment()
+            var checkSubmitFragment= FailSubmitFragment()
             val bundle= Bundle()
             // bundle.putString("category_Id",checkslist.get(position).id.toString())
             bundle.putString("selecteddate",checkdetailsfragment.date)

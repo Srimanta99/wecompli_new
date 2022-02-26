@@ -5,7 +5,7 @@ data class FaultListResponseModel(
     val fault_count: Int,
     val message: String,
     val process: Boolean,
-    val rows: List<Row>
+    val rows: ArrayList<Row>
 ){
     data class Row(
         val fault_list: List<Fault>,

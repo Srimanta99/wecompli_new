@@ -65,7 +65,7 @@
                     android:textSize="@dimen/_11sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:background="@drawable/rectangular_shape_rounded_corner_red"></TextView>
-                <TextView
+              <!--  <TextView
                     android:id="@+id/tv_minorfail"
                     android:layout_width="@dimen/_100sdp"
                     android:layout_height="@dimen/_30sdp"
@@ -75,7 +75,7 @@
                     android:textSize="@dimen/_11sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:background="@drawable/rectangular_shape_rounded_corner_yellow"></TextView>
-
+-->
 
             </LinearLayout>
             <RelativeLayout

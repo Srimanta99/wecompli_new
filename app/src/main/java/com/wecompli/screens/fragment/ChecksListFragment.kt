@@ -2,6 +2,7 @@ package com.wecompli.screens.fragment
 
 import ApiInterface
 import android.os.Bundle
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -82,8 +83,14 @@ class ChecksListFragment : Fragment(), CheckListHandler {
                     if (response.isSuccessful) {
                        if(response.body()!!.process){
                            checklist=response!!.body()!!.rows
-                           val checkListAdapter=CheckListAdapter(activity as MainActivity,checklist,this@ChecksListFragment)
-                           checklistView!!.recChecklist!!.adapter=checkListAdapter
+                           if(checklist.size>0) {
+                               val checkListAdapter = CheckListAdapter(activity as MainActivity, checklist, this@ChecksListFragment)
+                               checklistView!!.recChecklist!!.adapter = checkListAdapter
+
+                           }else{
+                               checklistView!!.llNocheckfound.visibility=View.VISIBLE
+                               checklistView!!.recChecklist!!.visibility=View.GONE
+                           }
                        }
                         else
                            CustomAlert.showalert(activity as MainActivity,"No CheckList Found.")
@@ -112,11 +119,19 @@ class ChecksListFragment : Fragment(), CheckListHandler {
     }
     override fun onResume() {
         super.onResume()
-        (activity as MainActivity).activityMainBinding!!.mainHeader.visibility=View.GONE
+        (activity as MainActivity).activityMainBinding!!.mainHeader!!.visibility=View.GONE
     }
 
     override fun addnewCheck() {
         (activity as MainActivity).openFragment(AddCheckFragment())
+    }
+
+    override fun openmenu() {
+        (activity as MainActivity).activityMainBinding!!.drawerlayout.openDrawer(Gravity.LEFT)
+    }
+
+    override fun opensearchDrawer() {
+       checklistView!!.drawerLayout.openDrawer(Gravity.RIGHT)
     }
 
 }

@@ -23,12 +23,13 @@ import com.wecompli.utils.customfont.CustomTypeface
 class FaultListAdapter(
     val activity: MainActivity,
     val faultList: ArrayList<FaultListResponseModel.Row>,
-    val siteListFragment: FaultListFragment
+    val faultListFragment: FaultListFragment
 )
     : RecyclerView.Adapter<FaultListAdapter.ViewHolder>(){
      //  var  itemView:ItemRoleListBinding?=null
     class ViewHolder(val itemSite: View):RecyclerView.ViewHolder(itemSite){
          val llfaultmain=itemSite.findViewById<LinearLayout>(R.id.llfaultmain)
+         val llfaultdetails=itemSite.findViewById<LinearLayout>(R.id.ll_details)
         val tv_faultname=itemSite.findViewById<TextView>(R.id.tv_faultname);
          val tv_status:TextView=itemSite.findViewById(R.id.tv_status);
          val tv_statusval:TextView=itemSite.findViewById(R.id.tv_statusval)
@@ -61,16 +62,21 @@ class FaultListAdapter(
         itemView.tv_date.typeface=CustomTypeface.getRajdhaniMedium(activity)
         itemView.tv_remarks.typeface=CustomTypeface.getRajdhaniBold(activity)
         itemView.tv_remarkvalue.typeface=CustomTypeface.getRajdhaniSemiBold(activity)
-        itemView.llfaultmain.setOnClickListener {
+
+        itemView.tv_faultname.setText(faultList.get(0).fault_list.get(position).check_name)
+        itemView.tv_statusval.setText(faultList.get(0).fault_list.get(position).fault_description)
+        itemView.tv_statusval.setText("Date :"+faultList.get(0).fault_list.get(position).fault_entry_date)
+
+        itemView.llfaultdetails.setOnClickListener {
             //activity.openFragment(FaultDetailsFragment())
             var detailsFragment= FaultDetailsFragment()
          //   val fm: FragmentManager = (activity as MainActivity).supportFragmentManager
          //   val ft: FragmentTransaction = fm.beginTransaction()
             val transaction = activity.supportFragmentManager.beginTransaction()
             val bundle=Bundle();
-            bundle.putString("faultid","22")
-         //   bundle.putString("faultid", faultList.get(0)!!.fault_list.get(position).id.toString())
-          //  bundle.putString("siteid", faultList.get(position)!!.site_id.toString())
+           // bundle.putString("faultid","22")
+            bundle.putString("faultid", faultList.get(0)!!.fault_list.get(position).id.toString())
+            bundle.putString("siteid", faultList.get(position)!!.site_id.toString())
             detailsFragment!!.arguments=bundle
             transaction.add(R.id.content_frame, detailsFragment)
             transaction.addToBackStack("")
@@ -90,6 +96,6 @@ class FaultListAdapter(
     }
 
     override fun getItemCount(): Int {
-       return 10
+       return faultList!!.get(0).fault_list.size
     }
 }

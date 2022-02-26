@@ -5,4 +5,6 @@ interface FaultListHandler {
     fun download()
     fun onpenrightsitedrawer()
     fun openleftsidedrawer()
+    fun opendrawer()
+    fun opensearchdrawer()
 }

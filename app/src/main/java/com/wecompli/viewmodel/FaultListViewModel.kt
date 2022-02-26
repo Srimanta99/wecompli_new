@@ -12,4 +12,12 @@ class FaultListViewModel:ViewModel() {
     fun openlist(view: View){
         faultListHandler!!.selectsite()
     }
+
+    fun openMenu(view:View){
+        faultListHandler!!.opendrawer()
+
+    }
+    fun opensearchDrawer(view:View){
+        faultListHandler!!.opensearchdrawer()
+    }
 }

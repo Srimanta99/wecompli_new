@@ -16,4 +16,10 @@ class UserListViewModel:ViewModel() {
     fun addsite(view:View){
         userListHandler!!.adduser()
     }
+    fun openmenu(view:View){
+        userListHandler!!.openmenu()
+    }
+    fun openSearch(view:View){
+        userListHandler!!.opensearch()
+    }
 }

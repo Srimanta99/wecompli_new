@@ -196,7 +196,7 @@ class DashBoardFragment : Fragment(),DashBoardHandler {
                     response: Response<DashBoardPercentageResponse>) {
                     customProgress.hideProgress()
                     if (response.isSuccessful) {
-                        if (response.body()!!.process) {
+                        /*if (response.body()!!.process) {
                             if(response!!.body()!!.totalCheckedChecks>0) {
                                 val percentageResponse = ((response!!.body()!!.totalCheckedChecks / response!!.body()!!.totalChecks) * 100).toInt()
                                 viewDashBoard!!.circular.setProgressDisplayAndInvalidate(percentageResponse)
@@ -205,7 +205,7 @@ class DashBoardFragment : Fragment(),DashBoardHandler {
                             }
                             viewDashBoard!!.tvfaultcount.setText(response!!.body()!!.todaysFaultCount)
 
-                        }
+                        }*/
                     }
 
                 }
