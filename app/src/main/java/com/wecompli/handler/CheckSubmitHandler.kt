@@ -8,5 +8,6 @@ interface CheckSubmitHandler {
     fun checkSubmit()
     fun taptosign()
     fun settemp()
+    fun openqrscanner()
 
 }

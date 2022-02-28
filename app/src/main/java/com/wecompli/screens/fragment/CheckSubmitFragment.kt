@@ -493,6 +493,10 @@ class CheckSubmitFragment : Fragment(), CheckSubmitHandler {
           istempatureselect=false
       }
     }
+
+    override fun openqrscanner() {
+
+    }
 }
 
 

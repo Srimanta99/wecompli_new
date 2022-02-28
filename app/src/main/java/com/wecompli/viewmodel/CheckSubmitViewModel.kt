@@ -17,7 +17,7 @@ class CheckSubmitViewModel:ViewModel(){
         checkSubmitHandler!!.selectImg3()
     }
     fun  selectImg4(view:View){
-        checkSubmitHandler!!.selectImg4()
+       // checkSubmitHandler!!.selectImg4()
     }
     fun submit(view: View){
         checkSubmitHandler!!.checkSubmit()
@@ -29,5 +29,9 @@ class CheckSubmitViewModel:ViewModel(){
 
     fun settemparature(view: View){
         checkSubmitHandler!!.settemp()
+    }
+
+    fun openqrscanner(view:View){
+        checkSubmitHandler!!.openqrscanner()
     }
 }
