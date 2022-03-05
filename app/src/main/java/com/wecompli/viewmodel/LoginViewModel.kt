@@ -1,4 +1,4 @@
-package com.wecompli.viewmodel
+ package com.wecompli.viewmodel
 
 import ApiInterface
 import android.content.Intent
@@ -54,8 +54,11 @@ class LoginViewModel:ViewModel() {
       val apiInterface= Retrofit.retrofitInstance?.create(ApiInterface::class.java)
       try {
           val paramObject = JSONObject()
-          paramObject.put("user_email_ID", email)
-          paramObject.put("password", pass)
+          paramObject.put("name", email)
+          paramObject.put("email", email)
+          paramObject.put("username", email)
+          paramObject.put("password", email)
+          paramObject.put("password_confirmation", pass)
           var obj: JSONObject = paramObject
           var jsonParser: JsonParser = JsonParser()
           var gsonObject: JsonObject = jsonParser.parse(obj.toString()) as JsonObject;

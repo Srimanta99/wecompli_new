@@ -17,6 +17,7 @@ import com.wecompli.R
 import com.wecompli.screens.LoginActivity
 import com.wecompli.screens.MainActivity
 import com.wecompli.screens.fragment.CheckSubmitFragment
+import com.wecompli.screens.fragment.FailSubmitFragment
 import com.wecompli.utils.customfont.CustomTypeface
 
 
@@ -117,6 +118,35 @@ class CustomAlert {
         }
 
         fun showalertforImageSelectionLogSubmitt(activity: MainActivity, checkSubmitFragment: CheckSubmitFragment) {
+            val alertDialog = Dialog(activity, R.style.Transparent)
+            alertDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            val view: View = LayoutInflater.from(activity).inflate(R.layout.alert_custom_imageselection, null)
+            alertDialog.setContentView(view)
+            alertDialog.setCancelable(false)
+            val tv_message: TextView = view.findViewById(R.id.tv_message)
+            val btn_gallery: TextView = view.findViewById(R.id.tv_gallery)
+            val btn_camera: TextView =view.findViewById(R.id.tv_camera)
+            val btn_cancel: TextView =view.findViewById(R.id.tv_cancel)
+            btn_camera.typeface=CustomTypeface.getRajdhaniBold(activity)
+            btn_cancel.typeface=CustomTypeface.getRajdhaniBold(activity)
+            btn_gallery.typeface = CustomTypeface.getRajdhaniBold(activity)
+            tv_message.typeface =CustomTypeface.getRajdhaniBold(activity)
+            btn_gallery.setOnClickListener {
+                alertDialog.dismiss()
+                checkSubmitFragment.chooseFromgallery()
+            }
+            btn_camera.setOnClickListener {
+                alertDialog.dismiss()
+                checkSubmitFragment.chooseimagrfromcamera()
+            }
+            btn_cancel.setOnClickListener {
+                alertDialog.dismiss()
+            }
+            alertDialog.show()
+
+        }
+
+        fun showalertforImageSelectionLogSubmitFail(activity: MainActivity, checkSubmitFragment: FailSubmitFragment) {
             val alertDialog = Dialog(activity, R.style.Transparent)
             alertDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
             val view: View = LayoutInflater.from(activity).inflate(R.layout.alert_custom_imageselection, null)

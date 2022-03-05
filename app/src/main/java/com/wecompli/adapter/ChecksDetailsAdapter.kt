@@ -1,27 +1,36 @@
 package com.wecompli.adapter
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.RelativeLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.android.flexbox.FlexboxLayout
+import com.google.gson.Gson
+import com.gsscanner.utils.AppSheardPreference
+import com.gsscanner.utils.PreferenceConstant
+import com.sculptee.utils.customprogress.CustomProgressDialog
 import com.wecompli.R
 import com.wecompli.databinding.ItemRoleListBinding
-import com.wecompli.model.CheckListDetailsResponse
-import com.wecompli.model.ChecksListModel
-import com.wecompli.model.RoleListResponseModel
-import com.wecompli.model.SiteListResponseModel
+import com.wecompli.model.*
+import com.wecompli.network.NetworkUtility
 import com.wecompli.screens.MainActivity
 import com.wecompli.screens.fragment.*
+import com.wecompli.utils.alert.CustomAlert
 import com.wecompli.utils.customfont.CustomTypeface
 import kotlinx.android.synthetic.main.item_role_list.view.*
+import okhttp3.*
+import java.io.IOException
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
+import java.util.concurrent.TimeUnit
+import kotlin.collections.ArrayList
 
 class ChecksDetailsAdapter(val activity: MainActivity, val checklistDetailsresponselist:ArrayList<CheckListDetailsResponse.Row>, val checkdetailsfragment: CheckDetailsFragment)
     : RecyclerView.Adapter<ChecksDetailsAdapter.ViewHolder>(){
@@ -109,7 +118,7 @@ class ChecksDetailsAdapter(val activity: MainActivity, val checklistDetailsrespo
         }
 
         itemView.tvpass.setOnClickListener {
-
+            checkSubmit()
         }
 
 
@@ -119,4 +128,135 @@ class ChecksDetailsAdapter(val activity: MainActivity, val checklistDetailsrespo
     override fun getItemCount(): Int {
        return checklistDetailsresponselist.size
     }
+    fun checkSubmit() {
+
+        var datetime = ""
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val current = LocalDateTime.now()
+            val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")
+            datetime = current.format(formatter)
+
+        } else {
+            var date = Date()
+            val formatter = SimpleDateFormat("dd/MM/yyyy HH:mma  ")
+            datetime = formatter.format(date)
+        }
+        var loginUserData =
+            AppSheardPreference(activity as MainActivity).getUser(PreferenceConstant.userData)
+        val customProgress: CustomProgressDialog = CustomProgressDialog().getInstance()
+        customProgress.showProgress(activity as MainActivity, "Please Wait..", false)
+        try {
+            val builder = MultipartBody.Builder().setType(MultipartBody.FORM)
+            builder.addFormDataPart("process_remark", "")
+            builder.addFormDataPart("company_id", loginUserData.company_id)
+            builder.addFormDataPart("site_id", "siteid")
+            builder.addFormDataPart("check_id", "1")
+            builder.addFormDataPart("season_id", "1")
+            builder.addFormDataPart("check_type_id", "checktype")
+            builder.addFormDataPart("check_process_type", "checks")
+            builder.addFormDataPart("check_type_values_id", "1")
+            builder.addFormDataPart("process_status", "y")
+            builder.addFormDataPart("checks_process_log_entry_date", datetime)
+
+            builder.addFormDataPart("isTemperature", "0")
+            builder.addFormDataPart("temperature", "0")
+
+
+            // builder.addFormDataPart("signaturename",fragmentCheckSubmitBinding!!.etName.text.toString())
+            // builder.addFormDataPart("signaturefiles", "signimage", okhttp3.RequestBody.create(MediaType.parse("image/jpeg"),signimgfile))
+
+            /* if (imagearraylist.size > 0) {
+                 for (i in imagearraylist.indices) {
+                     builder.addFormDataPart(
+                         "processfiles[]",
+                         imagearraylist.get(i).name,
+                         okhttp3.RequestBody.create(
+                             MediaType.parse("image/jpeg"), imagearraylist.get(i)
+                         )
+                     )
+                 }
+             }*/
+
+            val requestBody = builder.build()
+            var request: Request? = null
+            request = Request.Builder()
+                .addHeader("Authorization", "Bearer " + loginUserData.token)
+                //.addHeader("site_id",AppSheardPreference(activity as MainActivity).getvalue_in_preference(PreferenceConstent.site_id))
+                .addHeader("Content-Type", "application/json")
+                .url(NetworkUtility.BASE_URL + NetworkUtility.LOGCREATE)
+                .post(requestBody)
+                .build()
+
+            val client = okhttp3.OkHttpClient.Builder()
+                .connectTimeout(10, TimeUnit.SECONDS)
+                .writeTimeout(100, TimeUnit.SECONDS)
+                .readTimeout(100, TimeUnit.SECONDS)
+                .build()
+
+            val call = client.newCall(request)
+            call.enqueue(object : okhttp3.Callback {
+                override fun onResponse(call: Call, response: Response) {
+                    customProgress.hideProgress()
+                    try {
+                        if (response.isSuccessful) {
+                            val gson = Gson()
+                            var resStr: String = response.body()!!.string()
+                            //var response_obj = JSONObject(resStr)
+                            val processLogCreateResponseModel: ProcessLogCreateResponseModel =
+                                gson.fromJson(
+                                    resStr,
+                                    ProcessLogCreateResponseModel::class.java
+                                )
+                            //val response_obj = JSONObject(response.body()!!.string())
+                            if (processLogCreateResponseModel.process) {
+                                // Toast.makeText(activity as MainActivity, "sucess", Toast.LENGTH_LONG).show()
+                                // val check_process_log_id:String=response_obj.getInt("check_process_log_id").toString()
+                                //callApiforfaultcreate(check_process_log_id);
+                                (activity as MainActivity).runOnUiThread {
+                                    CustomAlert.showalert(
+                                        activity as MainActivity,
+                                        processLogCreateResponseModel.message
+                                    )
+                                }
+
+                            } else {
+                                (activity as MainActivity).runOnUiThread {
+                                    CustomAlert.showalert(
+                                        activity as MainActivity,
+                                        processLogCreateResponseModel.message
+                                    )
+                                }
+                                //Toast.makeText(activity as MainActivity, processLogCreateResponseModel.message, Toast.LENGTH_LONG).show()
+
+                            }
+                        }
+                    } catch (e: java.lang.Exception) {
+                        customProgress.hideProgress()
+                        e.printStackTrace()
+                        (activity as MainActivity).runOnUiThread {
+                            Toast.makeText(
+                                activity as MainActivity,
+                                "Try later. Something Wrong.",
+                                Toast.LENGTH_LONG
+                            ).show()
+                        }
+
+                    }
+                }
+
+                override fun onFailure(call: Call, e: IOException) {
+                    customProgress.hideProgress()
+                    (activity as MainActivity).runOnUiThread {
+                        Toast.makeText(activity as MainActivity, "Faliure", Toast.LENGTH_LONG)
+                            .show()
+                    }
+
+                }
+            })
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
 }

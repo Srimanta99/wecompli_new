@@ -143,6 +143,15 @@
                                 android:background="@drawable/rectangular_shape_rounded_corner_blue_broder"
                                 android:layout_marginRight="@dimen/_7sdp">
                                 <ImageView
+                                    android:id="@+id/img_1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/_3sdp"
+                                    android:layout_marginRight="@dimen/_3sdp"
+                                    android:scaleType="fitXY"
+                                    android:layout_margin="@dimen/_6sdp"
+                                    />
+                                <ImageView
                                     android:id="@+id/img_cam1"
                                     android:layout_width="@dimen/_60sdp"
                                     android:layout_height="@dimen/_50sdp"
@@ -165,6 +174,15 @@
                                 android:layout_marginLeft="@dimen/_7sdp"
                                 android:background="@drawable/rectangular_shape_rounded_corner_blue_broder"
                                 android:layout_weight="1">
+                                <ImageView
+                                    android:id="@+id/img_2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/_3sdp"
+                                    android:layout_marginRight="@dimen/_3sdp"
+                                    android:scaleType="fitXY"
+                                    android:layout_margin="@dimen/_6sdp"
+                                    />
                                 <ImageView
                                     android:id="@+id/img_cam2"
                                     android:layout_width="@dimen/_60sdp"
@@ -197,6 +215,15 @@
                                 android:background="@drawable/rectangular_shape_rounded_corner_blue_broder"
                                 android:layout_marginRight="@dimen/_7sdp">
                                 <ImageView
+                                    android:id="@+id/img_3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/_3sdp"
+                                    android:layout_marginRight="@dimen/_3sdp"
+                                    android:scaleType="fitXY"
+                                    android:layout_margin="@dimen/_6sdp"
+                                    />
+                                <ImageView
                                     android:id="@+id/img_cam3"
                                     android:layout_width="@dimen/_60sdp"
                                     android:layout_height="@dimen/_50sdp"
@@ -219,6 +246,15 @@
                                 android:layout_marginLeft="@dimen/_7sdp"
                                 android:background="@drawable/rectangular_shape_rounded_corner_blue_broder"
                                 android:layout_weight="1">
+                                <ImageView
+                                    android:id="@+id/img_4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/_3sdp"
+                                    android:layout_marginRight="@dimen/_3sdp"
+                                    android:scaleType="fitXY"
+                                    android:layout_margin="@dimen/_6sdp"
+                                    />
                                 <ImageView
                                     android:id="@+id/img_cam4"
                                     android:layout_width="@dimen/_60sdp"
